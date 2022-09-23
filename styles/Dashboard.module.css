@@ -1,0 +1,45 @@
+.Dashboard_Box{
+    display:flex;
+    align-items:center;
+}
+.Dashboard_Sidebar{
+    width:20%;
+    min-height:100vh ;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+    background-color: #1b1b1b;
+}
+.Dashboard_Page{
+    width: auto;
+}
+.Dashboard_profilebox{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:30px;
+
+}
+.Dashboard_profileImg{
+    height:50px;
+    width: 50px;
+    overflow: hidden;
+    border: 1px solid white;
+    border-radius:50%;
+    background-color: white;
+    
+}
+.Dashboard_profileImg img{
+    height:50px;
+    width: 50px;
+    overflow: hidden;
+    
+}
+.Dashboard_profileText{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    color:white;
+}
+.Devider{
+    background-color:rgb(63, 61, 61);
+    height:2px;
+}

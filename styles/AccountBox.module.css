@@ -1,0 +1,262 @@
+.Account_box {
+    margin: auto;
+    width: 70%;
+    background-color: rgb(251, 246, 246);
+}
+
+.accheader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dpbox {
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+
+}
+
+.dpbox img {
+    height: 150px;
+    width: 150px;
+
+}
+
+.userdata {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userdata span {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.menuItemBox {
+    margin: auto;
+    width: 80%;
+}
+
+.menuItem {
+    cursor: pointer;
+
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.menuItem_inn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.menuItem_icon span {
+    font-size: 20px;
+}
+
+.menuItem_title {
+    margin-top: -2px;
+    margin-left: 8px;
+    font-size: 13px;
+}
+
+.logoutbtn {
+
+    cursor: pointer;
+    margin: auto;
+    width: 30%;
+    background-color: rgb(235, 127, 127);
+    border-radius: 5px;
+    padding: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoutbtn span {
+    margin-top: 2px;
+
+}
+
+.logout_text {
+    margin-top: -5px;
+}
+
+.logout_icon {
+    margin-left: 10px;
+}
+
+.MyOrderBox {
+    padding: 20px;
+}
+
+.MyOrderBox h2 {
+    font-weight: 400;
+}
+
+.MyOrderItems {
+    margin-top: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+}
+
+.orderdetails_btn {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 12%);
+    margin: 5px;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: rgb(234, 228, 228);
+    padding: 5px 12px 5px 12px;
+    cursor: pointer;
+}
+
+.MyOrderItems_footer {
+    border-top: 1px dashed rgb(218, 215, 215);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.MyOrderItems_data {
+    padding: 10px;
+}
+
+.MyOrderItems_footerBtn {
+    display: flex;
+}
+
+.status_span {
+    padding: 5px 12px 5px 12px;
+    border-radius: 5px;
+    background-color: rgb(212, 136, 104);
+    color: white;
+    text-transform: uppercase;
+}
+
+.orderid_span {
+    color: rgb(212, 136, 104);
+    text-transform: uppercase;
+}
+
+.Summry_Order {
+    padding: 10px;
+}
+
+.Orderstatus_text {
+    padding: 5px 12px 5px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.MyorderData {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+    background-color: white;
+}
+
+.MyOrderCartItemsBox {
+
+    margin: 20px 30px 3px 30px;
+}
+
+
+
+.orderTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    margin: 10px;
+}
+
+.orderTable td {
+    padding-top: 5px;
+    font-size: 14px;
+
+}
+
+.OderdetailsItembox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.OderdetailsItembox_item {
+    min-width: 50%;
+}
+
+/* mobile css */
+
+@media only screen and (max-width: 1200px) {
+    .Section {
+        width: 80%;
+        margin: auto;
+        padding: 5px;
+        overflow: hidden;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    /*Big smartphones [426px -> 600px]*/
+    .Section {
+        width: 100%;
+        margin: auto;
+        padding: 5px;
+        overflow: hidden;
+    }
+
+    .Headbar_Desktop {
+        display: none !important;
+    }
+
+    .Headbar_Mobile {
+
+        display: block;
+
+
+    }
+}
+
+/* mobile css */
+
+@media only screen and (max-width: 1200px) {
+
+    .menuItemBox {
+        margin: auto;
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .menuItemBox {
+        margin: auto;
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+
+    /*Small smartphones [325px -> 425px]*/
+
+    .menuItemBox {
+        margin: auto;
+        width: 95%;
+    }
+}
