@@ -3,34 +3,41 @@
   width: 80%;
 
 }
+
 .container_full {
   margin: 0;
 
 }
-.logomain{
-  width:150px;
-  height:40px;
+
+.logomain {
+  width: 150px;
+  height: 40px;
   margin-top: -10px;
 }
-.logomain img{
+
+.logomain img {
   width: 100%;
 }
+
 .Box70Skelton {
   height: 100vh;
   width: 70%;
   margin: auto;
 }
+
 .BoxFullSkelton {
   height: 100vh;
 
   margin: auto;
 }
+
 .Box70 {
   margin: auto;
   width: 70%;
   background-color: rgb(251, 246, 246);
   min-height: 100vh;
 }
+
 .navbarBox {
   width: 100%;
   position: sticky;
@@ -104,6 +111,28 @@
   font-weight: 500;
 }
 
+.NavLeft {
+  display: flex;
+}
+
+.ContactTop {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 15px 5px 15px;
+  color: #161717;
+  border-radius: 5px;
+}
+
+.Contact_icon {
+  font-size: 20px;
+}
+
+.Contact_number {
+  margin-top: -5px;
+  font-weight: 500;
+}
+
 /* dashoard navbar */
 /* Subnavbar */
 .Dashboard_Sub {
@@ -134,21 +163,24 @@
   padding: 10px;
 
 }
-.backBtn{
+
+.backBtn {
   font-size: 30px;
   cursor: pointer;
 }
-.SubmenuTitleBox{
-color: #3c4852;
+
+.SubmenuTitleBox {
+  color: #3c4852;
   display: flex;
   justify-content: center;
   align-items: center
 }
-.SubmenuTitleBox small{
-font-size: 16px;
-font-weight: 500;
-margin-top:-8px;
-color: #3c4852;
+
+.SubmenuTitleBox small {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: -8px;
+  color: #3c4852;
 }
 
 
@@ -159,6 +191,7 @@ color: #3c4852;
   align-items: center;
   justify-content: center;
   padding: 30px;
+  overflow: hidden;
 
 }
 
@@ -276,12 +309,17 @@ color: #3c4852;
 
 }
 
-.herobox_counter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.HeroCountBox {
+  width: 100%;
   overflow: auto;
-  
+}
+
+.herobox_counter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .herobox_counter_item {
@@ -297,6 +335,7 @@ color: #3c4852;
   width: 190px;
   height: 150px;
 }
+
 /* Modal */
 .modal_sm {
   position: absolute;
@@ -308,6 +347,7 @@ color: #3c4852;
   border-top-right-radius: 15px;
   outline: none;
 }
+
 /* Login box */
 .Login_box {
   padding: 5px;
@@ -380,6 +420,7 @@ color: #3c4852;
   font-size: 25px;
   border-bottom: 1px solid #161717;
 }
+
 .Forminputs {
   margin: 10px;
 }
@@ -418,4 +459,101 @@ color: #3c4852;
   margin-left: 5px;
   margin-top: -5px;
   font-weight: 500;
+}
+
+.MobileMenuBtn {
+  display: none;
+
+}
+ .dataspacer {
+   height: 40px;
+ }
+
+/* mobile css */
+
+@media only screen and (max-width: 1200px) {
+  .MobileMenuBtn {
+    display: none;
+
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .MainMenu {
+    display: none;
+  }
+
+  .container {
+    margin: 0;
+    width: 100%;
+
+  }
+
+  .logomain {
+    width: 100px;
+    height: auto;
+  }
+
+  .ContactTop {
+    display: none;
+  }
+
+  .Navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .MobileMenuBtn {
+    display: block;
+
+
+  }
+
+  .MobileMenuBtn span {
+    font-size: 30px;
+  }
+
+  .spacermobile {
+    width: 100%;
+  }
+
+  .heroboxleft {
+    width: 100%;
+  }
+
+  .heroboxright {
+    width: 100%;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .heroboxright img {
+    width: 100%;
+  }
+
+  .herobox_counter_item {
+    width: 30%;
+    height: 100px;
+
+  }
+
+  .section {
+    padding: 10px;
+  }
+
+  .TitlebtnBox {
+    padding-left: 5px;
+  }
+  .dataspacer{
+    height:10px;
+  }
+    .Btn_icon {
+   
+      width: auto;
+    }
 }

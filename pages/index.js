@@ -19,14 +19,13 @@ export default function Home({ SetHeader_false }) {
          
         </Head>
         <Herobox />
-        <div style={{ height: '50px' }}> </div>
+        <div className={styles.dataspacer}> </div>
         <BannerSlider />
       </div>
-      <div style={{ height: '50px' }}> </div>
+      <div className={styles.dataspacer}> </div>
       <div className={styles.container}>
         <Testserieshome />
-        <div style={{ height: '50px' }}> </div>
-        <Categoriesslider />
+        
       </div>
     </>
 
