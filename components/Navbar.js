@@ -42,10 +42,12 @@ const Navbar = (props) => {
             </div>
           </div>
           {!props.userlogst && (
-            <div className={styles.loginbtnTop} onClick={props.handleOpen}>
+            <Link href='Login'>
+            <div className={styles.loginbtnTop}>
               <span><AiOutlineLogin /></span>
               <small>Login</small>
-            </div>
+              </div>
+            </Link>
 
           )}
           {props.userlogst && (

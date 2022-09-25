@@ -19,7 +19,7 @@ const Processtojoin = () => {
                 <div className={styles.ProcessItem}>
                     <img src='img/speech.png' />
                     <span>Finish</span>
-                    <small>Build your Skill-Lync profile by completing the projects.</small>
+                    <small>Build your Skillfilt profile by completing the projects.</small>
                 </div>
                 <div className={styles.ProcessItem}>
                     <img src='img/job.png' />

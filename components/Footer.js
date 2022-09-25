@@ -14,7 +14,7 @@ const Footer = () => {
               <img src='/img/Skillfiltlogo.png' alt='logo' />
             </div>
           </Link>
-          <p>Skill-Lync offers industry relevant advanced engineering courses for engineering students by partnering with industry experts.</p>
+          <p>Skillfilt offers industry relevant advanced engineering courses for engineering students by partnering with industry experts.</p>
           <div className={styles.FooterBox_socialIcons}>
             <span> <BsFacebook /> </span>
             <span> <BsInstagram /> </span>
@@ -37,9 +37,7 @@ const Footer = () => {
           <h3>Contact us</h3>
           <div className={styles.FooterBox_address_item}>
             <span><HiLocationMarker /></span>
-            <small>EpowerX Learning Technologies Pvt Ltd.
-              BAID Hi-Tech Park
-              129B, 2nd & 3rd Floor, Valmiki Nagar, East Coast Road, Thiruvanmiyur, Chennai - 600041.</small>
+            <small> 3rd Floor, Valmiki Nagar, East Coast Road, Thiruvanmiyur, Chennai - 600041.</small>
           </div>
           <div className={styles.FooterBox_address_item}>
             <span><HiPhone /></span>

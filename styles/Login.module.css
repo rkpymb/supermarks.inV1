@@ -1,0 +1,35 @@
+.LoginBox {
+    background-color: aliceblue;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.LoginBoxItem {
+    margin-top: 30px;
+    background-color: white;
+    width: auto;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+    padding: 0px 30px 30px 30px;
+
+}
+
+.LoginBoxItem_logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LoginBoxItem img {
+    width: 100px;
+}
+
+.LoginBox_input {
+    margin-top: 20px;
+}
+
+.LoginBoxItem h1 {
+    margin-bottom: 0px;
+}
