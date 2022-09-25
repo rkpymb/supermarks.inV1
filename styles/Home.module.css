@@ -95,7 +95,8 @@
   justify-content: center;
   cursor: pointer;
   padding: 8px 15px 5px 15px;
-  background-color: #08bd80;
+  background-color: #161717;
+  ;
   color: white;
   border-radius: 5px;
   width: fit-content;
@@ -182,6 +183,7 @@
   margin-top: -8px;
   color: #3c4852;
 }
+
 
 
 /* hero box */
@@ -331,21 +333,25 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-items: center;
   width: 190px;
   height: 150px;
+}
+
+.herobox_counter_item span {
+  margin-top: 5px;
 }
 
 /* Modal */
 .modal_sm {
   position: absolute;
   background-color: white;
-  bottom: 0;
-  width: 100%;
-  margin: auto;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  width: auto;
+  border-radius: 10px;
   outline: none;
+  margin:auto;
+ 
 }
 
 /* Login box */
@@ -465,9 +471,154 @@
   display: none;
 
 }
- .dataspacer {
-   height: 40px;
- }
+
+.dataspacer {
+  height: 40px;
+}
+
+.enqformHome {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* inputs */
+.inqinput {
+  outline: none;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  border: 1px solid #a1ffff;
+  border-radius: 5px;
+
+}
+
+
+/* Company_section */
+.Company_section {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap-reverse;
+
+}
+
+.Company_section_a {
+  width: 50%;
+  overflow: hidden;
+}
+
+.Company_section_b {
+  width: 50%;
+}
+
+.Company_logos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Company_logo_item {
+  width: 150px;
+}
+
+.Company_logo_item img {
+  width: 100%;
+}
+
+/* Processtojoin */
+.Processtojoin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ProcessItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  margin: 10px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.ProcessItem span {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.ProcessItem img {
+  width: 100px;
+}
+
+.ProcessItemBox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Footer */
+.Bottom_menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 10px;
+}
+
+.FooterBox {
+  min-height: 300px;
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.FooterBox_compnay {
+  width: 30%;
+}
+
+.FooterBox_socialIcons span {
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.FooterBox_menu li {
+  cursor: pointer;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.FooterBox_menu li:hover {
+  color: rgb(255, 140, 0);
+}
+
+.FooterBox_address {
+  width: 30%;
+}
+
+.FooterBox_address_item {
+  margin-top: 10px;
+  display: flex;
+}
+
+.FooterBox_address_item small {
+  margin-left: 10px;
+  font-size: 15px;
+}
 
 /* mobile css */
 
@@ -479,6 +630,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .dataspacer_mob {
+    height: 50px;
+  }
 
   .MainMenu {
     display: none;
@@ -542,6 +696,11 @@
 
   }
 
+  .herobox_counter_item span {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
   .section {
     padding: 10px;
   }
@@ -549,11 +708,59 @@
   .TitlebtnBox {
     padding-left: 5px;
   }
-  .dataspacer{
-    height:10px;
+
+  .dataspacer {
+    height: 10px;
   }
-    .Btn_icon {
-   
-      width: auto;
-    }
+
+  .Btn_icon {
+
+    width: auto;
+  }
+
+  .enqformHome {
+    width: auto;
+
+  }
+
+  .Company_section_a {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .Company_section_b {
+    width: 100%;
+  }
+
+  .Company_logo_item {
+    width: 50%;
+  }
+
+  .ProcessItem {
+    width: 130px;
+  }
+
+  .FooterBox_compnay {
+    width: 100%;
+  }
+
+  .FooterBox_address {
+    width: 100%;
+  }
+
+  .FooterBox_menu {
+    width: 100%;
+  }
+
+  /* Login */
+  .modal_sm {
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    outline: none;
+  }
 }

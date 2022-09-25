@@ -9,9 +9,17 @@ const Herobox = () => {
                     <h1>One Destination for
                         Get your Dream Job </h1>
                     <span>Take a Free Careers Counseling</span>
-                    <div style={{ height: '30px' }}> </div>
+                    <div style={{ height: '20px' }}> </div>
+                    <div className={styles.enqformHome}>
+                        <input type="text" className={styles.inqinput} placeholder="Name" />
+                        <div style={{ height: '10px' }}> </div>
+                        <input type="text" className={styles.inqinput} placeholder="Mobile" />
+                        <div style={{ height: '10px' }}> </div>
+                        <input type="text" className={styles.inqinput} placeholder="Email"/>
+                    </div>
+                    <div style={{ height: '20px' }}> </div>
                     <div className={styles.Btn_icon}>
-                        <small>👉 Get started</small>
+                        <small>Request a free Demo</small>
                         <span><FiChevronRight /></span>
                     </div>
                 </div>
@@ -23,21 +31,19 @@ const Herobox = () => {
                 <div className={styles.herobox_counter}>
                     <div className={styles.herobox_counter_item}>
                         <img src='/img/trophy.png' alt='imagehero' width='50px' />
-                        <span>All India
-                            Rank</span>
+                        <span>Job Guarantee*</span>
                     </div>
                     <div className={styles.herobox_counter_item}>
                         <img src='/img/testd.png' alt='imagehero' width='50px' />
-                        <span>Latest Exam
-                            Patterns</span>
+                        <span>Career Mentoring and Interview Prepration</span>
                     </div>
                     <div className={styles.herobox_counter_item}>
                         <img src='/img/analysis.png' alt='imagehero' width='50px' />
-                        <span>Performance Analysis</span>
+                        <span>Maximum Salary hike*</span>
                     </div>
                     <div className={styles.herobox_counter_item}>
                         <img src='/img/shield.png' alt='imagehero' width='50px' />
-                        <span>Personal Assistance</span>
+                        <span>200+ Hiring Partners</span>
                     </div>
 
                 </div>

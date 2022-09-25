@@ -5,12 +5,12 @@ import { FiChevronRight } from "react-icons/fi";
 const Testserieshome = () => {
     return (
         <>
-             <div className={styles.TitlebtnBox} >
-                    <span style={{ color: '#3c4852', fontWeight: '500' }}>Test Series for You, Take a change 😎 </span>
-                    <div className={styles.Btn_icon} style={{ backgroundColor: 'white', color: '#3c4852' }}>
-                        <small>view all</small>
-                        <span><FiChevronRight /></span>
-                    </div>
+            <div className={styles.TitlebtnBox} >
+                <span style={{ color: '#3c4852', fontWeight: '500' }}>Recommended Courses</span>
+                <div className={styles.Btn_icon} style={{ backgroundColor: 'white', color: '#3c4852' }}>
+                    <small>view all</small>
+                    <span><FiChevronRight /></span>
+                </div>
             </div>
             <div className={styles.section}>
 
@@ -134,10 +134,10 @@ const Testserieshome = () => {
                 </div>
             </div>
         </>
-        
-      
-      
-  )
+
+
+
+    )
 }
 
 export default Testserieshome
