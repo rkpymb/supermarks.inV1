@@ -32,10 +32,15 @@ const SubNavbar = ({ userlogst, userlogData, SetHeader_true }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const Logoutfuc = () => {
+    console.log('Logout Out')
+    localStorage.clear();
+    router.push('/');
+  };
   useEffect(() => {
-    console.log(userlogst)
+    // console.log(userlogst)
     if (localStorage.getItem('userid')) {
-      console.log('Logged in')
+      // console.log('Logged in')
     } else {
 
       router.push('/');
@@ -43,7 +48,7 @@ const SubNavbar = ({ userlogst, userlogData, SetHeader_true }) => {
     try {
 
       if (userlogData) {
-        console.log(userlogData)
+        // console.log(userlogData)
         setLoginName(userlogData.name)
         setLoginMobile(userlogData.mobile)
         setDp(userlogData.dp)
@@ -127,8 +132,8 @@ const SubNavbar = ({ userlogst, userlogData, SetHeader_true }) => {
                 <Divider />
                 
                 
-                <MenuItem>
-                  <AiOutlineLogout />
+                <MenuItem onClick={Logoutfuc}>
+                  <AiOutlineLogout  />
                   <span style={{marginLeft:'5px'}}> Logout</span>
                 </MenuItem>
               </Menu>

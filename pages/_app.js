@@ -4,20 +4,25 @@ import { useRouter, Router } from 'next/router'
 import '../styles/globals.css'
 import Navbar from '../components/Navbar'
 import SubNavbar from '../components/SubNavbar'
+
 import Backdrop from '@mui/material/Backdrop'
 import CircularProgress from '@mui/material/CircularProgress'
 import LoadingBar from 'react-top-loading-bar'
 import Head from 'next/head'
+import Backdropitem from '../components/Backdropitem'
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const [progress, setProgress] = useState(0);
   const [openModal, setOpenmodal] = useState(false);
   const [subheader, setSubheader] = useState(false);
-  const [BackDrop, setBackDrop] = useState(false);
+  const [BackDropData, setBackDrop] = useState(false);
   const handleOpen = () => setOpenmodal(true);
   const handleClose = () => setOpenmodal(false);
   const [userlogst, setUserlogst] = useState(false);
   const [userlogData, setUserlogData] = useState();
+
+
+
   const BackDropOpen = () => {
     setBackDrop(true)
   }
@@ -25,6 +30,7 @@ function MyApp({ Component, pageProps }) {
   const BackDropClose = () => {
     setBackDrop(false)
   }
+  
   const SetHeader_true = () => {
     setSubheader(true)
   }
@@ -58,6 +64,8 @@ function MyApp({ Component, pageProps }) {
 
           })
        
+      } else {
+        setUserlogst(false);
       }
     } catch (error) {
       console.error(error)
@@ -65,7 +73,7 @@ function MyApp({ Component, pageProps }) {
     }
     // check login credential end
 
-  }, []);
+  }, [router.query]);
   
   
 
@@ -86,17 +94,13 @@ function MyApp({ Component, pageProps }) {
     {!subheader && (
       <Navbar handleOpen={handleOpen} userlogst={userlogst}  />
     )}
-    
    
-    <Component {...pageProps} handleOpen={handleOpen} userlogst={userlogst} userlogData={userlogData} SetHeader_true={SetHeader_true} SetHeader_false={SetHeader_false} />
+  
+   
+    <Component {...pageProps} handleOpen={handleOpen} userlogst={userlogst} userlogData={userlogData} SetHeader_true={SetHeader_true} SetHeader_false={SetHeader_false} BackDropOpen={BackDropOpen} BackDropClose={BackDropClose} />
     <Login openModal={openModal} handleClose={handleClose} BackDropOpen={BackDropOpen} BackDropClose={BackDropClose} />
-    <Backdrop
-      sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 999 }}
-      open={BackDrop}
-
-    >
-      <CircularProgress color="inherit" />
-    </Backdrop>
+   
+    <Backdropitem BackDropData={BackDropData} />
   </>
 }
 

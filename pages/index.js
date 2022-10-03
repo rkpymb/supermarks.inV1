@@ -3,12 +3,15 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Herobox from '../components/Herobox'
 import Placementsliders from '../components/Placementsliders'
+import Caterorieshome from '../components/Caterorieshome'
 import Companylist from '../components/Companylist'
 import Footer from '../components/Footer'
 import Processtojoin from '../components/Processtojoin'
-import Testserieshome from '../components/Testserieshome'
+import CourseHomelist from '../components/CourseHomelist'
 import { useState, useEffect } from 'react';
+
 export default function Home({ SetHeader_false }) {
+  
   useEffect(() => {
     SetHeader_false()
   })
@@ -26,9 +29,14 @@ export default function Home({ SetHeader_false }) {
         </div>
       </div>
       <div className={styles.dataspacer}> </div>
+
+      <div className={styles.container}>
+        <Caterorieshome />
+      </div>
+      <div className={styles.dataspacer}> </div>
       <div className={styles.dataspacer_mob}> </div>
       <div className={styles.container}>
-        <Testserieshome />
+        <CourseHomelist />
       </div>
       <div className={styles.dataspacer}> </div>
       <div className={styles.container_full} style={{ backgroundColor:'#a1ffff'}}>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { FiChevronRight } from 'react-icons/fi';
+import CounsellingForm from '../components/CounsellingForm'
 import styles from '../styles/Home.module.css'
 const Herobox = () => {
     return (
@@ -10,18 +11,8 @@ const Herobox = () => {
                         Get your Dream Job </h1>
                     <span>Take a Free Careers Counseling</span>
                     <div style={{ height: '20px' }}> </div>
-                    <div className={styles.enqformHome}>
-                        <input type="text" className={styles.inqinput} placeholder="Name" />
-                        <div style={{ height: '10px' }}> </div>
-                        <input type="text" className={styles.inqinput} placeholder="Mobile" />
-                        <div style={{ height: '10px' }}> </div>
-                        <input type="text" className={styles.inqinput} placeholder="Email"/>
-                    </div>
-                    <div style={{ height: '20px' }}> </div>
-                    <div className={styles.Btn_icon}>
-                        <small>Request a free Demo</small>
-                        <span><FiChevronRight /></span>
-                    </div>
+                    <CounsellingForm />
+                   
                 </div>
                 <div className={styles.heroboxright}>
                     <img src='/img/girlhero.png' alt='imagehero' />

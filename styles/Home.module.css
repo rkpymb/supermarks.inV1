@@ -1,11 +1,13 @@
 .container {
   margin: auto;
+  margin-top: 0;
   width: 80%;
 
 }
-.url{
+
+.url {
   cursor: pointer;
-  color:blueviolet;
+  color: blueviolet;
 }
 
 .container_full {
@@ -277,7 +279,7 @@
   color: #3c4852;
 }
 
-.Testserieshome {
+.CourseHomelist {
   width: 100%;
 }
 
@@ -299,6 +301,7 @@
 
 .TestText {
   color: #3c4852;
+
 }
 
 .TestTexttitlebox {
@@ -355,8 +358,8 @@
   width: auto;
   border-radius: 10px;
   outline: none;
-  margin:auto;
- 
+  margin: auto;
+
 }
 
 /* Login box */
@@ -625,6 +628,279 @@
   font-size: 15px;
 }
 
+/* Grid box */
+.gridbox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.CaterorieshomeItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 200px;
+  margin: 10px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: rgb(239, 238, 216);
+  color: rgb(37, 36, 36);
+}
+
+.CaterorieshomeItem_title {
+  font-weight: 500;
+}
+
+
+/* Course page css */
+
+
+.course_databox_A {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+}
+
+/* .course_databox_B{
+  width: 30%;
+ 
+  padding: 10px;
+  position: fixed;
+  right: 0;
+  top:10;
+  min-height: 100vh;
+} */
+.CourseDataBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.CBoxB {
+  width: 60%;
+  padding: 10px;
+}
+
+.CBoxA {
+  padding: 10px;
+  width: 35%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.CBoxAData_Title h1 {
+  font-weight: 500;
+  font-size: 20px;
+  color: #3c4852;
+  margin-top: 5px;
+}
+
+.CBoxAIM {
+  border-top: 1px solid red;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: blue;
+}
+
+.CBoxAData_BoxFotter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.CBoxAData_TagsItem {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.CBoxAData_Tags {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.CBoxAData_iconIMG {
+  background-color: rgb(233, 233, 202);
+  height: 30px;
+  border-radius: 50%;
+  width: 30px;
+  overflow: hidden;
+}
+
+.CBoxAData_iconIMG {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CBoxAData_TagsItemData {
+  margin-left: 10px;
+  width: 90%;
+}
+
+.CBoxAData_TagsItemData span {
+  font-weight: 500;
+  color: rgb(89, 89, 241);
+}
+
+/*CousalingBox */
+.CousalingBox {
+
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  border-radius: 15px;
+  border: 0.5px dashed rgb(191, 191, 199);
+  padding: 10px
+}
+
+.CousalingBox_all {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.CousalingBox_allA {
+  width: 60%;
+}
+
+.CousalingBox_allA h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.CousalingBox_allB {
+
+  overflow: hidden;
+}
+
+.CousalingBox_allB {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CousalingBox_allB img {
+  width: 200px;
+}
+
+.FootermobileBtn {
+  display: none !important;
+}
+
+.saletag span {
+  font-size: 10px;
+  font-weight: 500;
+  color: rgb(129, 79, 255);
+}
+
+.Enqmodal_proccess {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+.Enqmodal_proccess small{
+margin-top:5px;
+font-size: 10px;
+}
+.Enqmodal_Donetext{
+  padding: 10px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+}
+
+.Enqmodal_Donetext small{
+font-size: 12px;
+}
+
+/* Enqmodal */
+.Enqmodal {
+  background-color: white !important;
+  margin: auto;
+  outline: none;
+  width: 50%;
+  margin-top: 10px;
+}
+
+.Enqmodal_close {
+  cursor: pointer;
+
+  font-size: 30px;
+
+}
+
+
+.Enqmodal_title {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.LoginBox_inputBoxtt {
+  margin: 10px;
+  width: 50%;
+  /* overflow: auto;
+  height: 300px; */
+}
+
+.LoginBox_inputEnq {
+  width: 50%;
+}
+
+.Enqmodal_titletext {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: -8px;
+  margin-left: 10px;
+}
+
+.Enqmodal_MainBox {
+  display: flex;
+  flex-wrap: wrap-reverse;
+
+}
+.Enqmodal_MainBoxDone {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.LoginBox_inputBoxtt {
+  width: 50%;
+  overflow: auto;
+}
+
+.Enqmodal_MainBoxB {
+  width: 40%;
+  overflow: hidden;
+}
+
+.Enqmodal_MainBoxB img {
+  width: 100%;
+}
+
+/* Course page css end */
 /* mobile css */
 
 @media only screen and (max-width: 1200px) {
@@ -632,6 +908,8 @@
     display: none;
 
   }
+
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -768,4 +1046,67 @@
     border-top-right-radius: 15px;
     outline: none;
   }
+
+  .CaterorieshomeItem {
+    width: 100px;
+  }
+
+  .CBoxA {
+    min-width: 90%;
+    position: relative;
+    height: auto;
+    margin: auto;
+  }
+
+  .CBoxB {
+    min-width: 90%;
+    margin: auto;
+  }
+
+  .CousalingBox_allA {
+    min-width: 100%;
+  }
+
+  .CousalingBox_allB {
+    min-width: 100%;
+  }
+
+  .FootermobileBtn {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 0;
+    background-color: white !important;
+    width: 100%;
+    align-items: center !important;
+    justify-content: space-around;
+    padding: 10px 10px 10px 5px;
+    border-top: 1px dashed rgb(211, 203, 203);
+
+  }
+
+  .CBoxAData_BoxFotter {
+    display: none;
+
+  }
+
+  .Enqmodal {
+    margin-top: 0px;
+    width: 100%;
+
+  }
+
+  .Enqmodal_MainBoxB {
+    width: 100%;
+  }
+
+  .LoginBox_inputBoxtt {
+    width: 100%;
+
+    overflow: auto;
+  }
+
+  .LoginBox_inputEnq {
+    width: 100%;
+  }
+
 }
