@@ -654,8 +654,9 @@
   color: rgb(37, 36, 36);
 }
 
-.CaterorieshomeItem_title {
-  font-weight: 500;
+.CaterorieshomeItem_title span {
+  font-weight: bold;
+
 }
 
 
