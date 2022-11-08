@@ -4,9 +4,9 @@ import { useRouter, Router } from 'next/router'
 import '../styles/globals.css'
 import Navbar from '../components/Navbar'
 import SubNavbar from '../components/SubNavbar'
+import styles from '../styles/Home.module.css'
+import Footer from '../components/Footer'
 
-import Backdrop from '@mui/material/Backdrop'
-import CircularProgress from '@mui/material/CircularProgress'
 import LoadingBar from 'react-top-loading-bar'
 import Head from 'next/head'
 import Backdropitem from '../components/Backdropitem'
@@ -84,7 +84,7 @@ function MyApp({ Component, pageProps }) {
       <link rel="icon" href="/img/favicon.png" />
     </Head>
     <LoadingBar
-      color='blue'
+      color='red'
       progress={progress}
       onLoaderFinished={() => setProgress(0)}
     />
@@ -101,6 +101,9 @@ function MyApp({ Component, pageProps }) {
     <Login openModal={openModal} handleClose={handleClose} BackDropOpen={BackDropOpen} BackDropClose={BackDropClose} />
    
     <Backdropitem BackDropData={BackDropData} />
+    <div className={styles.container_full} style={{ backgroundColor: '#232323' }} >
+      <Footer />
+    </div>
   </>
 }
 

@@ -46,17 +46,42 @@ const CourseHomelist = () => {
             }
             {!isLoading &&
                 <div>
-                    <div className={styles.TitlebtnBox} >
-                        <span style={{ color: '#3c4852', fontWeight: '500' }}>Beast Recommended Courses</span>
-                        <div className={styles.Btn_icon} style={{ backgroundColor: 'white', color: '#3c4852' }}>
-                            <small>view all</small>
-                            <span><FiChevronRight /></span>
+                    <div className={styles.centeritem} >
+                        <div><h1 style={{ margin: '0' }}>Recommended Courses </h1></div>
+                        <div> <span><span className={styles.Skillfiltname}>SKILLFILT</span>Courses to help you ace the Interview</span></div>
+                        <div> </div>
+                        <div style={{ margin: '10px' }}> </div>
+                        <div className={styles.stickerBox}>
+                            <div className={styles.stickerItem}>
+                                <div>
+                                    <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/liveclassestop.svg' />
+                                </div>
+                                <div className={styles.stickerItemtext}>
+                                    <span>Live classes by top educators</span>
+                                </div>
+                            </div>
+                            <div className={styles.stickerItem}>
+                                <div>
+                                    <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/practicalindustry.svg' />
+                                </div>
+                                <div className={styles.stickerItemtext}>
+                                    <span>Practical industry projects</span>
+                                </div>
+                            </div>
+                            <div className={styles.stickerItem}>
+                                <div>
+                                    <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/100_placement.svg' />
+                                </div>
+                                <div className={styles.stickerItemtext}>
+                                    <span>100% job guarantee*</span>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                     <div className={styles.section}>
-
                         <div className={styles.CourseHomelist}>
-
+                            <div className={styles.dataspacer}> </div>
                             <div className={styles.TestItemBox}>
                                 {Retdata.map((item) => {
                                     return <div className={styles.TestItem} key={item.id}>
@@ -68,16 +93,38 @@ const CourseHomelist = () => {
                                                 backgroundColor: '#c5d6e3',
                                             }}
                                         >
-                                            <Image src={item.img} alt="Vercel Logo" layout='fill' />
+                                            <Image src={`https://aitechnolog.com/skillfilt/Storage/img/panel/course/${item.img}`} alt="Vercel Logo" layout='fill' />
                                         </div>
                                         <div className={styles.TestText}>
                                             <div className={styles.TestTexttitlebox}>
-                                                <span>{item.title}</span>
-                                                <small>Batches Fast Filing</small>
+                                                <span><b>{item.title}</b></span>
+                                                <div className={styles.coursestickerBox}>
+                                                    <div className={styles.coursestickerItem}>
+                                                        <div>
+                                                            <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/wallet-money.svg' />
+                                                        </div>
+                                                        <div className={styles.coursestickerItemtext}>
+                                                            <span>Upto 30 LPA</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className={styles.coursestickerItem}>
+                                                        <div>
+                                                            <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/suitcase-portfolio-1.svg' />
+                                                        </div>
+                                                        <div className={styles.coursestickerItemtext}>
+                                                            <span>100+ Jobs</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
                                             </div>
                                             <Link href={`/course/${item.pid}`}>
                                                 <div className={styles.Testfooter}>
-                                                    <span>₹{item.sprice} <small><del>{item.sprice}</del></small></span>
+                                                    <div> 
+                                                        <div><small>Program Fee</small></div>
+                                                        <span> ₹{item.sprice} <small><del>{item.sprice}</del></small></span>
+                                                    </div>
+                                                   
                                                     <div className={styles.Btn_icon}>
                                                         <small>View Details</small>
                                                         <span><FiChevronRight /></span>
@@ -93,7 +140,7 @@ const CourseHomelist = () => {
                                 )}
 
                             </div>
-
+                            <div className={styles.dataspacer}> </div>
                         </div>
                     </div>
                 </div>

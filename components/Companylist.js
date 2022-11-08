@@ -17,29 +17,31 @@ const Companylist = () => {
       <div className={styles.Company_section_b}>
         <div className={styles.Company_logos}>
           <div className={styles.Company_logo_item}>
-            <img src='https://d2oda4j5uueq2i.cloudfront.net/myspace/769/Frame_599-removebg-preview_1649162006.png' alt='imglogo' />
+            <img src='https://aitechnolog.com/skillfilt/Storage/img/all/byjus.png' alt='imglogo' />
           </div>
           <div className={styles.Company_logo_item}>
-            <img src='https://d2oda4j5uueq2i.cloudfront.net/myspace/769/Frame_599-removebg-preview_1649162006.png' alt='imglogo' />
+            <img src='https://aitechnolog.com/skillfilt/Storage/img/all/amazon.png' alt='imglogo' />
           </div>
           <div className={styles.Company_logo_item}>
-            <img src='https://d2oda4j5uueq2i.cloudfront.net/myspace/769/Frame_599-removebg-preview_1649162006.png' alt='imglogo' />
+            <img src='https://aitechnolog.com/skillfilt/Storage/img/all/utkarshbank.png' alt='imglogo' />
           </div>
           <div className={styles.Company_logo_item}>
-            <img src='https://d2oda4j5uueq2i.cloudfront.net/myspace/769/Frame_599-removebg-preview_1649162006.png' alt='imglogo' />
+            <img src='https://aitechnolog.com/skillfilt/Storage/img/all/icici.png' alt='imglogo' />
           </div>
           <div className={styles.Company_logo_item}>
-            <img src='https://d2oda4j5uueq2i.cloudfront.net/myspace/769/Frame_599-removebg-preview_1649162006.png' alt='imglogo' />
+            <img src='https://aitechnolog.com/skillfilt/Storage/img/all/hdfc.png' alt='imglogo' />
           </div>
           <div className={styles.Company_logo_item}>
-            <img src='https://d2oda4j5uueq2i.cloudfront.net/myspace/769/Frame_599-removebg-preview_1649162006.png' alt='imglogo' />
+            <img src='https://aitechnolog.com/skillfilt/Storage/img/all/dlf.png' alt='imglogo' />
           </div>
           <div className={styles.Company_logo_item}>
-            <img src='https://d2oda4j5uueq2i.cloudfront.net/myspace/769/Frame_599-removebg-preview_1649162006.png' alt='imglogo' />
+            <img src='https://aitechnolog.com/skillfilt/Storage/img/all/muthoot.png' alt='imglogo' />
           </div>
           <div className={styles.Company_logo_item}>
-            <img src='https://d2oda4j5uueq2i.cloudfront.net/myspace/769/Frame_599-removebg-preview_1649162006.png' alt='imglogo' />
+            <img src='https://aitechnolog.com/skillfilt/Storage/img/all/zomato.png' alt='imglogo' />
           </div>
+          
+         
         </div>
        
       </div>

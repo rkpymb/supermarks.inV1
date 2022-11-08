@@ -54,7 +54,7 @@ const Caterorieshome = () => {
                                 <div className={styles.CaterorieshomeItem}>
                                     <div>
                                         <Image
-                                            src={`https://aitechnolog.com/skillfilt/${item.catimg}`}
+                                            src={`https://aitechnolog.com/skillfilt/Storage/img/panel/course/${item.catimg}`}
                                             alt="Picture of the author"
                                             width={50}
                                             height={50}

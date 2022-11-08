@@ -14,24 +14,41 @@ const Footer = () => {
               <img src='/img/Skillfiltlogo.png' alt='logo' />
             </div>
           </Link>
-          <p>Skillfilt offers industry relevant advanced engineering courses for engineering students by partnering with industry experts.</p>
+          <p>Skillfilt offers industry-relevant advanced courses for finding your dream job.</p>
           <div className={styles.FooterBox_socialIcons}>
-            <span> <BsFacebook /> </span>
-            <span> <BsInstagram /> </span>
-            <span> <BsTwitter /> </span>
-            <span> <BsLinkedin /> </span>
-            <span> <BsYoutube /> </span>
+            <a href='https://www.facebook.com/Skillfilt' target='_blank' rel="noreferrer">
+              <span> <BsFacebook /> </span>
+            </a>
+            <a href='https://www.instagram.com/Skillfilt' target='_blank' rel="noreferrer">
+              <span> <BsInstagram /> </span>
+            </a>
+            <a href='https://twitter.com/skillfilt' target='_blank' rel="noreferrer">
+              <span> <BsTwitter /> </span>
+            </a>
+            <a href='https://www.linkedin.com/skillfilt' target='_blank' rel="noreferrer">
+              <span> <BsLinkedin /> </span>
+            </a>
+            {/* <a href='/' target='_blank'>
+              <span> <BsYoutube /> </span>
+            </a> */}
           </div>
 
         </div>
         <div className={styles.FooterBox_menu}>
           <h3>Our Company</h3>
-          <li>News and Events</li>
-          <li>Blog</li>
-          <li>Industry reports</li>
-          <li>Careers</li>
-          <li>Terms</li>
-          <li>Privacy Policy</li>
+          {/* <li>News and Events</li> */}
+          {/* <li>Blog</li> */}
+          {/* <li>Industry reports</li> */}
+          <Link href='/Careers'>
+            <li>Careers <small>( We are Hiring )</small></li>
+          </Link>
+          <Link href='/Terms'>
+            <li>Terms</li>
+          </Link>
+          <Link href='/PrivacyPolicy'>
+            <li>Privacy Policy</li>
+          </Link>
+          
         </div>
         <div className={styles.FooterBox_address}>
           <h3>Contact us</h3>
@@ -56,7 +73,7 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.Bottom_menu}>
-        <small>© 2022 Skillfilt Inc. All Rights Reserved.</small>
+        <small>© 2022 skillfilt.com All Rights Reserved.</small>
       </div>
     </>
     

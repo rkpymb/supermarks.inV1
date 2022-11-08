@@ -2,7 +2,14 @@
   margin: auto;
   margin-top: 0;
   width: 80%;
+  color: #3c4852;
+  overflow: hidden;
+}
 
+.devider {
+  display: none;
+  height: 10px;
+  background-color: #f4f7f7;
 }
 
 .url {
@@ -64,6 +71,7 @@
 }
 
 .MainMenu {
+  margin-top: 10px;
   list-style: none;
   display: flex;
 }
@@ -209,12 +217,27 @@
 }
 
 .heroboxleft h1 {
+  font-size: 40px;
   margin-bottom: 0px;
-  color: #3c4852;
+}
+
+.Skillfiltname {
+  color: rgb(66, 109, 227);
+  padding: 2px;
 }
 
 .herobox_span {
   margin-bottom: 30px;
+}
+
+.heroboxright {
+  width: 50%;
+
+}
+
+.heroboxright img {
+  width: 100%;
+
 }
 
 .categoryslider {
@@ -319,37 +342,7 @@
 
 }
 
-.HeroCountBox {
-  width: 100%;
-  overflow: auto;
-}
 
-.herobox_counter {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.herobox_counter_item {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
-  padding: 10px;
-  border-radius: 15px;
-  overflow: hidden;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  width: 190px;
-  height: 150px;
-}
-
-.herobox_counter_item span {
-  margin-top: 5px;
-}
 
 /* Modal */
 .modal_sm {
@@ -412,6 +405,10 @@
   font-size: 25px;
   border-bottom: 1px solid #161717;
 
+}
+
+.jobapplicationform {
+  padding: 30px;
 }
 
 .clickbtn {
@@ -814,21 +811,23 @@
   margin: 10px;
   padding: 10px;
 }
-.Enqmodal_proccess small{
-margin-top:5px;
-font-size: 10px;
-}
-.Enqmodal_Donetext{
-  padding: 10px;
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- text-align: center;
+
+.Enqmodal_proccess small {
+  margin-top: 5px;
+  font-size: 10px;
 }
 
-.Enqmodal_Donetext small{
-font-size: 12px;
+.Enqmodal_Donetext {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Enqmodal_Donetext small {
+  font-size: 12px;
 }
 
 /* Enqmodal */
@@ -881,6 +880,7 @@ font-size: 12px;
   flex-wrap: wrap-reverse;
 
 }
+
 .Enqmodal_MainBoxDone {
   display: flex;
   flex-wrap: wrap;
@@ -890,6 +890,10 @@ font-size: 12px;
 .LoginBox_inputBoxtt {
   width: 50%;
   overflow: auto;
+}
+
+.Careers {
+  padding: 10px;
 }
 
 .Enqmodal_MainBoxB {
@@ -904,6 +908,196 @@ font-size: 12px;
 /* Course page css end */
 /* mobile css */
 
+.CareersTop {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Countbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.CountboxItem {
+
+  margin: 10px;
+  min-width: 20%;
+  min-height: 150px;
+  border-radius: 15px;
+  color: #3c4852;
+}
+
+.CountboxItemText {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.CountboxItemText span {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.CountboxItemImg {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Companyslider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.CompanysliderItemBox {
+  display: flex;
+}
+
+.CompanysliderItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 180px;
+  height: 80px;
+  border: 1px solid rgb(223, 219, 219);
+  margin: 3px;
+
+}
+
+.marquee {
+  flex: 0 0 auto;
+  min-width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  animation: styles_scroll__Vrm16 60s linear 0s infinite;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-direction: normal;
+  will-change: transform;
+}
+
+/* Proccesbox */
+.centeritem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Proccesbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ProccesboxItembox {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ProccesboxRightItems {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+  width: 30%;
+}
+
+.ProccesboxRightItems img {
+  width: 100px;
+}
+
+.Proccesnumber {
+  height: 20px;
+  width: 20px;
+  padding: 10px;
+  background-color: rgb(66, 109, 227);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Proccesnumber span {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.Proccestitle {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.ProccesboxRightItemsfooter {
+
+  display: flex;
+  align-items: center;
+}
+
+.stickerBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stickerItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.stickerItemtext {
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+
+/* course sticker */
+.coursestickerBox {
+  display: flex;
+}
+
+.coursestickerItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+.coursestickerItem img {
+  width: 12px;
+}
+
+.coursestickerItemtext {
+  margin-left: 2px;
+  margin-top: -2px;
+  font-weight: 500;
+}
+
+.coursestickerItemtext span {
+  font-size: 10px;
+}
+
+/* Desktop css end*/
+
 @media only screen and (max-width: 1200px) {
   .MobileMenuBtn {
     display: none;
@@ -913,9 +1107,52 @@ font-size: 12px;
 
 }
 
+.Jobbox {
+  padding: 10px;
+}
+
+.JobDescbox {
+  padding: 10px;
+}
+
+.JobDescbox h2 {
+  font-weight: 500;
+  margin: 0;
+}
+
+.JobDescbox p {
+  margin: 0;
+}
+
+.JobDescbox_title {
+  font-weight: bold;
+}
+
+.Appybtnbox {
+  margin-top: 30px;
+  width: fit-content;
+
+}
+
+.FooterBox_socialIcons a {
+  text-decoration: none;
+  color: white;
+
+}
+
+.TopTikker {
+
+  margin: 10px;
+
+}
+
 @media only screen and (max-width: 600px) {
   .dataspacer_mob {
     height: 50px;
+  }
+
+  .CareersTop img {
+    width: 100%;
   }
 
   .MainMenu {
@@ -1110,4 +1347,45 @@ font-size: 12px;
     width: 100%;
   }
 
+  .Box70 {
+
+    width: 100%;
+
+  }
+
+  .jobapplicationform {
+    padding: 10px;
+  }
+
+  .CountboxItem {
+
+    width: 40%;
+
+  }
+
+  .TitlebtnBox h1 {
+    font-size: 13px;
+  }
+
+  .ProccesboxRightItems {
+    width: 100%;
+  }
+
+  .centeritem h1 {
+    font-size: 15px;
+  }
+
+  .centeritem {
+    text-align: center;
+  }
+
+  .heroboxleft {
+    text-align: center;
+  }
+
+  .devider {
+    display: block;
+    height: 10px;
+    background-color: #f4f7f7;
+  }
 }

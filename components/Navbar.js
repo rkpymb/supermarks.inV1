@@ -21,18 +21,21 @@ const Navbar = (props) => {
               <img src='/img/Skillfiltlogo.png' alt='logo' />
             </div>
           </Link>
-
         </div>
-        <div className={styles.MainMenu}>
-          <li>Careers</li>
-          <li>Courses</li>  
-          <li>Interviews</li>
-          <li>Placements</li>
-          <li>Projects</li>
-          <li>Corporate Training</li>
-        </div>
+       
         <div className={styles.spacermobile}></div>
         <div className={styles.NavLeft}>
+          <div className={styles.MainMenu}>
+            <Link href='/Courses'>
+              <li>Courses</li>
+            </Link>
+            {/* <Link href='/Placements'>
+              <li>Placements</li>
+            </Link> */}
+            <Link href='/Careers'>
+              <li>Careers</li>
+            </Link>
+          </div>
           <div className={styles.ContactTop}>
             <div className={styles.Contact_icon}>
               <span><IoIosCall /></span>
@@ -43,9 +46,9 @@ const Navbar = (props) => {
           </div>
           {!props.userlogst && (
             <Link href='Login'>
-            <div className={styles.loginbtnTop}>
-              <span><AiOutlineLogin /></span>
-              <small>Login</small>
+              <div className={styles.loginbtnTop}>
+                <span><AiOutlineLogin /></span>
+                <small>Login</small>
               </div>
             </Link>
 
