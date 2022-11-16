@@ -125,7 +125,7 @@ export default function BasicModal(props) {
             }
             <div style={{ height: '10px' }}> </div>
             <div className={styles.Btn_icon} onClick={handleClickOpen}>
-                <small>Procced to Book</small>
+                <small>Book Free Demo</small>
                 <span><FiChevronRight /></span>
             </div>
             <Dialog

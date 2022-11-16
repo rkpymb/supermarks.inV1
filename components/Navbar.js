@@ -18,7 +18,7 @@ const Navbar = (props) => {
         <div className={styles.logo}>
           <Link href='/'>
             <div className={styles.logomain}>
-              <img src='/img/Skillfiltlogo.png' alt='logo' />
+              <img src='/logonew.png' alt='logo' />
             </div>
           </Link>
         </div>
@@ -29,11 +29,11 @@ const Navbar = (props) => {
             <Link href='/Courses'>
               <li>Courses</li>
             </Link>
-            {/* <Link href='/Placements'>
+            <Link href='/Placements'>
               <li>Placements</li>
-            </Link> */}
-            <Link href='/Careers'>
-              <li>Careers</li>
+            </Link>
+            <Link href='/Tests'>
+              <li>Tests</li>
             </Link>
           </div>
           <div className={styles.ContactTop}>

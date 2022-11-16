@@ -5,6 +5,56 @@
   color: #3c4852;
   overflow: hidden;
 }
+.containerInovice {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+
+  margin: auto;
+  margin-top: 0;
+  width: 40%;
+  color: #3c4852;
+  overflow: hidden;
+  background-color: rgb(244, 240, 240);
+}
+.containerInoviceBox{
+  padding: 10px;
+}
+
+.containerInoviceHeader{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+.OrderDetailsItem{
+  display: flex;
+  justify-content:space-between;
+  text-align: left;
+}
+.PaymentBox {
+  margin: auto;
+  margin-top: 0;
+  width: 50%;
+  color: #3c4852;
+  overflow: hidden;
+}
+
+.PlanSumabrybox {
+  margin: 10px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  padding: 10px;
+}
+
+.tdtext {
+  font-size: 12px;
+}
+
+.Paybtnbox {
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .devider {
   display: none;
@@ -22,15 +72,179 @@
 
 }
 
+.TestPassDetailsbox {
+  margin: auto;
+
+}
+
+.testDestailsStiker {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: auto;
+  width: 80%;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  margin-bottom: 20px;
+}
+
+.TestCounterbox {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+}
+
+.TestCounterItem {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
 .logomain {
   width: 150px;
-  height: 40px;
-  margin-top: -10px;
+  /* height: 40px; */
+  cursor: pointer;
+
+}
+
+.testboxtestlist {
+  display: flex;
+}
+
+.testboxtestlistA {
+  width: 100%;
+  padding: 10px;
+}
+
+.CBoxBContentflexItem {
+  width: 100%;
+  background-color: red;
+}
+
+.BuyPassbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.BuyPassboxA {
+  width: 50%;
+}
+
+.BuyPassboxB {
+  width: 50%;
+
+}
+
+.PlanItem {
+  background-color: red;
+}
+
+.BuyPassboxAContent {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.BuyPassboxBContent {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 10px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  margin: 10px;
+
+}
+.Applycodebtn{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding: 10px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+    margin: 10px;
+    background-color: #ab8352;
+    color: white;
+    cursor: pointer;
+}
+
+.PlanBoxitem {
+  background-color: #dcf9fd;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.PassplanTagline {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  background: linear-gradient(-45deg, #3cff00, #ede9ea, #e3e9eb, #ccd523);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  border-radius: 5px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.Buyplanbutton {
+  font-size: 12px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
   cursor: pointer;
 }
 
 .logomain img {
   width: 100%;
+}
+
+.testiconsBox {
+  display: flex;
+  align-items: center;
+}
+
+.testiconsItemMain {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.testiconsBox {
+  font-size: 10px;
+}
+
+.Testlistitem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+
 }
 
 .Box70Skelton {
@@ -88,7 +302,7 @@
   align-items: center;
   cursor: pointer;
   padding: 8px 15px 5px 15px;
-  background-color: #08bd80;
+  background-color: #0095ff;
   color: white;
   border-radius: 5px;
 }
@@ -111,10 +325,14 @@
   cursor: pointer;
   padding: 8px 15px 5px 15px;
   background-color: #161717;
-  ;
   color: white;
   border-radius: 5px;
   width: fit-content;
+}
+
+.Btn_icon:hover {
+  background-color: #fe8f49;
+  color: rgb(36, 35, 35);
 }
 
 .Btn_icon span {
@@ -321,6 +539,7 @@
   border-radius: 15px;
   overflow: hidden;
 }
+
 
 .TestText {
   color: #3c4852;
@@ -677,22 +896,18 @@
 } */
 .CourseDataBox {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+
+
 }
 
 .CBoxB {
-  width: 60%;
   padding: 10px;
 }
 
 .CBoxA {
   padding: 10px;
-  width: 35%;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
 }
 
 .CBoxAData_Title h1 {
@@ -723,9 +938,9 @@
 }
 
 .CBoxAData_Tags {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
-  margin: 10px;
-  padding: 10px;
+
+  margin-top: 10px;
+  padding: 0px;
   cursor: pointer;
 }
 
@@ -1164,6 +1379,17 @@
     width: 100%;
 
   }
+  .containerInovice {
+    margin: 0;
+    width: 100%;
+
+  }
+
+  .PaymentBox {
+    margin: 0;
+    width: 100%;
+
+  }
 
   .logomain {
     width: 100px;
@@ -1234,10 +1460,7 @@
     height: 10px;
   }
 
-  .Btn_icon {
 
-    width: auto;
-  }
 
   .enqformHome {
     width: auto;
@@ -1289,12 +1512,12 @@
     width: 100px;
   }
 
-  .CBoxA {
+  /* .CBoxA {
     min-width: 90%;
     position: relative;
     height: auto;
     margin: auto;
-  }
+  } */
 
   .CBoxB {
     min-width: 90%;
@@ -1387,5 +1610,23 @@
     display: block;
     height: 10px;
     background-color: #f4f7f7;
+  }
+
+  .testDestailsStiker {
+    min-width: 100%;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0%);
+  }
+
+  .TestCounterItem {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .BuyPassboxA {
+    min-width: 100%;
+  }
+
+  .BuyPassboxB {
+    min-width: 100%;
   }
 }

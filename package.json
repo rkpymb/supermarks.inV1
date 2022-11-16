@@ -11,20 +11,24 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.14",
     "@mui/material": "^5.10.6",
     "@mui/styled-engine-sc": "^5.10.6",
     "axios": "^0.27.2",
     "dotenv": "^16.0.2",
     "next": "12.3.1",
+    "razorpay": "^2.8.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-top-loading-bar": "^2.3.1",
+    "shortid": "^2.2.16",
     "styled-components": "^5.3.5",
     "swiper": "^8.4.2"
   },
   "devDependencies": {
     "eslint": "8.23.1",
-    "eslint-config-next": "12.3.1"
+    "eslint-config-next": "12.3.1",
+    "eslint-config-prettier": "^8.5.0"
   }
 }

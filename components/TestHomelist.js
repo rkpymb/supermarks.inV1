@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import axios from 'axios';
 import Skeleton from '@mui/material/Skeleton';
 import Link from 'next/link'
-const CourseHomelist = () => {
+const TestHomelist = () => {
     const router = useRouter()
     const [Retdata, setRetdata] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +18,7 @@ const CourseHomelist = () => {
         const handleSubmit = async () => {
             const dataid = '08c5th4rh86ht57h6g';
             const sendUM = { dataid }
-            const data = await fetch("/api/Homecourselist", {
+            const data = await fetch("/api/TestHomelist", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'
@@ -47,8 +47,8 @@ const CourseHomelist = () => {
             {!isLoading &&
                 <div>
                     <div className={styles.centeritem} >
-                        <div><h1 style={{ margin: '0' }}>Recommended Courses </h1></div>
-                        <div> <span><span className={styles.Skillfiltname}>SKILLFILT</span>Courses to help you ace the Interview</span></div>
+                        <div><h1 style={{ margin: '0' }}>Recommended Test Series </h1></div>
+                        <div> <span>We have listes the best Test Series for your best journey for preparation of different category.</span></div>
                         <div> </div>
                         <div style={{ margin: '10px' }}> </div>
                         <div className={styles.stickerBox}>
@@ -57,7 +57,7 @@ const CourseHomelist = () => {
                                     <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/liveclassestop.svg' />
                                 </div>
                                 <div className={styles.stickerItemtext}>
-                                    <span>Live classes by top educators</span>
+                                    <span>Best Test Series by Experts</span>
                                 </div>
                             </div>
                             <div className={styles.stickerItem}>
@@ -73,7 +73,7 @@ const CourseHomelist = () => {
                                     <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/100_placement.svg' />
                                 </div>
                                 <div className={styles.stickerItemtext}>
-                                    <span>100% job guarantee*</span>
+                                    <span>Success guarantee*</span>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@ const CourseHomelist = () => {
                                                             <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/wallet-money.svg' />
                                                         </div>
                                                         <div className={styles.coursestickerItemtext}>
-                                                            <span>Upto 30 LPA</span>
+                                                            <span>Hindi / English</span>
                                                         </div>
                                                     </div>
                                                     <div className={styles.coursestickerItem}>
@@ -112,21 +112,21 @@ const CourseHomelist = () => {
                                                             <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/suitcase-portfolio-1.svg' />
                                                         </div>
                                                         <div className={styles.coursestickerItemtext}>
-                                                            <span>100+ Jobs</span>
+                                                            <span>1200+ Enrolled</span>
                                                         </div>
                                                     </div>
                                                     
                                                 </div>
                                             </div>
-                                            <Link href={`/course/${item.pid}`}>
+                                            <Link href={`/TestSeries/${item.pid}`}>
                                                 <div className={styles.Testfooter}>
                                                     <div> 
-                                                        <div><small>Program Fee</small></div>
-                                                        <span> ₹{item.sprice} <small><del>{item.sprice}</del></small></span>
+                                                        <div><small>Take a Free Test</small></div>
+                                                        
                                                     </div>
                                                    
                                                     <div className={styles.Btn_icon}>
-                                                        <small>View Details</small>
+                                                        <small>View Test Series</small>
                                                         <span><FiChevronRight /></span>
                                                     </div>
                                                 </div>
@@ -155,4 +155,4 @@ const CourseHomelist = () => {
     )
 }
 
-export default CourseHomelist
+export default TestHomelist

@@ -6,8 +6,8 @@ const Proccesbox = () => {
         <div className={styles.container}>
             <div className={styles.dataspacer}> </div>
             <div className={styles.centeritem} >
-                <div><h1 style={{ margin: '0' }}>How to get your dream job</h1></div>
-                <div> <span><span className={styles.Skillfiltname}>SKILLFILT</span>PROCESS</span></div>
+                <div><h1 style={{ margin: '0' }}>How it works</h1></div>
+                <div> <span><span className={styles.Skillfiltname}>BOARD TEST</span>PROCESS</span></div>
             </div>
             <div className={styles.dataspacer}> </div>
             <div className={styles.ProccesboxItembox}>
@@ -17,8 +17,7 @@ const Proccesbox = () => {
                             <span>1</span>
                         </div>
                         <div className={styles.Proccestitle}>
-                            <span >Enroll in a industry-relevant skills Program</span>
-                            
+                            <span>Enroll into a Recommended Test Series Program </span>
                         </div>
                     </div>
                     <img src='https://aitechnolog.com/skillfilt/Storage/img/all/110067-ebook-bookstore.gif' alt='img' />
@@ -29,7 +28,7 @@ const Proccesbox = () => {
                             <span>2</span>
                         </div>
                         <div className={styles.Proccestitle}>
-                            <span >Study live from the best educators & Finish </span>
+                            <span>Complete Test Series Programs & Analysis Marks </span>
                             
                         </div>
                     </div>
@@ -41,7 +40,7 @@ const Proccesbox = () => {
                             <span>3</span>
                         </div>
                         <div className={styles.Proccestitle}>
-                            <span>Get Hired ,Unlock your dream companies</span>
+                            <span>Score Better in to your Board Exams and grow your Career</span>
                             
                         </div>
                     </div>
