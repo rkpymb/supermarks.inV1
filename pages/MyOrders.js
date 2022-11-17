@@ -14,8 +14,9 @@ const MyOrders = ({ SetHeader_true }) => {
     const router = useRouter()
     const [UserlogData, setUserlogData] = useState();
     const [Retdata, setRetdata] = useState([]);
+    SetHeader_true(false)
     useEffect(() => {
-        SetHeader_true(true)
+      
         try {
             if (localStorage.getItem('userid')) {
 

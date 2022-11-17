@@ -11,11 +11,12 @@ import { FiChevronRight, FiNavigation, FiInfo, FiCoffee, FiFileText, FiClock, Fi
 import Link from 'next/link'
 
 const Mytest = ({ SetHeader_true }) => {
+    SetHeader_true(false)
     const router = useRouter()
     const [UserlogData, setUserlogData] = useState();
     const [Retdata, setRetdata] = useState([]);
     useEffect(() => {
-        SetHeader_true(true)
+       
         try {
             if (localStorage.getItem('userid')) {
               

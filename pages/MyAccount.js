@@ -11,6 +11,7 @@ import { FiChevronRight, FiNavigation, FiInfo, FiCoffee, FiFileText, FiClock, Fi
 import Link from 'next/link'
 
 const MyAccount = ({ SetHeader_true }) => {
+    SetHeader_true(false)
     const router = useRouter()
     const [UserName, setUserName] = useState('');
     const [UserMobile, setUserMobile] = useState('');
@@ -22,7 +23,7 @@ const MyAccount = ({ SetHeader_true }) => {
     
     }
     useEffect(() => {
-        SetHeader_true(false)
+       
         try {
             if (localStorage.getItem('userid')) {
               
@@ -77,7 +78,7 @@ const MyAccount = ({ SetHeader_true }) => {
                         </div>
                         <div className={styles.DbTowBoxB}>
                             <div style={{ fontWeight: 'bold' }}>
-                                <span>Edit Your profile</span>
+                                <span>Edit Your profile :</span>
                             </div>
                           
                             <div className={styles.EditAccInput}>

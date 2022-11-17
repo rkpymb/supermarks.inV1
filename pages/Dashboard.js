@@ -11,10 +11,10 @@ import { FiChevronRight, FiShoppingBag, FiMapPin, FiCreditCard, FiLogOut } from 
 import Link from 'next/link'
 
 const Dashboard = ({ SetHeader_true }) => {
+    SetHeader_true(false)
     const router = useRouter()
     const [UserlogData, setUserlogData] = useState();
     useEffect(() => {
-        SetHeader_true(true)
         try {
             if (localStorage.getItem('userid')) {
               
