@@ -5,7 +5,7 @@ import '../styles/globals.css'
 import Navbar from '../components/Navbar'
 import SubNavbar from '../components/SubNavbar'
 import styles from '../styles/Home.module.css'
-import Footer from '../components/Footer'
+
 
 import LoadingBar from 'react-top-loading-bar'
 import Head from 'next/head'
@@ -101,9 +101,7 @@ function MyApp({ Component, pageProps }) {
     <Login openModal={openModal} handleClose={handleClose} BackDropOpen={BackDropOpen} BackDropClose={BackDropClose} />
    
     <Backdropitem BackDropData={BackDropData} />
-    <div className={styles.container_full} style={{ backgroundColor: '#232323' }} >
-      <Footer />
-    </div>
+   
   </>
 }
 

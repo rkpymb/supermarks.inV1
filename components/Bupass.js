@@ -26,6 +26,7 @@ export default function Bupass(props) {
     const [pid, setPid] = useState(props.pid);
     const [Sprice, setSprice] = useState(props.Sprice);
     const [Mprice, setMprice] = useState(props.Mprice);
+    const [Validitydays, setValiditydays] = useState(props.Validity);
     const [Coupon, setCoupon] = useState('0');
     const [CouponDiscount, setCouponDiscount] = useState('0');
     const [ProductType, setProductType] = useState('Test Series');
@@ -64,7 +65,7 @@ export default function Bupass(props) {
                         setUserName(parsedUser.data.name)
                         setUserEmail(parsedUser.data.email)
                         setUserMobile(parsedUser.data.mobile)
-                        console.log(parsedUser.data)
+                       
 
                     })
 
@@ -113,6 +114,7 @@ export default function Bupass(props) {
                     <div className={styles.PlanSumabrybox}>
 
                         <table>
+                            <tbody>
                             <tr>
                                 <td className={styles.tdtext}>Pass Name</td>
                                 <td className={styles.tdtext}>:</td>
@@ -143,7 +145,8 @@ export default function Bupass(props) {
                                 <td className={styles.tdtext}>Total</td>
                                 <td className={styles.tdtext}>:</td>
                                 <td className={styles.tdtext}>{Total}</td>
-                            </tr>
+                                </tr>
+                            </tbody>
                         </table>
 
                     </div>
@@ -160,7 +163,7 @@ export default function Bupass(props) {
 
 
 
-                        <Razorpaybtn FinalAmt={Total} UserMobile={UserMobile} UserName={UserName} UserEmail={UserEmail} Pid={pid} Discount={Discount} Coupon={Coupon} CouponDiscount={CouponDiscount} TotalDiscount={Coupon} ProductType={ProductType} mprice={Mprice} />
+                        <Razorpaybtn FinalAmt={Total} UserMobile={UserMobile} UserName={UserName} UserEmail={UserEmail} Pid={pid} Discount={Discount} Coupon={Coupon} CouponDiscount={CouponDiscount} TotalDiscount={Coupon} ProductType={ProductType} mprice={Mprice} Validitydays={Validitydays} />
                     </div>
 
                 </div>

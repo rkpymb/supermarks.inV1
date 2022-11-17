@@ -17,10 +17,16 @@ const Dashboardmenu = () => {
                 router.push('/Dashboard')
             }
             else if (newValue == 1) {
-                router.push('/Account')
+                router.push('/Mytest')
             }
             else if (newValue == 2) {
-                router.push('/Classroom')
+                router.push('/MyAttempts')
+            }
+            else if (newValue == 3) {
+                router.push('/MyOrders')
+            }
+            else if (newValue == 4) {
+                router.push('/MyAccount')
             }
         }
       
@@ -35,30 +41,11 @@ const Dashboardmenu = () => {
                   scrollButtons="auto"
                   aria-label="scrollable auto tabs example"
               >
-                  
-                 
                       <Tab label="Dashboard" onClick={() => { handleChange(0) }} />
-              
-                 
-                
-                      <Tab label="Account" onClick={() => { handleChange(1) }} />
-                 
-                 
-          
-                      <Tab label="My Classroom" onClick={() => { handleChange(2) }} />
-                
-                 
-                
+                      <Tab label="My Tests" onClick={() => { handleChange(1) }} />
+                      <Tab label="My Attempts" onClick={() => { handleChange(2) }} />
                       <Tab label="My Orders" onClick={() => { handleChange(3) }} />
-               
-               
-                      <Tab label="My Notes" onClick={() => { handleChange(4) }} />
-                 
-                 
-                      <Tab label="My Test" onClick={() => { handleChange(5) }} />
-                 
-               
-                 
+                      <Tab label="My Account" onClick={() => { handleChange(4) }} />
               </Tabs>
           </Box>
     </div>

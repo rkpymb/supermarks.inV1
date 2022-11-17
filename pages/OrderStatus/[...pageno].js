@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Bupass from '../../components/Bupass'
 import { BsCheckCircle } from "react-icons/bs";
 const Slug = (props) => {
-    console.log(props.myBlog.data)
+  
     const [Orderid, setOrderid] = useState(props.myBlog.data.Orderid);
     const [OrderStatusText, setOrderStatusText] = useState(props.myBlog.data.OrderStatusText);
     const [Pid, setPid] = useState(props.myBlog.data.Pid);

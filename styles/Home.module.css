@@ -5,6 +5,16 @@
   color: #3c4852;
   overflow: hidden;
 }
+.DashboardBox {
+  color: #3c4852;
+  overflow: hidden;
+
+  padding:10px;
+  min-height: 100vh;
+}
+.EditAccInput{
+  margin-top: 15px;
+}
 .containerInovice {
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 
@@ -15,20 +25,35 @@
   overflow: hidden;
   background-color: rgb(244, 240, 240);
 }
-.containerInoviceBox{
+
+.containerInoviceBox {
   padding: 10px;
 }
 
-.containerInoviceHeader{
+.DaboardHeader {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
 }
-.OrderDetailsItem{
+
+.DaboardHeaderA {
   display: flex;
-  justify-content:space-between;
+  align-items: center;
+}
+
+.containerInoviceHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.OrderDetailsItem {
+  display: flex;
+  justify-content: space-between;
   text-align: left;
 }
+
 .PaymentBox {
   margin: auto;
   margin-top: 0;
@@ -43,8 +68,36 @@
   padding: 10px;
 }
 
+.dbLogobox {
+  background-color: rgb(255, 255, 255);
+  min-height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DbMenuItemBox {
+  min-height: 100vh;
+  background-color: rgb(248, 241, 241);
+  font-weight: 500;
+
+}
+
+.DbMenuItem {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
 .tdtext {
   font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Paybtnbox {
@@ -160,17 +213,18 @@
   margin: 10px;
 
 }
-.Applycodebtn{
+
+.Applycodebtn {
   display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    padding: 10px;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
-    margin: 10px;
-    background-color: #ab8352;
-    color: white;
-    cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  padding: 10px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  margin: 10px;
+  background-color: #ab8352;
+  color: white;
+  cursor: pointer;
 }
 
 .PlanBoxitem {
@@ -388,6 +442,7 @@
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   z-index: 999;
+    
 }
 
 .Navbar_Sub {
@@ -897,8 +952,6 @@
 .CourseDataBox {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap-reverse;
-
 
 }
 
@@ -1137,7 +1190,40 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+.Welcomeuserbox{
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+}
+.DbTowBox{
+  display: flex;
 
+  justify-content:center;
+  align-items:center;
+  
+}
+.DbTowBoxA{
+  display: flex;
+  
+    justify-content: center;
+    align-items: center;
+  width:30%;
+
+}
+.DbTowBoxB {
+  width: 70%;
+  
+}
+.DPIMG{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+   
+}
 .CountboxItem {
 
   margin: 10px;
@@ -1379,9 +1465,33 @@
     width: 100%;
 
   }
+
+  .DbTowBox {
+    flex-wrap: wrap;
+    margin: 0;
+    width: 100%;
+
+  }
+    .DbTowBoxA {
+      width: 100%;
+  
+    }
+  
+    .DbTowBoxB {
+      width: 100%;
+  
+    }
+
   .containerInovice {
     margin: 0;
     width: 100%;
+
+  }
+
+  .CourseDataBox {
+
+    flex-wrap: wrap-reverse;
+
 
   }
 

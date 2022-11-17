@@ -2,9 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Herobox from '../components/Herobox'
-
+import Footer from '../components/Footer'
 import Proccesbox from '../components/Proccesbox'
-import Placementsliders from '../components/Placementsliders'
+
 import TestHomelist from '../components/TestHomelist'
 import Caterorieshome from '../components/Caterorieshome'
 
@@ -35,14 +35,12 @@ export default function Home({ SetHeader_false }) {
         <TestHomelist />
         <Caterorieshome />
       </div>
-      <div className={styles.dataspacer}> </div>
-      <div className={styles.container} >
-        <Placementsliders />
-      </div>
-      <div className={styles.dataspacer}> </div>
+      
       
       <div style={{ height: '100px' }}> </div>
-      
+      <div className={styles.container_full} style={{ backgroundColor: '#232323' }} >
+        <Footer />
+      </div>
     </>
 
   )

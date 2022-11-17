@@ -14,6 +14,7 @@ export default function Home(props) {
     const [UserMobile, setUserMobile] = useState(props.UserMobile);
     const [UserName, setUserName] = useState(props.UserName);
     const [UserEmail, setUserEmail] = useState(props.UserEmail);
+    const [validity, setValidity] = useState(props.Validitydays);
     const [Discount, setDiscount] = useState(props.Discount);
     const [Coupon, setCoupon] = useState(props.Coupon);
     const [CouponDiscount, setCouponDiscount] = useState(props.CouponDiscount);
@@ -28,7 +29,7 @@ export default function Home(props) {
     const CreateOrder = async () => {
         seLoader(true);
         if (Allok == true) {
-            const sendReg = { UserMobile: UserMobile, Pid: Pid, Discount: Discount, Coupon: Coupon, CouponDiscount: CouponDiscount, TotalDiscount: TotalDiscount, ProductType: ProductType, TotalAmt: Total, mprice: Mprice }
+            const sendReg = { UserMobile: UserMobile, Pid: Pid, Discount: Discount, Coupon: Coupon, CouponDiscount: CouponDiscount, TotalDiscount: TotalDiscount, ProductType: ProductType, TotalAmt: Total, mprice: Mprice, validity: validity }
             const data = await fetch("/api/CreateOrder", {
                 method: "POST",
                 headers: {
@@ -39,7 +40,7 @@ export default function Home(props) {
                 return b.json();
             })
                 .then((parsedReg) => {
-                    console.log(parsedReg)
+                    // console.log(parsedReg)
                     if (parsedReg.statusdata == true) {
                      
                         makePayment(parsedReg.dataOrderid);
@@ -60,11 +61,11 @@ export default function Home(props) {
 
     const UpdateOrder = async (ee, dataOrderid) => {
         
-        console.log(dataOrderid)
+        // console.log(dataOrderid)
         const PAYMENTID = ee.razorpay_payment_id
         const razorpay_order_id = ee.razorpay_order_id
-        console.log(PAYMENTID)
-        console.log(razorpay_order_id)
+        // console.log(PAYMENTID)
+        // console.log(razorpay_order_id)
       
         const sendRegUpdate = { UserMobile: UserMobile, Paymentid: PAYMENTID, refid: razorpay_order_id, Orderid: dataOrderid }
         const dataUpdate = await fetch("/api/UpdateOrder", {

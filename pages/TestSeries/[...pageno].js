@@ -10,6 +10,43 @@ const Slug = (props) => {
     // console.log(props.myBlog)
     const router = useRouter();
     const [blog, setBlog] = useState(props.myBlog);
+    const [Buybtn, setBuybtn] = useState(true);
+    useEffect(() => {
+
+        try {
+            if (localStorage.getItem('userid')) {
+                const Pid = blog.data.pid;
+                const usermobnow = localStorage.getItem('userid');
+                const sendUser = { UserMobile: usermobnow, Pid: Pid }
+                const data = fetch("/api/CheckPassSubscription", {
+                    method: "POST",
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(sendUser)
+                }).then((a) => {
+                    return a.json();
+                })
+                    .then((parsedUser) => {
+                        if (parsedUser.statusdata == true) {
+                            setBuybtn(true)
+                        } else {
+                            setBuybtn(false)
+                        }
+
+                    })
+
+            } else {
+
+            }
+        } catch (error) {
+            console.error(error)
+
+        }
+        // check login credential end
+
+    },);
+
     return <div>
         <Head>
             <title>{blog && blog.data.title} : EXAM APP</title>
@@ -59,66 +96,8 @@ const Slug = (props) => {
                             </div>
 
                         </div>
-                        <div className={styles.CBoxAData_Tags} >
-                            <div className={styles.CBoxAData_TagsItem} >
-                                <div className={styles.CBoxAData_iconIMG}>
-                                    <Image src='/img/blueprint.png' alt="Vercel Logo" height="20" width="20" />
-                                </div>
-                                <div className={styles.CBoxAData_TagsItemData} >
-                                    {blog && blog.data.tagline}
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className={styles.CBoxAData_Tags} >
-                            <div className={styles.CBoxAData_TagsItem} >
-                                <div className={styles.CBoxAData_iconIMG}>
-                                    <Image src='/img/blueprint.png' alt="Vercel Logo" height="20" width="20" />
-                                </div>
-                                <div className={styles.CBoxAData_TagsItemData} >
-                                    {blog && blog.data.tagline}
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className={styles.CBoxAData_Tags} >
-                            <div className={styles.CBoxAData_TagsItem} >
-                                <div className={styles.CBoxAData_iconIMG}>
-                                    <Image src='/img/blueprint.png' alt="Vercel Logo" height="20" width="20" />
-                                </div>
-                                <div className={styles.CBoxAData_TagsItemData} >
-                                    {blog && blog.data.tagline}
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className={styles.CBoxAData_Tags} >
-                            <div className={styles.CBoxAData_TagsItem} >
-                                <div className={styles.CBoxAData_iconIMG}>
-                                    <Image src='/img/blueprint.png' alt="Vercel Logo" height="20" width="20" />
-                                </div>
-                                <div className={styles.CBoxAData_TagsItemData} >
-                                    {blog && blog.data.tagline}
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className={styles.CBoxAData_Tags} >
-                            <div className={styles.CBoxAData_TagsItem} >
-                                <div className={styles.CBoxAData_iconIMG}>
-                                    <Image src='/img/blueprint.png' alt="Vercel Logo" height="20" width="20" />
-                                </div>
-                                <div className={styles.CBoxAData_TagsItemData} >
-                                    {blog && blog.data.tagline}
-                                </div>
-                            </div>
-
-                        </div>
-
-
 
                     </div>
-
 
                 </div>
                 <div className={styles.CBoxB}>
@@ -166,14 +145,27 @@ const Slug = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className={styles.CBoxAData_BoxFotter}>
-                    <Link href={`/Pass/${blog.data.pid}`}>
-                    <div className={styles.Btn_icon}>
-                        <small>Enroll into Test series </small>
-                        <span><FiChevronRight /></span>
-                        </div>
-                    </Link>
-                </div>
+                {Buybtn &&
+                    <div className={styles.CBoxAData_BoxFotter}>
+                        <Link href={`/Pass/${blog.data.pid}`}>
+                            <div className={styles.Btn_icon}>
+                                <small>Enroll into Test series </small>
+                                <span><FiChevronRight /></span>
+                            </div>
+                        </Link>
+                    </div>
+                }
+                {!Buybtn &&
+                    <div className={styles.CBoxAData_BoxFotter}>
+                        <Link href={`/ClassRoom/${blog.data.pid}`}>
+                            <div className={styles.Btn_icon}>
+                                <small>View Test Series </small>
+                                <span><FiChevronRight /></span>
+                            </div>
+                        </Link>
+                    </div>
+                }
+
             </div>
 
         </div>
@@ -198,11 +190,11 @@ const Slug = (props) => {
             <div className={styles.testboxtestlist} >
                 <div className={styles.testboxtestlistA} >
                     <div className={styles.Testlistitem}>
-                       
+
                         <div className={styles.Testlistitems}>
-                           
+
                             <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
+                            <div className={styles.testiconsBox}>
                                 <div className={styles.testiconsItemMain}>
                                     <span><FiCoffee /></span>   <span>100 Questions</span>
                                 </div>
@@ -214,291 +206,30 @@ const Slug = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
+                        {Buybtn &&
+                            <Link href={`/Pass/${blog.data.pid}`}>
+                                <div className={styles.Btn_icon}>
+                                    <span><FiUnlock /></span>
+                                    <small>unlock </small>
+
                                 </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
+                            </Link>
+                        }
+                        {!Buybtn &&
+                            <Link href={`/ClassRoom/${blog.data.pid}`}>
+                                <div className={styles.Btn_icon}>
+                                    <span><FiChevronRight /></span>
+                                    <small>Start</small>
+
                                 </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
-                    </div>
-                    <div className={styles.Testlistitem}>
-                       
-                        <div className={styles.Testlistitems}>
-                           
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
-                            <div className={styles.testiconsBox}> 
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
-                                </div>
-                                <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.Btn_icon}>
-                            <span><FiUnlock /></span>
-                            <small>unlock </small>
-                          
-                        </div>
+                            </Link>
+                        }
+
                     </div>
 
+
                 </div>
-               
+
             </div>
 
             <div style={{ height: '30px' }}></div>
@@ -506,22 +237,50 @@ const Slug = (props) => {
         <div style={{ height: '30px' }}></div>
         {/* Footer mobile btn */}
         <div className={styles.FootermobileBtn}>
-            <div className={styles.FotterPriceBox}>
-                <div className={styles.CBoxAData_Price} >
-                    <span>FEE : ₹{blog && blog.data.sprice} <small><del>₹{blog && blog.data.mprice}</del> </small> </span>
+            {Buybtn &&
+                <div className={styles.FotterPriceBox}>
+                    <div className={styles.CBoxAData_Price} >
+                        <span>FEE : ₹{blog && blog.data.sprice} <small><del>₹{blog && blog.data.mprice}</del> </small> </span>
+                    </div>
+                    <div className={styles.saletag}>
+                        <span>Save Today ₹{blog && blog.data.mprice - blog.data.sprice}</span>
+                    </div>
                 </div>
-                <div className={styles.saletag}>
-                    <span>Save Today ₹{blog && blog.data.mprice - blog.data.sprice}</span>
-                </div>
-            </div>
+            }
+            
+            {Buybtn &&
             <div className={styles.hh}>
                 <Link href={`/Pass/${blog.data.pid}`}>
-                <div className={styles.Btn_icon} >
-                    <small>Enroll now</small>
-                    <span><FiChevronRight /></span>
-                </div>
+                    <div className={styles.Btn_icon} >
+                        <small>Enroll now</small>
+                        <span><FiChevronRight /></span>
+                    </div>
                 </Link>
+
             </div>
+            }
+            {!Buybtn &&
+                <div className={styles.FotterPriceBox}>
+                    <div className={styles.CBoxAData_Price} >
+                        <span>PASS SUBSCRIBED </span>
+                    </div>
+                    <div className={styles.saletag}>
+                        <span>Active</span>
+                    </div>
+                </div>
+            }
+
+            {!Buybtn &&
+                <div className={styles.hh}>
+                    <Link href={`/Pass/${blog.data.pid}`}>
+                        <div className={styles.Btn_icon} >
+                            <small>View Test Series</small>
+                            <span><FiChevronRight /></span>
+                        </div>
+                    </Link>
+
+                </div>
+            }
         </div>
     </div>
 };

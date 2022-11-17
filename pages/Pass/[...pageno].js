@@ -47,7 +47,7 @@ const Slug = (props) => {
             }
         } catch (error) {
             console.error(error)
-            localStorage.clear()
+            // localStorage.clear()
         }
         // check login credential end
 
