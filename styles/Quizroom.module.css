@@ -1,0 +1,43 @@
+.container {
+    margin: auto;
+    margin-top: 0;
+    width: 100%;
+    color: #3c4852;
+    overflow: hidden;
+}
+
+.Header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    margin-top: -110px;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    min-height: 110px;
+}
+
+.HeaderBox {
+    min-height: 40px;
+    color: white;
+    display: flex;
+    background-color:rgb(21, 20, 20);
+    padding: 10px;
+}
+
+.HeaderLeft {
+    display: flex;
+    align-items: center;
+}
+
+.StartertestBox {
+    margin: auto;
+    margin-top: 0;
+    width: 50%;
+    color: #3c4852;
+    overflow: hidden;
+}
+.Nv{
+    background-color: rgb(255, 255, 255);
+    color: #3c4852;
+}

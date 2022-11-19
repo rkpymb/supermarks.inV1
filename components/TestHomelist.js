@@ -93,7 +93,7 @@ const TestHomelist = () => {
                                                 backgroundColor: '#c5d6e3',
                                             }}
                                         >
-                                            <Image src={`https://aitechnolog.com/skillfilt/Storage/img/panel/course/${item.img}`} alt="Vercel Logo" layout='fill' />
+                                            <Image src={`https://aitechnolog.com/examapp/Storage/panel/img/${item.img}`} alt="Vercel Logo" layout='fill' />
                                         </div>
                                         <div className={styles.TestText}>
                                             <div className={styles.TestTexttitlebox}>
@@ -104,7 +104,7 @@ const TestHomelist = () => {
                                                             <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/wallet-money.svg' />
                                                         </div>
                                                         <div className={styles.coursestickerItemtext}>
-                                                            <span>Hindi / English</span>
+                                                            <span>{item.lang}</span>
                                                         </div>
                                                     </div>
                                                     <div className={styles.coursestickerItem}>
@@ -112,7 +112,8 @@ const TestHomelist = () => {
                                                             <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/suitcase-portfolio-1.svg' />
                                                         </div>
                                                         <div className={styles.coursestickerItemtext}>
-                                                            <span>1200+ Enrolled</span>
+                                                            
+                                                            <span>{item.enrolled} Enrolled</span>
                                                         </div>
                                                     </div>
                                                     
@@ -121,7 +122,7 @@ const TestHomelist = () => {
                                             <Link href={`/TestSeries/${item.pid}`}>
                                                 <div className={styles.Testfooter}>
                                                     <div> 
-                                                        <div><small>Take a Free Test</small></div>
+                                                        <div><small>{item.tagline}</small></div>
                                                         
                                                     </div>
                                                    
