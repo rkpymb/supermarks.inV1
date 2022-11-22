@@ -4,14 +4,11 @@ import Skeleton from '@mui/material/Skeleton';
 import styles from '../styles/Home.module.css'
 
 import Image from 'next/image'
-import Dashboardstyle from '../styles/Dashboard.module.css'
+
 import { useRouter } from 'next/router'
 
-import { FiChevronRight, FiShoppingBag, FiMapPin, FiCreditCard, FiLogOut } from "react-icons/fi";
-import Link from 'next/link'
-
-const Dashboard = ({ SetHeader_true }) => {
-    SetHeader_true(false)
+const Dashboard = () => {
+   
     const router = useRouter()
     const [UserlogData, setUserlogData] = useState();
     useEffect(() => {

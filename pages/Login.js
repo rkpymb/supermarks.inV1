@@ -1,14 +1,16 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useContext } from 'react';
 import { useRouter, useParams } from 'next/router'
 import Head from 'next/head'
+import CheckloginContext from '../context/auth/CheckloginContext'
 import styles from '../styles/Home.module.css'
 import Loginstyles from '../styles/Login.module.css'
 import TextField from '@mui/material/TextField';
 import { FiChevronRight } from 'react-icons/fi';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
-const Login = ({ BackDropOpen, BackDropClose, SetHeader_true }) => {
+const Login = ({ BackDropOpen, BackDropClose }) => {
+    const Contextdata = useContext(CheckloginContext)
     const router = useRouter()
     const [usermobile, setMob] = useState('');
     const [sot, setSot] = useState('');
@@ -21,6 +23,16 @@ const Login = ({ BackDropOpen, BackDropClose, SetHeader_true }) => {
     const [postdata, setPostdata] = useState({});
     const [username, setUsername] = useState('');
     const [useremail, setEmail] = useState('');
+
+
+    useEffect(() => {
+        if (Contextdata.IsLogin == true) {
+            console.log('Login')
+            router.push('/Dashboard')
+        } else {
+            console.log('Not Login')
+        }
+    });
  
     const handleChangeMob = () => {
         setIsalert(false);
@@ -28,7 +40,7 @@ const Login = ({ BackDropOpen, BackDropClose, SetHeader_true }) => {
         if (mobA.length <= 10) {
             setMob(mobA)
         }
-
+      
     }
     // On submit mobile
     const handleSubmit = async () => {
@@ -84,6 +96,7 @@ const Login = ({ BackDropOpen, BackDropClose, SetHeader_true }) => {
             } else if (u_type == 1) {
                 localStorage.setItem('userid', usermobile);
                 router.push('/')
+               
             }
         } else {
             BackDropClose()
@@ -154,7 +167,7 @@ const Login = ({ BackDropOpen, BackDropClose, SetHeader_true }) => {
                                 <img src='./img/gif/55461-girl-tapping-phone.gif' alt='' />
                             </div>
                             <div>
-                                <div><h3>Log in to your Account</h3></div>
+                                <div><h3>Log in to your Account </h3></div>
                                 <div className={Loginstyles.LoginBox_input}>
                                     <TextField fullWidth label="Enter Mobile Number" id="userm" onChange={handleChangeMob} value={usermobile} />
                                 </div>

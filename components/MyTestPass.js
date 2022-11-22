@@ -10,8 +10,8 @@ import { FiChevronRight, FiNavigation, FiInfo, FiCoffee, FiFileText, FiClock, Fi
 
 import Link from 'next/link'
 
-const Mytest = ({ SetHeader_true }) => {
-    SetHeader_true(false)
+const Mytest = () => {
+   
     const router = useRouter()
     const [UserlogData, setUserlogData] = useState();
     const [Retdata, setRetdata] = useState([]);

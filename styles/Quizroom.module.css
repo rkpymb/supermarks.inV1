@@ -3,25 +3,22 @@
     margin-top: 0;
     width: 100%;
     color: #3c4852;
-    overflow: hidden;
+
 }
 
 .Header {
     width: 100%;
     position: sticky;
     top: 0;
-    margin-top: -110px;
     overflow: hidden;
     background-color: rgb(255, 255, 255);
     z-index: 999;
-    min-height: 110px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 }
 
 .HeaderBox {
     min-height: 40px;
-    color: white;
     display: flex;
-    background-color:rgb(21, 20, 20);
     padding: 10px;
 }
 
@@ -36,8 +33,83 @@
     width: 50%;
     color: #3c4852;
     overflow: hidden;
+    padding: 5px;
+    min-height: 100vh;
+
 }
-.Nv{
+
+.Nv {
     background-color: rgb(255, 255, 255);
     color: #3c4852;
+    position: sticky;
+    top: 0;
+}
+
+
+
+.FooterBtnBox {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 0;
+    background-color: white !important;
+    width: 100%;
+    align-items: center !important;
+    justify-content: center;
+    padding: 10px 10px 10px 5px;
+    border-top: 1px dashed rgb(211, 203, 203);
+
+}
+
+.DurationBoxItem{
+    display: flex;
+    align-items: center;
+    
+
+}
+.DurationBox{
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+    margin:10px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 10px;
+
+}
+.instructionsBox{
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+    margin:10px;
+   
+    padding: 10px;
+
+}
+.QuesBox{
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+    margin:10px;
+   min-height:100vh;
+    padding: 10px;
+
+}
+.OptionsBox{
+    margin:15px;
+}
+.OptionsItem{
+    padding:5px;
+    margin:15px;
+    background-color:rgb(247, 247, 247);
+    cursor: pointer;
+    border-radius:2px;
+  
+}
+.OptionsItem:hover{
+   
+    border:1px solid rgb(0, 0, 0);
+}
+
+/* Mobile CSS */
+
+@media only screen and (max-width: 600px) {
+    .StartertestBox{
+        width: 95%;
+    }
+    
 }

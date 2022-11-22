@@ -84,7 +84,8 @@ const TestHomelist = () => {
                             <div className={styles.dataspacer}> </div>
                             <div className={styles.TestItemBox}>
                                 {Retdata.map((item) => {
-                                    return <div className={styles.TestItem} key={item.id}>
+                                    return <Link href={`/TestSeries/${item.pid}`} key={item.id}>
+                                    <div className={styles.TestItem}>
                                         <div
                                             style={{
                                                 position: "relative",
@@ -119,23 +120,12 @@ const TestHomelist = () => {
                                                     
                                                 </div>
                                             </div>
-                                            <Link href={`/TestSeries/${item.pid}`}>
-                                                <div className={styles.Testfooter}>
-                                                    <div> 
-                                                        <div><small>{item.tagline}</small></div>
-                                                        
-                                                    </div>
-                                                   
-                                                    <div className={styles.Btn_icon}>
-                                                        <small>View Test Series</small>
-                                                        <span><FiChevronRight /></span>
-                                                    </div>
-                                                </div>
-                                            </Link>
+                                            
 
                                         </div>
 
                                     </div>
+                                    </Link>
                                 }
 
                                 )}

@@ -3,26 +3,22 @@ import Head from 'next/head'
 import Skeleton from '@mui/material/Skeleton';
 import styles from '../styles/Home.module.css'
 import PlayQuiz from '../components/PlayQuiz'
-import Image from 'next/image'
-import Dashboardstyle from '../styles/Dashboard.module.css'
+
 import { useRouter } from 'next/router'
 import { FiChevronRight, FiNavigation, FiInfo, FiCoffee, FiFileText, FiClock, FiUnlock, FiShoppingBag, FiMapPin, FiCreditCard, FiLogOut } from 'react-icons/fi';
 
 import Link from 'next/link'
 
-const Mytest = ({ SetHeader_true, ID }) => {
-    SetHeader_true(false)
+const Mytest = ({ ID }) => {
     const router = useRouter()
-    const [UserlogData, setUserlogData] = useState();
-  
+    const [isLoading, setIsLoading] = useState(true);
     const [Retdata, setRetdata] = useState([]);
     useEffect(() => {
 
         try {
             if (localStorage.getItem('userid')) {
 
-                const usermobnow = localStorage.getItem('userid');
-                const userid = { usermobnow }
+               
                 const TestID = { ID }
                 const data = fetch("/api/TestChaptersList", {
                     method: "POST",
@@ -34,8 +30,9 @@ const Mytest = ({ SetHeader_true, ID }) => {
                     return a.json();
                 })
                     .then((parsedUser) => {
-                        console.log(parsedUser)
+                        // console.log(parsedUser)
                         setRetdata(parsedUser)
+                        setIsLoading(false)
                     })
 
             } else {
@@ -61,40 +58,60 @@ const Mytest = ({ SetHeader_true, ID }) => {
 
             <div className={styles.container}>
                 <div className={styles.DashboardBox}>
-                    <div className={styles.Welcomeuserbox}>
-                        <span>{ID} Chapters</span>
-                    </div>
-
-                    {Retdata.map((item) => {
-                        return <div className={styles.testboxtestlist} key={item.id}>
-                            <div className={styles.testboxtestlistA} >
-                                <div className={styles.Testlistitem}>
-
-                                    <div className={styles.Testlistitems}>
-
-                                        <div> <span>{item.title}</span></div>
-                                        <div className={styles.testiconsBox}>
-                                            <div className={styles.testiconsItemMain}>
-                                                <span><FiCoffee /></span>   <span>100 Questions</span>
-                                            </div>
-                                            <div className={styles.testiconsItemMain}>
-                                                <span><FiFileText /></span>   <span>100 Marks</span>
-                                            </div>
-                                            <div className={styles.testiconsItemMain}>
-                                                <span><FiClock /></span>   <span>60 Mins</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <PlayQuiz Pid={item.pid} ChapterName={item.title} />
-
-                                </div>
-
+                    {isLoading &&
+                        <div>
+                            <div style={{ marginTop: '15px' }}>
+                                <Skeleton variant="rectangular" height={100} />
                             </div>
-
+                            <div style={{ marginTop: '15px' }}>
+                                <Skeleton variant="rectangular" height={100} />
+                            </div>
+                            <div style={{ marginTop: '15px' }}>
+                                <Skeleton variant="rectangular" height={100} />
+                            </div>
+                            <div style={{ marginTop: '15px' }}>
+                                <Skeleton variant="rectangular" height={100} />
+                            </div>
+                            <div style={{ marginTop: '15px' }}>
+                                <Skeleton variant="rectangular" height={100} />
+                            </div>
                         </div>
                     }
+                    {!isLoading &&
+                    <div>
+                            {Retdata.map((item) => {
+                                return <div className={styles.testboxtestlist} key={item.id}>
+                                    <div className={styles.testboxtestlistA} >
+                                        <div className={styles.Testlistitem}>
 
-                    )}
+                                            <div className={styles.Testlistitems}>
+
+                                                <div> <span>{item.title}</span></div>
+                                                <div className={styles.testiconsBox}>
+                                                    <div className={styles.testiconsItemMain}>
+                                                        <span><FiCoffee /></span>   <span>{item.PerQMarks} Questions</span>
+                                                    </div>
+                                                    <div className={styles.testiconsItemMain}>
+                                                        <span><FiFileText /></span>   <span>{item.totalMarks} Marks</span>
+                                                    </div>
+                                                    <div className={styles.testiconsItemMain}>
+                                                        <span><FiClock /></span>   <span>{item.duration} Mins</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <PlayQuiz Pid={item.pid} ChapterName={item.title} ChapterID={item.id} duration={item.duration} totalMarks={item.totalMarks} Totalques={item.PerQMarks} RulesTest={item.RulesTest} />
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            }
+
+                            )}
+                        </div>
+                    }
+                    
                 </div>
             </div>
         </>

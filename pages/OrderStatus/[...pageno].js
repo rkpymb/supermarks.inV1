@@ -5,6 +5,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Bupass from '../../components/Bupass'
 import { BsCheckCircle } from "react-icons/bs";
+import Navbar from '../../components/Navbar'
 const Slug = (props) => {
   
     const [Orderid, setOrderid] = useState(props.myBlog.data.Orderid);
@@ -17,6 +18,7 @@ const Slug = (props) => {
     const router = useRouter();
 
     return <div>
+        <Navbar/>
         <Head>
             <title>Order Status #{Orderid}</title>
         </Head>

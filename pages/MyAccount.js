@@ -9,10 +9,8 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react';
 import { FiChevronRight, FiShoppingBag, FiMapPin, FiCreditCard, FiLogOut } from "react-icons/fi";
 import Link from 'next/link'
-const MyOrders = ({ userlogst, userlogData, SetHeader_true }) => {
-    useEffect(() => {
-        SetHeader_true()
-    })
+const MyOrders = () => {
+   
 
 
     return (
@@ -23,7 +21,7 @@ const MyOrders = ({ userlogst, userlogData, SetHeader_true }) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <MyProfile SetHeader_true={SetHeader_true} />
+            <MyProfile  />
         </>
     )
 }

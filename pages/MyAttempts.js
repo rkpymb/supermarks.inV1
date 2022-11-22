@@ -9,11 +9,8 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react';
 import { FiChevronRight, FiShoppingBag, FiMapPin, FiCreditCard, FiLogOut } from "react-icons/fi";
 import Link from 'next/link'
-const MyAttempts = ({ userlogst, userlogData, SetHeader_true }) => {
-  useEffect(() => {
-    SetHeader_true()
-  })
-
+const MyAttempts = () => {
+ 
 
   return (
     <>

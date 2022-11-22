@@ -10,8 +10,8 @@ import { FiChevronRight, FiNavigation, FiInfo, FiCoffee, FiFileText, FiClock, Fi
 
 import Link from 'next/link'
 
-const MyAccount = ({ SetHeader_true }) => {
-    SetHeader_true(false)
+const MyAccount = () => {
+  
     const router = useRouter()
     const [UserName, setUserName] = useState('');
     const [UserMobile, setUserMobile] = useState('');

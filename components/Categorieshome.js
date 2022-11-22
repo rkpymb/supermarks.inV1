@@ -1,116 +1,81 @@
-import React from 'react'
+
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
-import { FiChevronRight } from "react-icons/fi";
-const Categorieshome = () => {
-  return (<>
-    <div className={styles.categoryslider}>
-      <div className={styles.categoryslider_boxA}>
-        <img src='/img/featureimg1.png' alt='imagehero' />
-      </div>
-      <div className={styles.categoryslider_boxB}>
-        <div className={styles.categoryslider_Text}>
-          <span>Choose Your Class or Board</span>
-          <small>Get exam-ready with concepts, questions and study notes as per the latest pattern</small>
+import React, { useRef, useState, useEffect } from "react";
+import { useRouter } from 'next/router'
+import axios from 'axios';
+import Skeleton from '@mui/material/Skeleton';
+import Link from 'next/link';
+const Caterorieshome = () => {
+  const router = useRouter()
+  const [Retdata, setRetdata] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [OpenSnakbar, setOpenSnakbar] = useState(true);
+
+  useEffect(() => {
+
+    const handleSubmit = async () => {
+      const dataid = '08c5th4rh86ht57h6g';
+      const sendUM = { dataid }
+      const data = await fetch("/api/Catlist", {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(sendUM)
+      }).then((a) => {
+        return a.json();
+      })
+        .then((parsed) => {
+          // console.log(parsed)
+          setRetdata(parsed)
+          setIsLoading(false)
+        })
+    }
+    handleSubmit()
+
+
+  }, [router.query])
+
+  return (
+
+    <>
+      {isLoading &&
+        <div >
+          <Skeleton variant="rectangular" height={150} />
         </div>
-        <div style={{ height: '30px' }}> </div>
-        <div className={styles.TitlebtnBox} >
-          <span>Choose from Boards :</span>
-          <div className={styles.Btn_icon} style={{ backgroundColor: 'white', color: '#3c4852' }}>
-            <small>view all</small>
-            <span><FiChevronRight /></span>
-          </div>
-        </div>
-        <div className={styles.categoryItemBox}>
-          <div className={styles.categoryItem}>
-            <div className={styles.catItemImg}>
-              <Image src="/img/bseb.jpg" alt="Vercel Logo" width={30} height={30} />
-            </div>
-            <div className={styles.catItemText}>
-              <span>Bihar Board</span>
-            </div>
+      }
 
-          </div>
-          <div className={styles.categoryItem}>
-            <div className={styles.catItemImg}>
-              <Image src="/img/bseb.jpg" alt="Vercel Logo" width={30} height={30} />
-            </div>
-            <div className={styles.catItemText}>
-              <span>Bihar Board</span>
-            </div>
+      {!isLoading &&
+        <div className={styles.gridbox}>
+          {Retdata.map((item) => {
+            return <div key={item.id}>
+              <Link href={`/category/${item.catid}`}>
+                <div className={styles.CaterorieshomeItem}>
+                  <div>
+                    <Image
+                      src={`https://aitechnolog.com/examapp/Storage/panel/img/${item.catimg}`}
+                      alt="Picture of the author"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <div className={styles.CaterorieshomeItem_title}>
+                    <span>{item.cattitle}</span>
 
-          </div>
-          <div className={styles.categoryItem}>
-            <div className={styles.catItemImg}>
-              <Image src="/img/bseb.jpg" alt="Vercel Logo" width={30} height={30} />
+                  </div>
+                </div>
+              </Link>
             </div>
-            <div className={styles.catItemText}>
-              <span>Bihar Board</span>
-            </div>
+          }
 
-          </div>
-          <div className={styles.categoryItem}>
-            <div className={styles.catItemImg}>
-              <Image src="/img/bseb.jpg" alt="Vercel Logo" width={30} height={30} />
-            </div>
-            <div className={styles.catItemText}>
-              <span>Bihar Board</span>
-            </div>
-
-          </div>
-
-        </div>
-        <div style={{ height: '30px' }}> </div>
-        <div className={styles.TitlebtnBox} >
-          <span>Choose from Classes :</span>
-          <div className={styles.Btn_icon} style={{ backgroundColor: 'white', color: '#3c4852' }}>
-            <small>view all</small>
-            <span><FiChevronRight /></span>
-          </div>
-        </div>
-        <div className={styles.categoryItemBox}>
-          <div className={styles.categoryItem}>
-            <div className={styles.catItemImg}>
-              <Image src="/img/bseb.jpg" alt="Vercel Logo" width={30} height={30} />
-            </div>
-            <div className={styles.catItemText}>
-              <span>Bihar Board</span>
-            </div>
-
-          </div>
-          <div className={styles.categoryItem}>
-            <div className={styles.catItemImg}>
-              <Image src="/img/bseb.jpg" alt="Vercel Logo" width={30} height={30} />
-            </div>
-            <div className={styles.catItemText}>
-              <span>Bihar Board</span>
-            </div>
-
-          </div>
-          <div className={styles.categoryItem}>
-            <div className={styles.catItemImg}>
-              <Image src="/img/bseb.jpg" alt="Vercel Logo" width={30} height={30} />
-            </div>
-            <div className={styles.catItemText}>
-              <span>Bihar Board</span>
-            </div>
-
-          </div>
-          <div className={styles.categoryItem}>
-            <div className={styles.catItemImg}>
-              <Image src="/img/bseb.jpg" alt="Vercel Logo" width={30} height={30} />
-            </div>
-            <div className={styles.catItemText}>
-              <span>Bihar Board</span>
-            </div>
-
-          </div>
+          )}
 
         </div>
-      </div>
-    </div>
-  </>
+      }
+
+    </>
   )
 }
 
-export default Categorieshome
+export default Caterorieshome

@@ -4,15 +4,19 @@ import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import Skeleton from '@mui/material/Skeleton';
 import { FiChevronRight, FiNavigation, FiInfo, FiCoffee, FiFileText, FiClock, FiUnlock } from 'react-icons/fi';
 import CounsellingForm from '../../components/CounsellingForm'
+import Navbar from '../../components/Navbar'
 const Slug = (props) => {
     // console.log(props.myBlog)
     const router = useRouter();
     const [blog, setBlog] = useState(props.myBlog);
     const [Buybtn, setBuybtn] = useState(true);
+    const [Retdata, setRetdata] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
-
+        handleSubmit(blog.data.pid);
         try {
             if (localStorage.getItem('userid')) {
                 const Pid = blog.data.pid;
@@ -30,6 +34,7 @@ const Slug = (props) => {
                     .then((parsedUser) => {
                         if (parsedUser.statusdata == true) {
                             setBuybtn(true)
+                           
                         } else {
                             setBuybtn(false)
                         }
@@ -45,9 +50,32 @@ const Slug = (props) => {
         }
         // check login credential end
 
-    },);
+        
+    
+    }, [router.query]);
+
+    const handleSubmit = async (Pid) => {
+        const dataid = Pid;
+        const sendUM = { dataid }
+        const data = await fetch("/api/TestPassChapters", {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(sendUM)
+        }).then((a) => {
+            return a.json();
+        })
+            .then((parsed) => {
+               
+                setRetdata(parsed)
+                setIsLoading(false)
+               
+            })
+    }
 
     return <div>
+        <Navbar/>
         <Head>
             <title>{blog && blog.data.title} : EXAM APP</title>
             <meta name="description" content={blog && blog.data.title} />
@@ -66,10 +94,10 @@ const Slug = (props) => {
                         <div className={styles.CBoxAData_Tags} >
                             <div className={styles.CBoxAData_TagsItem} >
                                 <div className={styles.CBoxAData_iconIMG}>
-                                    <Image src='/img/circular-clock.png' alt="Vercel Logo" height="20" width="20" />
+                                    <Image src='https://aitechnolog.com/examapp/Storage/img/icons/lan.png' alt="Vercel Logo" height="20" width="20" />
                                 </div>
                                 <div className={styles.CBoxAData_TagsItemData} >
-                                    <span>Duration</span> | {blog && blog.data.duration}
+                                    {blog && blog.data.lang}
                                 </div>
                             </div>
 
@@ -77,10 +105,10 @@ const Slug = (props) => {
                         <div className={styles.CBoxAData_Tags} >
                             <div className={styles.CBoxAData_TagsItem} >
                                 <div className={styles.CBoxAData_iconIMG}>
-                                    <Image src='/img/online-education.png' alt="Vercel Logo" height="20" width="20" />
+                                    <Image src='https://aitechnolog.com/examapp/Storage/img/icons/add-user.png' alt="Vercel Logo" height="20" width="20" />
                                 </div>
                                 <div className={styles.CBoxAData_TagsItemData} >
-                                    <span>Learn from</span>  leading experts in the industry
+                                    {blog && blog.data.enrolled} + Enrolled
                                 </div>
                             </div>
 
@@ -88,7 +116,7 @@ const Slug = (props) => {
                         <div className={styles.CBoxAData_Tags} >
                             <div className={styles.CBoxAData_TagsItem} >
                                 <div className={styles.CBoxAData_iconIMG}>
-                                    <Image src='/img/blueprint.png' alt="Vercel Logo" height="20" width="20" />
+                                    <Image src='https://aitechnolog.com/examapp/Storage/img/icons/checked.png' alt="Vercel Logo" height="20" width="20" />
                                 </div>
                                 <div className={styles.CBoxAData_TagsItemData} >
                                     {blog && blog.data.tagline}
@@ -96,8 +124,30 @@ const Slug = (props) => {
                             </div>
 
                         </div>
+                        <div style={{ height: '30px' }}></div>
 
+                        {Buybtn &&
+                            <div className={styles.EnrollBtnBox}>
+                                <Link href={`/Pass/${blog.data.pid}`}>
+                                    <div className={styles.Btn_icon}>
+                                        <small>Enroll into Test series </small>
+                                        <span><FiChevronRight /></span>
+                                    </div>
+                                </Link>
+                            </div>
+                        }
+                        {!Buybtn &&
+                            <div className={styles.EnrollBtnBox}>
+                                <Link href={`/ClassRoom/${blog.data.pid}`}>
+                                    <div className={styles.Btn_icon}>
+                                        <small>View Test Series </small>
+                                        <span><FiChevronRight /></span>
+                                    </div>
+                                </Link>
+                            </div>
+                        }
                     </div>
+                    
 
                 </div>
                 <div className={styles.CBoxB}>
@@ -145,26 +195,7 @@ const Slug = (props) => {
                         </div>
                     </div>
                 </div>
-                {Buybtn &&
-                    <div className={styles.CBoxAData_BoxFotter}>
-                        <Link href={`/Pass/${blog.data.pid}`}>
-                            <div className={styles.Btn_icon}>
-                                <small>Enroll into Test series </small>
-                                <span><FiChevronRight /></span>
-                            </div>
-                        </Link>
-                    </div>
-                }
-                {!Buybtn &&
-                    <div className={styles.CBoxAData_BoxFotter}>
-                        <Link href={`/ClassRoom/${blog.data.pid}`}>
-                            <div className={styles.Btn_icon}>
-                                <small>View Test Series </small>
-                                <span><FiChevronRight /></span>
-                            </div>
-                        </Link>
-                    </div>
-                }
+                
 
             </div>
 
@@ -187,22 +218,30 @@ const Slug = (props) => {
 
 
         <div className={styles.container} >
-            <div className={styles.testboxtestlist} >
+            {isLoading &&
+                <div>
+                    <Skeleton variant="rectangular" height={150} />
+                </div>
+            }
+            {!isLoading &&
+            <div className={styles.testboxtestlist}>
+               
                 <div className={styles.testboxtestlistA} >
-                    <div className={styles.Testlistitem}>
+                    {Retdata.map((item) => {                       
+                        return <div className={styles.Testlistitem} key={item.id}>
 
                         <div className={styles.Testlistitems}>
 
-                            <div> <span>SBI Clerk Memory Based Paper (Held on: 12 Nov 2022 Shift 1)</span></div>
+                                <div> <span>{item.title}</span></div>
                             <div className={styles.testiconsBox}>
                                 <div className={styles.testiconsItemMain}>
-                                    <span><FiCoffee /></span>   <span>100 Questions</span>
+                                        <span><FiCoffee /></span>   <span>{item.TotalQuestions} Questions</span>
                                 </div>
                                 <div className={styles.testiconsItemMain}>
-                                    <span><FiFileText /></span>   <span>100 Marks</span>
+                                        <span><FiFileText /></span>   <span>{item.totalMarks} Marks</span>
                                 </div>
                                 <div className={styles.testiconsItemMain}>
-                                    <span><FiClock /></span>   <span>60 Mins</span>
+                                        <span><FiClock /></span>   <span>{item.duration} Mins</span>
                                 </div>
                             </div>
                         </div>
@@ -226,12 +265,14 @@ const Slug = (props) => {
                         }
 
                     </div>
+                    }
 
+                    )}
 
                 </div>
 
             </div>
-
+            }
             <div style={{ height: '30px' }}></div>
         </div>
         <div style={{ height: '30px' }}></div>
@@ -240,10 +281,10 @@ const Slug = (props) => {
             {Buybtn &&
                 <div className={styles.FotterPriceBox}>
                     <div className={styles.CBoxAData_Price} >
-                        <span>FEE : ₹{blog && blog.data.sprice} <small><del>₹{blog && blog.data.mprice}</del> </small> </span>
+                        <span>Subscribe to Acces</span>
                     </div>
                     <div className={styles.saletag}>
-                        <span>Save Today ₹{blog && blog.data.mprice - blog.data.sprice}</span>
+                        <span>{blog && blog.data.enrolled} + Enrolled</span>
                     </div>
                 </div>
             }

@@ -1,5 +1,6 @@
-import React from 'react'
+import { useState, useEffect, useContext } from 'react';
 import Image from 'next/image'
+import CheckloginContext from '../context/auth/CheckloginContext'
 import styles from '../styles/Home.module.css'
 import { AiOutlineLogin } from 'react-icons/ai';
 import { VscAccount } from "react-icons/vsc";
@@ -8,7 +9,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import Link from 'next/link';
 
 const Navbar = (props) => {
-
+  const Contextdata = useContext(CheckloginContext)
   return (
     <div className={styles.navbarBox}>
       <div className={styles.Navbar}>
@@ -25,26 +26,22 @@ const Navbar = (props) => {
        
         <div className={styles.spacermobile}></div>
         <div className={styles.NavLeft}>
-          <div className={styles.MainMenu}>
-            <Link href='/Courses'>
-              <li>Courses</li>
-            </Link>
-            <Link href='/Placements'>
-              <li>Placements</li>
-            </Link>
+          {/* <div className={styles.MainMenu}>
+            
             <Link href='/Tests'>
-              <li>Tests</li>
+              <li>Tests Series</li>
             </Link>
-          </div>
+          </div> */}
           <div className={styles.ContactTop}>
             <div className={styles.Contact_icon}>
               <span><IoIosCall /></span>
             </div>
             <div className={styles.Contact_number}>
-              <span>+91 9128439221</span>
+              
+              <span>+91 9661113102</span>
             </div>
           </div>
-          {!props.userlogst && (
+          {!Contextdata.IsLogin && (
             <Link href='Login'>
               <div className={styles.loginbtnTop}>
                 <span><AiOutlineLogin /></span>
@@ -53,14 +50,16 @@ const Navbar = (props) => {
             </Link>
 
           )}
-          {props.userlogst && (
-            <Link href='/Dashboard'>
-              <div className={styles.ProfileTop}>
+          {Contextdata.IsLogin && (
+            <Link href='Dashboard'>
+              <div className={styles.loginbtnTop}>
                 <span><VscAccount /></span>
                 <small>Dashboard</small>
               </div>
             </Link>
+
           )}
+         
 
         </div>
       </div>

@@ -1,79 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router'
 import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
 import Bupass from '../../components/Bupass'
+import Navbar from '../../components/Navbar'
+import Skeleton from '@mui/material/Skeleton';
+import CheckloginContext from '../../context/auth/CheckloginContext'
 const Slug = (props) => {
-    // console.log(props.myBlog.data.pid)
+    const Contextdata = useContext(CheckloginContext)
     const router = useRouter();
     const [PidGlobal, setPidGlobal] = useState(props.myBlog.data.pid);
     const [blog, setBlog] = useState(props.myBlog);
-    const [userlogst, setUserlogst] = useState(false);
-    const [userlogData, setUserlogData] = useState();
-
+   
     const [Retdata, setRetdata] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [OpenSnakbar, setOpenSnakbar] = useState(true);
+   
     useEffect(() => {
-
-        try {
-            if (localStorage.getItem('userid')) {
-                setUserlogst(true);
-                const usermobnow = localStorage.getItem('userid');
-                const sendUser = { usermobnow }
-                const data = fetch("/api/check", {
-                    method: "POST",
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify(sendUser)
-                }).then((a) => {
-                    return a.json();
+        const handleSubmit = async (e) => {
+            const dataid = e;
+            const sendUM = { dataid }
+            const data = await fetch("/api/GetPasslist", {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(sendUM)
+            }).then((a) => {
+                return a.json();
+            })
+                .then((parsed) => {
+                    // console.log(parsed)
+                    setRetdata(parsed)
+                    setIsLoading(false)
                 })
-                    .then((parsedUser) => {
-                        setUserlogData(parsedUser.data)
-                        // console.log(parsedUser.data.status)
-                        if (parsedUser.data.status == 1) {
-                            handleSubmit(PidGlobal);
-                        } else {
-                            router.push('/Login')
-                        }
-                    })
-
-            } else {
-                setUserlogst(false);
-                router.push('/Login')
-            }
-        } catch (error) {
-            console.error(error)
-            // localStorage.clear()
         }
-        // check login credential end
+        if (Contextdata.IsLogin == true) {
+            handleSubmit(PidGlobal);
+        } else {
+            router.push('/Login')
+        }
 
+      
     }, [router.query]);
 
 
-    const handleSubmit = async (e) => {
-        const dataid = e;
-        const sendUM = { dataid }
-        const data = await fetch("/api/GetPasslist", {
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(sendUM)
-        }).then((a) => {
-            return a.json();
-        })
-            .then((parsed) => {
-                // console.log(parsed)
-                setRetdata(parsed)
-                setIsLoading(false)
-            })
-    }
+    
 
     return <div>
+        <Navbar/>
         <Head>
             <title>{blog && blog.data.title} : EXAM APP</title>
             <meta name="description" content={blog && blog.data.title} />
@@ -103,9 +78,22 @@ const Slug = (props) => {
                             <span style={{ fontSize: '15px', fontWeight: 'bold' }}>Please Pick Your Plan</span>
                         </div>
                     </div>
-
+                    {isLoading &&
+                        <div>
+                            <div style={{ height: '20px' }}></div>
+                            <div style={{marginTop:'5px'}}>
+                                <Skeleton variant="rectangular" height={120} />
+                            </div>
+                            <div style={{marginTop:'5px'}}>
+                                <Skeleton variant="rectangular" height={120} />
+                            </div>
+                            <div style={{marginTop:'5px'}}>
+                                <Skeleton variant="rectangular" height={120} />
+                            </div>
+                       </div>
+                    }
                    
-
+                    {!isLoading &&
                     <div className={styles.PlanBoxItemlist}>
                         {Retdata.map((item) => {
                             return <div className={styles.PlanBoxitem} key={item.id}>
@@ -129,12 +117,13 @@ const Slug = (props) => {
                         }
 
                         )}
-                    </div>
+                        </div>
+                    }
                 </div>
             </div>
 
         </div>
-        <div style={{ height: '30px' }}></div>
+        <div style={{ height: '50px' }}></div>
         <div style={{ fontSize: '15px', fontWeight: 'bold', display: 'flex', backgroundColor: '#0095ff', color: 'white', height: '100px', alignItems: 'center', justifyContent: 'center', padding: '10px' }}><span>16.6L+ students are actively using Our Subscription Pass</span></div>
 
     </div>

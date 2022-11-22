@@ -5,16 +5,87 @@
   color: #3c4852;
   overflow: hidden;
 }
+
+.DBContainerflex {
+  display: flex;
+
+
+}
+.GetStartedBTN{
+  background-color: rgb(28, 26, 26);
+  color:white;
+  padding:10px;
+  margin:10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.GetStartedBTN:hover{
+  background-color: #fe8f49;
+  color:rgb(0, 0, 0);
+ 
+}
+.Websitemenu {
+  margin: auto;
+  width: 80%;
+
+  border-bottom: 1px dashed #bdbbc5;
+}
+
+
+
+.DashboardMenuBox {
+  padding: 10px;
+}
+
+.WhyChooseBox {
+  padding: 10px;
+
+}
+
+.WhyChooseBoxA {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.DashboardMenuItem {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.DBContainerMenu {
+  background-color: rgb(244, 241, 241);
+  min-width: 20%;
+}
+
+.DBContainerarea {
+  width: 100%;
+}
+
 .DashboardBox {
   color: #3c4852;
   overflow: hidden;
+  margin: auto;
+  width: 50%;
 
-  padding:10px;
   min-height: 100vh;
+  background-color: rgb(245, 251, 251);
 }
-.EditAccInput{
+
+.EditAccInput {
   margin-top: 15px;
 }
+
 .containerInovice {
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 
@@ -28,6 +99,31 @@
 
 .containerInoviceBox {
   padding: 10px;
+}
+
+.Header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  margin-top: -65px;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  z-index: 999;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+}
+
+.HeaderBox {
+  min-height: 40px;
+  color: white;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+
+}
+
+.HeaderLeft {
+  display: flex;
+  align-items: center;
 }
 
 .DaboardHeader {
@@ -95,9 +191,8 @@
 
 .tdtext {
   font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
 }
 
 .Paybtnbox {
@@ -159,6 +254,13 @@
 .logomain {
   width: 150px;
   /* height: 40px; */
+  cursor: pointer;
+
+}
+
+.logoDashboard {
+  width: 150px;
+
   cursor: pointer;
 
 }
@@ -330,12 +432,86 @@
   z-index: 999;
 }
 
+.WhyChooseBoxB {
+  display: flex;
+  justify-content: center;
+
+}
+
+.WhyChooseBoxItem {
+  display: flex;
+
+  padding: 10px;
+  margin: 10px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  width: 100%;
+}
+
+.WhyChooseBoxItemIcon {
+  min-width: 40px;
+  max-height: 40px;
+  background-color: #5a25cd;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.PassHeroBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.PassHeroBoxA {
+  width: 40%;
+}
+
+.PassHeroBoxB {
+  width: 40%;
+}
+
+.PassHeroItemBox {
+  display: flex;
+  width: 100%;
+}
+
+.PassHeroItem {
+  display: flex;
+  align-items: center;
+  min-width: 50%;
+}
+
+.IconPassheroimg {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin: 5px;
+  padding: 5px;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 10px;
+
+
+}
+
+.PassHeroBoxAImg {
+  display: flex;
+ 
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .Navbar {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 10px;
-
 }
 
 .MainMenu {
@@ -359,6 +535,7 @@
   background-color: #0095ff;
   color: white;
   border-radius: 5px;
+  margin: 5px;
 }
 
 .loginbtnTop span {
@@ -442,7 +619,7 @@
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   z-index: 999;
-    
+
 }
 
 .Navbar_Sub {
@@ -916,20 +1093,26 @@
   align-items: center;
   cursor: pointer;
   width: 200px;
+  height: 80px;
   margin: 10px;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   padding: 10px;
   border-radius: 5px;
   text-align: center;
-  background-color: rgb(239, 238, 216);
+  overflow: hidden;
   color: rgb(37, 36, 36);
 }
 
 .CaterorieshomeItem_title span {
-  font-weight: bold;
+  font-weight: 500;
 
 }
-
+.CaterorieshomeItem:hover{
+    border-bottom:1px solid black;
+}
+.TestItem:hover {
+  border-bottom: 1px solid black;
+}
 
 /* Course page css */
 
@@ -982,6 +1165,39 @@
   justify-content: center;
   align-items: center;
 
+}
+
+.EnrollBtnBox {
+  display: flex;
+  align-items: center;
+
+}
+
+.EnrollBtnFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 8px 15px 5px 15px;
+  background-color: #161717;
+  color: white;
+  border-radius: 5px;
+
+}
+
+.EnrollBtnFooter:hover {
+  background-color: #fe8f49;
+  color: rgb(36, 35, 35);
+}
+
+.EnrollBtnFooter span {
+  font-size: 20px;
+}
+
+.EnrollBtnFooter small {
+  margin-left: 5px;
+  margin-top: -5px;
+  font-weight: 500;
 }
 
 .CBoxAData_TagsItem {
@@ -1190,31 +1406,17 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-.Welcomeuserbox{
-  margin: 10px;
+
+.Welcomeuserbox {
+
+  background-color: white;
   padding: 10px;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 }
-.DbTowBox{
-  display: flex;
 
-  justify-content:center;
-  align-items:center;
-  
-}
-.DbTowBoxA{
-  display: flex;
-  
-    justify-content: center;
-    align-items: center;
-  width:30%;
 
-}
-.DbTowBoxB {
-  width: 70%;
-  
-}
-.DPIMG{
+
+.DPIMG {
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -1222,8 +1424,9 @@
   background-color: rgb(255, 255, 255);
   overflow: hidden;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
-   
+
 }
+
 .CountboxItem {
 
   margin: 10px;
@@ -1466,21 +1669,57 @@
 
   }
 
+  .PassHeroBox {
+   flex-wrap: wrap;
+
+  }
+
+  .PassHeroBoxA {
+    padding: 10px;
+  width: 100%;
+
+  }
+
+  .PassHeroBoxB {
+    padding: 10px;
+  width: 100%;
+
+  }
+
+  .WhyChooseBoxB {
+    flex-wrap: wrap;
+  }
+
+  .Websitemenu {
+    margin: 0;
+    width: 100%;
+
+
+  }
+
+  .DashboardBox {
+    margin: 0;
+    width: 100%;
+
+  }
+
+
   .DbTowBox {
     flex-wrap: wrap;
     margin: 0;
     width: 100%;
 
   }
-    .DbTowBoxA {
-      width: 100%;
-  
-    }
-  
-    .DbTowBoxB {
-      width: 100%;
-  
-    }
+
+  .DbTowBoxA {
+    width: 100%;
+
+  }
+
+  .DbTowBoxB {
+    width: 100%;
+
+  }
 
   .containerInovice {
     margin: 0;
@@ -1656,6 +1895,11 @@
   }
 
   .CBoxAData_BoxFotter {
+    display: none;
+
+  }
+
+  .EnrollBtnBox {
     display: none;
 
   }

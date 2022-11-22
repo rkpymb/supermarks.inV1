@@ -11,21 +11,21 @@ const Footer = () => {
           <div className={styles.dataspacer}> </div>
           <Link href='/'>
             <div className={styles.logomain}>
-              <img src='/img/Skillfiltlogo.png' alt='logo' />
+              <img src='/logonew.png' alt='logo' />
             </div>
           </Link>
-          <p>Skillfilt offers industry-relevant advanced courses for finding your dream job.</p>
+          <p>BoardExam App offers industry-relevant advanced courses for finding your dream job.</p>
           <div className={styles.FooterBox_socialIcons}>
-            <a href='https://www.facebook.com/Skillfilt' target='_blank' rel="noreferrer">
+            <a href='https://www.facebook.com/BoardExam App' target='_blank' rel="noreferrer">
               <span> <BsFacebook /> </span>
             </a>
-            <a href='https://www.instagram.com/Skillfilt' target='_blank' rel="noreferrer">
+            <a href='https://www.instagram.com/BoardExam App' target='_blank' rel="noreferrer">
               <span> <BsInstagram /> </span>
             </a>
-            <a href='https://twitter.com/skillfilt' target='_blank' rel="noreferrer">
+            <a href='https://twitter.com/BoardExam App' target='_blank' rel="noreferrer">
               <span> <BsTwitter /> </span>
             </a>
-            <a href='https://www.linkedin.com/skillfilt' target='_blank' rel="noreferrer">
+            <a href='https://www.linkedin.com/BoardExam App' target='_blank' rel="noreferrer">
               <span> <BsLinkedin /> </span>
             </a>
             {/* <a href='/' target='_blank'>
@@ -58,22 +58,22 @@ const Footer = () => {
           </div>
           <div className={styles.FooterBox_address_item}>
             <span><HiPhone /></span>
-            <small>+91 9128439221</small>
+            <small>+91 9661113102</small>
           </div>
           <div className={styles.FooterBox_address_item}>
             <span><HiOutlineMail /></span>
-            <small>info@skillfilt.com</small>
+            <small>info@gmail.com</small>
           </div>
           <div className={styles.FooterBox_address_item}>
             <span><HiOutlineMail /></span>
-            <small>career@skillfilt.com</small>
+            <small>career@gmail.com</small>
           </div>
 
 
         </div>
       </div>
       <div className={styles.Bottom_menu}>
-        <small>© 2022 skillfilt.com All Rights Reserved.</small>
+        <small>© 2022 BoardExam App.com All Rights Reserved.</small>
       </div>
     </>
     
