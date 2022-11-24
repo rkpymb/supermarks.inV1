@@ -8,25 +8,40 @@
 
 .DBContainerflex {
   display: flex;
-
-
 }
-.GetStartedBTN{
+.ShadowBox{
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  padding: 10px;
+  margin-top: 10px;
+}
+.AttemptListItem{
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  padding: 10px;
+  margin-top: 10px;
+}
+.ResultBox{
+  padding: 10px;
+}
+.GetStartedBTN {
   background-color: rgb(28, 26, 26);
-  color:white;
-  padding:10px;
-  margin:10px;
+  color: white;
+  padding: 10px;
+  margin: 10px;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
-.GetStartedBTN:hover{
+
+.GetStartedBTN:hover {
   background-color: #fe8f49;
-  color:rgb(0, 0, 0);
- 
+  color: rgb(0, 0, 0);
+
 }
+
 .Websitemenu {
   margin: auto;
   width: 80%;
@@ -465,7 +480,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 .PassHeroBoxA {
@@ -490,7 +505,7 @@
 .IconPassheroimg {
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   margin: 5px;
   padding: 5px;
   min-width: 50px;
@@ -502,7 +517,7 @@
 
 .PassHeroBoxAImg {
   display: flex;
- 
+
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -1107,9 +1122,11 @@
   font-weight: 500;
 
 }
-.CaterorieshomeItem:hover{
-    border-bottom:1px solid black;
+
+.CaterorieshomeItem:hover {
+  border-bottom: 1px solid black;
 }
+
 .TestItem:hover {
   border-bottom: 1px solid black;
 }
@@ -1670,19 +1687,19 @@
   }
 
   .PassHeroBox {
-   flex-wrap: wrap;
+    flex-wrap: wrap;
 
   }
 
   .PassHeroBoxA {
     padding: 10px;
-  width: 100%;
+    width: 100%;
 
   }
 
   .PassHeroBoxB {
     padding: 10px;
-  width: 100%;
+    width: 100%;
 
   }
 

@@ -7,7 +7,22 @@ import TestPasschaper from '../../components/TestPasschaper'
 import { FiArrowLeft } from "react-icons/fi";
 import SecondHeader from '../../components/SecondHeader'
 const Slug = (props) => {
-    
+    useEffect(() => {
+
+        try {
+            if (localStorage.getItem('cart')) {
+                localStorage.removeItem("cart")
+
+            } 
+        } catch (error) {
+            console.error(error)
+
+
+        }
+        // check login credential end
+
+    }, []);
+
     // console.log(props.myBlog.data.pid)
     const router = useRouter();
     const [ID, setID] = useState(props.ID);

@@ -85,7 +85,7 @@ const Slug = (props) => {
         <div className={styles.container}>
             <div className={styles.CourseDataBox}>
                 <div className={styles.CBoxA}>
-                    <div style={{ height: '10px' }}></div>
+                  
                     <div className={styles.CBoxAData_Box}>
                         <div  >
                             <h1>{blog && blog.data.title}</h1>
@@ -138,7 +138,7 @@ const Slug = (props) => {
                         }
                         {!Buybtn &&
                             <div className={styles.EnrollBtnBox}>
-                                <Link href={`/ClassRoom/${blog.data.pid}`}>
+                                <Link href={`/TestRoom/${blog.data.pid}`}>
                                     <div className={styles.Btn_icon}>
                                         <small>View Test Series </small>
                                         <span><FiChevronRight /></span>
@@ -151,11 +151,9 @@ const Slug = (props) => {
 
                 </div>
                 <div className={styles.CBoxB}>
-                    <Image src='/wdwwdw.jpg' alt="Vercel Logo" height="400" width="800" />
+                    <Image src={`https://aitechnolog.com/examapp/Storage/panel/img/${blog.data.img}`} alt="Vercel Logo" height="400" width="800" />
                 </div>
             </div>
-
-
         </div>
         <div className={styles.container}>
             <div className={styles.testDestailsStiker}>
@@ -255,7 +253,7 @@ const Slug = (props) => {
                             </Link>
                         }
                         {!Buybtn &&
-                            <Link href={`/ClassRoom/${blog.data.pid}`}>
+                            <Link href={`/TestRoom/${blog.data.pid}`}>
                                 <div className={styles.Btn_icon}>
                                     <span><FiChevronRight /></span>
                                     <small>Start</small>
