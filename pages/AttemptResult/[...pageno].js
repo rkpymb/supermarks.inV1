@@ -7,13 +7,13 @@ import SecondHeader from '../../components/SecondHeader'
 import AttemptResultTab from '../../components/AttemptResultTab'
 import Image from 'next/image'
 const Slug = (props) => {
-
     // console.log(props.myBlog.data.pid)
     const router = useRouter();
     const [ID, setID] = useState(props.ID);
     const [SendText, setSendText] = useState('Attempt Result : ' + props.ID);
     const [isLoading, setIsLoading] = useState(true);
     const [Retdata, setRetdata] = useState([]);
+    const [RetdataAll, setRetdataAll] = useState([]);
     useEffect(() => {
         try {
             if (localStorage.getItem('userid')) {
@@ -29,6 +29,7 @@ const Slug = (props) => {
                 })
                     .then((parsedUser) => {
                         console.log(parsedUser)
+                        setRetdataAll(parsedUser)
                         setRetdata(parsedUser.pdata)
                         setIsLoading(false)
                     })
@@ -82,19 +83,11 @@ const Slug = (props) => {
                                     <span style={{ fontWeight: '500' }}> Overall Performance Summary</span>
                                </div>
                                 <div className={styles.Countbox}>
-                                    <div className={styles.CountboxItem} style={{ backgroundColor: '#efecff' }}>
-                                        <div className={styles.CountboxItemText}>
-                                            <small>Rank</small>
-                                            <span>10K+</span>
-                                        </div>
-                                        <div className={styles.CountboxItemImg}>
-                                            <Image src='https://aitechnolog.com/skillfilt/Storage/img/icons/job.webp' height={75} width={75} />
-                                        </div>
-                                    </div>
+                                    
                                     <div className={styles.CountboxItem} style={{ backgroundColor: '#fff6e9' }}>
                                         <div className={styles.CountboxItemText}>
                                             <small>Score</small>
-                                            <span>30</span>
+                                            <span>{RetdataAll.FinalScore}<span style={{ fontSize: '18px' }}>/{RetdataAll.Totalmarks}</span></span>
                                         </div>
                                         <div className={styles.CountboxItemImg}>
                                             <Image src='https://aitechnolog.com/skillfilt/Storage/img/icons/hiring.webp' height={75} width={75} />
@@ -104,7 +97,7 @@ const Slug = (props) => {
                                         <div className={styles.CountboxItemText}>
                                             <small>Correct
                                             </small>
-                                            <span>10</span>
+                                            <span>{RetdataAll.Correct}<span style={{ fontSize:'18px'}}>/{RetdataAll.TotalQues}</span></span>
                                         </div>
                                         <div className={styles.CountboxItemImg}>
                                             <Image src='https://aitechnolog.com/skillfilt/Storage/img/icons/salary.webp' height={75} width={75} />
@@ -113,10 +106,19 @@ const Slug = (props) => {
                                     <div className={styles.CountboxItem} style={{ backgroundColor: '#dcf9fd' }}>
                                         <div className={styles.CountboxItemText}>
                                             <small>Percentile</small>
-                                            <span>1%</span>
+                                            <span>{RetdataAll.Percentile}%</span>
                                         </div>
                                         <div className={styles.CountboxItemImg}>
                                             <Image src='https://aitechnolog.com/skillfilt/Storage/img/icons/worth.webp' height={75} width={75} />
+                                        </div>
+                                    </div>
+                                    <div className={styles.CountboxItem} style={{ backgroundColor: '#efecff' }}>
+                                        <div className={styles.CountboxItemText}>
+                                            <small>Rank</small>
+                                            <span>10K+</span>
+                                        </div>
+                                        <div className={styles.CountboxItemImg}>
+                                            <Image src='https://aitechnolog.com/skillfilt/Storage/img/icons/job.webp' height={75} width={75} />
                                         </div>
                                     </div>
                                 </div>

@@ -89,7 +89,7 @@ const Mytest = ({ ID }) => {
                                                 <div> <span>{item.title}</span></div>
                                                 <div className={styles.testiconsBox}>
                                                     <div className={styles.testiconsItemMain}>
-                                                        <span><FiCoffee /></span>   <span>{item.PerQMarks} Questions</span>
+                                                        <span><FiCoffee /></span>   <span>{item.TotalQuestions} Questions</span>
                                                     </div>
                                                     <div className={styles.testiconsItemMain}>
                                                         <span><FiFileText /></span>   <span>{item.totalMarks} Marks</span>

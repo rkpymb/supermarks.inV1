@@ -148,10 +148,10 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
     };
 
 
-    const handleAnswerOptionClick = (itemCode, TitleC, StstusC, QueID, QueTitle) => {
+    const handleAnswerOptionClick = (itemCode, TitleC, StstusC, QueID, QueTitle, MARKQS) => {
         let newCart = cart;
 
-        newCart[itemCode] = { optionClickid: itemCode, Title: TitleC, StstusC: StstusC, QueID: QueID, QueTitle: QueTitle }
+        newCart[itemCode] = { optionClickid: itemCode, Title: TitleC, StstusC: StstusC, QueID: QueID, QueTitle: QueTitle, MARKQS: MARKQS }
         setCart(newCart);
         saveCart(newCart);
         // alert(name+' added to cart successfully')
@@ -188,7 +188,7 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
     return (
         <div>
             <Button variant="outlined" onClick={handleClickOpen}>
-                Start Test
+                Start
             </Button>
             <Dialog
                 fullScreen
@@ -292,7 +292,7 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
                                         <b>Q {currentQuestion + 1} : {QuesData[currentQuestion].QUETITLE}</b>
                                         <div className={styles.OptionsBox}>
                                             {QuesData[currentQuestion].ANSLIST.map((answerOption) => (
-                                                <div className={styles.OptionsItem} key={answerOption.id} onClick={() => handleAnswerOptionClick(answerOption.id, answerOption.Title, answerOption.status, answerOption.QueID, answerOption.QueTitle)}>
+                                                <div className={styles.OptionsItem} key={answerOption.id} onClick={() => handleAnswerOptionClick(answerOption.id, answerOption.Title, answerOption.status, answerOption.QueID, answerOption.QueTitle, QuesData[currentQuestion].MARKQS)}>
                                                     <span>{answerOption.Title}</span>
                                                 </div>
                                             ))}
