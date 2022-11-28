@@ -6,6 +6,7 @@ import Skeleton from '@mui/material/Skeleton';
 import SecondHeader from '../../components/SecondHeader'
 import AttemptResultTab from '../../components/AttemptResultTab'
 import Image from 'next/image'
+import Navbar from '../../components/Navbar'
 const Slug = (props) => {
     // console.log(props.myBlog.data.pid)
     const router = useRouter();
@@ -46,6 +47,7 @@ const Slug = (props) => {
 
     }, [router.query]);
     return <div>
+        <Navbar/>
         <Head>
             <title>{props.ID} : Attempt Result</title>
         </Head>
@@ -76,7 +78,18 @@ const Slug = (props) => {
                         <div className={styles.Welcomeuserbox}>
                             <span> {Retdata.Title}</span>
                         </div>
-                        <div style={{ height: '30px' }}> </div>
+                       
+                        <div className={styles.TimeBoxResult} style={{ backgroundColor: '#dcf9fd' }}>
+                            <div>
+                            
+                                <span style={{ marginLeft: '5px', marginTop: '-10px' }}>Status :<span style={{ fontWeight: 'bold' }}> {Retdata.statusText}</span> </span>
+                            </div>
+                            <div>
+                               
+                                <span style={{ marginLeft: '5px', marginTop: '-5px' }}>Taken Time :<span style={{ fontWeight: 'bold' }}> {Retdata.takenTime}</span> </span>
+                            </div>
+                        </div>
+                        <div style={{ height: '10px' }}> </div>
                         <div className={styles.ResultBox}>
                             <div className={styles.ShadowBox}>
                                 <div>
@@ -114,15 +127,22 @@ const Slug = (props) => {
                                     </div>
                                     <div className={styles.CountboxItem} style={{ backgroundColor: '#efecff' }}>
                                         <div className={styles.CountboxItemText}>
-                                            <small>Rank</small>
-                                            <span>10K+</span>
+                                            <small>Atempted</small>
+                                            <div>
+                                                <span id='Atempted_ID'></span>
+                                                <span style={{ fontSize: '18px' }}>/{RetdataAll.TotalQues}</span>
+                                            </div>
                                         </div>
                                         <div className={styles.CountboxItemImg}>
                                             <Image src='https://aitechnolog.com/skillfilt/Storage/img/icons/job.webp' height={75} width={75} />
                                         </div>
                                     </div>
+                                    
                                 </div>
+                                
+                               
                             </div>
+                           
                             <div style={{ height: '20px' }}> </div>
                             <AttemptResultTab ID={ID} />
                         </div>

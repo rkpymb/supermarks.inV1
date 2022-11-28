@@ -27,7 +27,6 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
 
     useEffect(() => {
         if (Contextdata.IsLogin == true) {
-            console.log('Login')
             router.push('/Dashboard')
         } else {
             console.log('Not Login')
@@ -95,8 +94,8 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
                 setRegbox(true);
             } else if (u_type == 1) {
                 localStorage.setItem('userid', usermobile);
-                router.push('/')
                
+                window.location.reload()
             }
         } else {
             BackDropClose()

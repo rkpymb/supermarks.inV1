@@ -30,6 +30,7 @@ const Mytest = ({ ID }) => {
                         console.log(parsedAtemptlist)
                         setRetdata(parsedAtemptlist)
                         setIsLoading(false);
+                        document.getElementById("Atempted_ID").innerHTML = parsedAtemptlist.length;
                     })
 
             } else {

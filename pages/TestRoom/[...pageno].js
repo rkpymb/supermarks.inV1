@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
-
+import Navbar from '../../components/Navbar'
 import styles from '../../styles/Quizroom.module.css'
 import Head from 'next/head'
 import TestPasschaper from '../../components/TestPasschaper'
@@ -27,6 +27,7 @@ const Slug = (props) => {
     const router = useRouter();
     const [ID, setID] = useState(props.ID);
     return <div>
+        <Navbar />
         <Head>
             <title>{props.ID}: EXAM APP</title>
         </Head>

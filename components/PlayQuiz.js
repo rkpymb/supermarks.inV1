@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
+import React, { useRef, useState, useEffect, useContext, useCallback, useMemo } from "react";
 import { useRouter, useParams } from 'next/router'
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -14,10 +14,13 @@ import Slide from '@mui/material/Slide';
 import { BsCheck2Circle } from "react-icons/bs";
 import CheckloginContext from '../context/auth/CheckloginContext'
 import { Tune } from "@mui/icons-material";
-
-
+import Link from 'next/link';
+import { FiArrowLeft } from "react-icons/fi";
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+
+import fscreen from 'fscreen';
+
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -52,9 +55,22 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
     const [AttemtedQuestion, setAttemtedQuestion] = useState(0);
     const [LeftTimeinMS, setLeftTimeinMS] = useState(0);
     const [Attemptid, setAttemptid] = useState(0);
+    const [StartTime, setStartTime] = useState(false);
     const [UserMOB_CURRENT, setUserMOB_CURRENT] = useState(Contextdata.Data.mobile);
     const [cart, setCart] = useState({});
+    const [QuiuzStartTime, setQuiuzStartTime] = useState();
+    const [QuiuzTakenTime, setQuiuzTakenTime] = useState('');
+    const [QuiuzTakenTimeFormat, setQuiuzTakenTimeFormat] = useState('');
+    const [SecCount, setSecCount] = useState(0);
+    const [QuizOver, setQuizOver] = useState(true);
+    const [Timeup, setTimeup] = useState(false);
 
+    const hoursMinSecs = { hours: 0, minutes: duration, seconds: 0 }
+    const { hours = 0, minutes = 0, seconds = 60 } = hoursMinSecs;
+    const [[hrs, mins, secs], setTime] = React.useState([hours, minutes, seconds]);
+
+ 
+    
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -63,23 +79,83 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
         setOpen(false);
     };
 
+    const TimerCounter = () => {
+
+        const todayEND = new Date();
+        const timeEND = todayEND.getHours() + ":" + todayEND.getMinutes() + ":" + todayEND.getSeconds();
+        const result = new Date(SecCount * 1000).toISOString().slice(11, 19);
+        setQuiuzTakenTimeFormat(result)
+        setQuiuzTakenTime(SecCount)
+        // console.log(SecCount)
+        // console.log(result)
+    };
+    const requestFullscreen = () => {
+        // console.log('fs')
+      
+    };
+
+
+    const tick = () => {
+        if (hrs === 0 && mins === 0 && secs === 0) {
+            setTimeup(true)
+            if (QuizOver == true) {
+                TimerCounter()
+                const startTime = QuiuzStartTime;
+                const todayEND = new Date();
+                const timeEND = todayEND.getHours() + ":" + todayEND.getMinutes() + ":" + todayEND.getSeconds();
+
+                setQuizOver(false)
+                setQuiuzTakenTime(SecCount)
+
+                const result = new Date(SecCount * 1000).toISOString().slice(11, 19);
+
+                setQuiuzTakenTimeFormat(result)
+                // console.log(SecCount)
+                // console.log(result)
+                SendOPSDATA(SecCount, result)
+            }
+        }
+        else if (mins === 0 && secs === 0) {
+            setTime([hrs - 1, 59, 59]);
+            TimerCounter()
+            setSecCount(SecCount + 1)
+        } else if (secs === 0) {
+            setTime([hrs, mins - 1, 59]);
+            TimerCounter()
+            setSecCount(SecCount + 1)
+        } else {
+            setTime([hrs, mins, secs - 1]);
+            TimerCounter()
+            setSecCount(SecCount + 1)
+        }
+    };
     const handleOpenModal = () => {
         setOpenModal(true);
+        
         setTimeout(function () {
+            const today = new Date();
+            const timeStart = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             setViewQues(true)
             setOpenModal(false);
             setLoadingCircle(false)
-            
+            setStartTime(true)
+            setQuiuzStartTime(timeStart)
         }, 4000); //Time before execution
     }
 
+    React.useEffect(() => {
+        requestFullscreen()
+        if (StartTime == true) {
+            const timerId = setInterval(() => tick(), 1000);
+            return () => clearInterval(timerId);
+            
+        } else {
+            // console.log('time not started')
+        }
 
-    const ConvertLeftTime = () => {
-        //milliseconds = minutes x 60,000
-        const minutes = duration;
-        const milliseconds = (minutes * 60000);
-        setLeftTimeinMS(milliseconds)
-    };
+    });
+
+
     const CreateAttempOrder = async () => {
 
         const AtemptTitle = Pid + ':' + ChapterName;
@@ -102,7 +178,7 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
                     handleOpenModal()
 
                 } else {
-                    console.log(parsedAtemptData)
+                    // console.log(parsedAtemptData)
                 }
             })
     };
@@ -115,14 +191,14 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
         if (nextQuestion < QuesData.length) {
             setCurrentQuestion(nextQuestion);
         } else {
-            console.log(currentQuestion)
-            SendOPSDATA()
+            // console.log(currentQuestion)
+            SendOPSDATA(QuiuzTakenTime, QuiuzTakenTimeFormat)
         }
     }
 
-    const SendOPSDATA = async () => {
+    const SendOPSDATA = async (SecCount, result) => {
         setViewSubmit(true)
-        const sendAtmptData = { OPS: cart, Atempttestid: Attemptid, mobile: UserMOB_CURRENT, }
+        const sendAtmptData = { OPS: cart, Atempttestid: Attemptid, mobile: UserMOB_CURRENT, takenTime: result, takenTimeSec: SecCount, }
         const data = await fetch("/api/TestSubmit", {
             method: "POST",
             headers: {
@@ -133,17 +209,17 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
             return b.json();
         })
             .then((TestSubmitReq) => {
-                
+
                 if (TestSubmitReq.statuswhat == true) {
                     setTimeout(function () {
                         router.push(`/AttemptResult/${TestSubmitReq.datagot}`)
-                        console.log(TestSubmitReq)
+                        // console.log(TestSubmitReq)
 
-                    }, 4000); 
+                    }, 4000);
                 } else {
-                    console.log(TestSubmitReq)
+                    // console.log(TestSubmitReq)
                 }
-              
+
             })
     };
 
@@ -175,7 +251,7 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
                 if (parsed.Statusdata == true) {
                     setQuesData(parsed.FinalData)
                     setTotalQuestion(parsed.FinalData.length)
-                    ConvertLeftTime()
+
                     CreateAttempOrder()
                 } else {
                     // console.log(parsed)
@@ -197,16 +273,29 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
                 TransitionComponent={Transition}
 
             >
-                <AppBar sx={{ position: 'relative' }} className={styles.Nv}>
-                    <Toolbar>
-                        <div >
-                            <img src='/logonew.png' alt='logo' width='80px' />
-                        </div>
-
-                    </Toolbar>
-                </AppBar>
                 {!ViewQues &&
                     <div>
+                        <div className={styles.Header_Playroom}>
+                            <div className={styles.HeaderBox_Playroom}>
+                                <div className={styles.HeaderLeft_Playroom}>
+                                    <div style={{ fontSize: '20px', cursor: 'pointer' }} onClick={handleClose}>
+                                        <FiArrowLeft />
+                                    </div>
+                                    <div style={{ marginLeft: '10px', marginTop: '-5px' }}>
+                                        <span style={{ fontSize: '15px' }}> {ChapterName}</span>
+                                    </div>
+                                </div>
+                                <div className={styles.HeaderRight_Playroom}>
+                                    <div style={{width:'100px', overflow: 'hidden'}}>
+                                        <Link href='/'>
+                                            <div className={styles.logomain}>
+                                                <img src='/logonew.png' alt='logo' width='100%' />
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className={styles.container}>
                             <div style={{ height: '30px' }}> </div>
                             <div className={styles.StartertestBox}>
@@ -261,7 +350,30 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
                     </div>
                 }
                 {ViewQues &&
-                    <div>
+                    <div id='fullscreenbox'>
+                        <div className={styles.Header_Playroom}>
+                            <div className={styles.HeaderBox_Playroom}>
+                                <div className={styles.HeaderLeft_Playroom}>
+                                    <div style={{ fontSize: '20px', cursor: 'pointer' }} onClick={() => router.back()}>
+                                        <FiArrowLeft />
+                                    </div>
+                                    <div style={{ marginLeft: '10px', marginTop: '-5px' }}>
+                                        <span style={{ fontSize: '15px' }}><span style={{ color: 'green', fontWeight: 'bold' }}>TEST STARTED  </span>
+                                            #{Attemptid}</span>
+                                    </div>
+                                </div>
+                                <div className={styles.HeaderRight_Playroom}>
+                                    <div style={{ width: '100px', overflow: 'hidden' }}>
+                                        <Link href='/'>
+                                            <div className={styles.logomain}>
+                                                <img src='/logonew.png' alt='logo' width='100%' />
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                      
                         {!ViewSubmit &&
                             <div className={styles.container}>
                                 <div style={{ height: '20px' }}> </div>
@@ -276,7 +388,9 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
                                                 <FiClock />
                                             </div>
                                             <div style={{ marginTop: '-5px', marginLeft: '5px' }}>
-                                                <span>Time Left : <Countdown date={Date.now() + LeftTimeinMS} /></span>
+                                                <span>Time Left : <span>{`${hrs.toString().padStart(2, '0')}:${mins
+                                                    .toString()
+                                                    .padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</span></span>
                                             </div>
                                         </div>
                                         <div className={styles.DurationBoxItem}>
@@ -310,7 +424,7 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
                                 <div style={{ textAlign: 'center', fontSize: '15px', fontWeight: 'bold' }}>
                                     <span>{Pid} : {ChapterName}</span>
                                 </div>
-
+                                
                                 <div className={styles.SubmitingBox}>
                                     <Image
 
@@ -319,7 +433,12 @@ export default function PlayQuiz({ Pid, ChapterName, ChapterID, duration, totalM
                                         width={200}
                                         height={200}
                                     />
-                                    <p>Submitting Your Test Atempt</p>
+                                    {Timeup &&
+                                        <div style={{ textAlign: 'center', fontSize: '25px', fontWeight: 'bold', color: 'red' }}>
+                                            <span>TIME UP</span>
+                                        </div>
+                                    }
+                                    <p>Submitting Your Test Attempt, please wait..</p>
                                 </div>
 
 

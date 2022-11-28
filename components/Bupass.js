@@ -163,7 +163,7 @@ export default function Bupass(props) {
 
 
 
-                        <Razorpaybtn FinalAmt={Total} UserMobile={UserMobile} UserName={UserName} UserEmail={UserEmail} Pid={pid} Discount={Discount} Coupon={Coupon} CouponDiscount={CouponDiscount} TotalDiscount={Coupon} ProductType={ProductType} mprice={Mprice} Validitydays={Validitydays} />
+                        <Razorpaybtn FinalAmt={Total} UserMobile={UserMobile} UserName={UserName} UserEmail={UserEmail} Pid={pid} Discount={Discount} Coupon={Coupon} CouponDiscount={CouponDiscount} TotalDiscount={Coupon} ProductType={ProductType} mprice={Mprice} Validitydays={Validitydays} Passtitle={Passtitle} />
                     </div>
 
                 </div>

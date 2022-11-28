@@ -6,6 +6,12 @@
   overflow: hidden;
 }
 
+.TimeBoxResult{
+  padding:10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .DBContainerflex {
   display: flex;
 }
@@ -91,7 +97,7 @@
   color: #3c4852;
   overflow: hidden;
   margin: auto;
-  width: 50%;
+  width: 95%;
 
   min-height: 100vh;
   background-color: rgb(245, 251, 251);
@@ -1260,7 +1266,8 @@
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   border-radius: 15px;
   border: 0.5px dashed rgb(191, 191, 199);
-  padding: 10px
+  padding: 10px;
+  margin: 10px;
 }
 
 .CousalingBox_all {
@@ -1815,7 +1822,14 @@
   }
 
   .section {
+
     padding: 10px;
+    
+  }
+  .SectionBox {
+
+    padding: 10px;
+    
   }
 
   .TitlebtnBox {

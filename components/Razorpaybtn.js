@@ -11,6 +11,7 @@ export default function Home(props) {
     const [Total, setTotal] = useState(props.FinalAmt);
     const [Mprice, setMprice] = useState(props.mprice);
     const [Pid, setPid] = useState(props.Pid);
+    const [Passtitle, setPasstitle] = useState(props.Passtitle);
     const [UserMobile, setUserMobile] = useState(props.UserMobile);
     const [UserName, setUserName] = useState(props.UserName);
     const [UserEmail, setUserEmail] = useState(props.UserEmail);
@@ -29,7 +30,7 @@ export default function Home(props) {
     const CreateOrder = async () => {
         seLoader(true);
         if (Allok == true) {
-            const sendReg = { UserMobile: UserMobile, Pid: Pid, Discount: Discount, Coupon: Coupon, CouponDiscount: CouponDiscount, TotalDiscount: TotalDiscount, ProductType: ProductType, TotalAmt: Total, mprice: Mprice, validity: validity }
+            const sendReg = { UserMobile: UserMobile, Pid: Pid, Discount: Discount, Coupon: Coupon, CouponDiscount: CouponDiscount, TotalDiscount: TotalDiscount, ProductType: ProductType, TotalAmt: Total, mprice: Mprice, validity: validity, Passtitle: Passtitle }
             const data = await fetch("/api/CreateOrder", {
                 method: "POST",
                 headers: {

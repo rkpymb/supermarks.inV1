@@ -13,9 +13,7 @@ const Navbar = (props) => {
   return (
     <div className={styles.navbarBox}>
       <div className={styles.Navbar}>
-        <div className={styles.MobileMenuBtn}>
-          <span><BiMenuAltLeft /></span>
-        </div>
+       
         <div className={styles.logo}>
           <Link href='/'>
             <div className={styles.logomain}>
@@ -51,7 +49,7 @@ const Navbar = (props) => {
 
           )}
           {Contextdata.IsLogin && (
-            <Link href='Dashboard'>
+            <Link href='https://examapp.vercel.app/Dashboard'>
               <div className={styles.loginbtnTop}>
                 <span><VscAccount /></span>
                 <small>Dashboard</small>

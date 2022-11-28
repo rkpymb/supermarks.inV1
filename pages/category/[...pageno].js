@@ -6,6 +6,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi';
 import CounsellingForm from '../../components/CounsellingForm'
+import Navbar from '../../components/Navbar'
+import SecondHeader from '../../components/SecondHeader'
 const Slug = (props) => {
     // console.log(props)
     const router = useRouter();
@@ -17,19 +19,74 @@ const Slug = (props) => {
 
     useEffect(() => {
         setRetdata(blog)
-    //    console.log(blog)
+    
 
     }, [router.query])
 
-    return <div>
+    return <>
+        <Navbar />
         <Head>
-            <title>Category : {props.pid} - Skillfilt</title>
+            <title>Category : {props.pid} - Board Test</title>
             <meta name="description" content={props.pid} />
             {/* <meta property="og:image" content={blog && blog.data.img} /> */}
         </Head>
-        
+        <SecondHeader Title={props.pid} />
         <div className={styles.container}>
-            <div style={{ height: '10px' }}> </div>
+            <div style={{ height: '30px' }}> </div>
+            <div className={styles.SectionBox}>
+                <div className={styles.CourseHomelist}>
+                    <div className={styles.TestItemBox}>
+                        {Retdata.map((item) => {
+                            return <Link href={`/TestSeries/${item.pid}`} key={item.id}>
+                                <div className={styles.TestItem}>
+                                    <div
+                                        style={{
+                                            position: "relative",
+                                            width: "100%",
+                                            height: "160px",
+                                            backgroundColor: '#c5d6e3',
+                                        }}
+                                    >
+                                        <Image src={`https://aitechnolog.com/examapp/Storage/panel/img/${item.img}`} alt="Vercel Logo" layout='fill' />
+                                    </div>
+                                    <div className={styles.TestText}>
+                                        <div className={styles.TestTexttitlebox}>
+                                            <span><b>{item.title}</b></span>
+                                            <div className={styles.coursestickerBox}>
+                                                <div className={styles.coursestickerItem}>
+                                                    <div>
+                                                        <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/wallet-money.svg' />
+                                                    </div>
+                                                    <div className={styles.coursestickerItemtext}>
+                                                        <span>{item.lang}</span>
+                                                    </div>
+                                                </div>
+                                                <div className={styles.coursestickerItem}>
+                                                    <div>
+                                                        <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/suitcase-portfolio-1.svg' />
+                                                    </div>
+                                                    <div className={styles.coursestickerItemtext}>
+
+                                                        <span>{item.enrolled} Enrolled</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </Link>
+                        }
+
+                        )}
+
+                    </div>
+                </div>
+            </div>
+            <div style={{ height: '30px' }}> </div>
             <div className={styles.CousalingBox}>
                 <div className={styles.CousalingBox_all}>
                     <div className={styles.CousalingBox_allA}>
@@ -37,7 +94,7 @@ const Slug = (props) => {
                         <h1> Book a Free Demo Session</h1>
                         <span>Get Personalized Admission Enquiry, Clear your all concerns and query with our experts. Book a Live counselling session for FREE.</span>
                         <div style={{ height: '10px' }}></div>
-                        <CounsellingForm  />
+                        <CounsellingForm />
                     </div>
                     <div className={styles.CousalingBox_allB}>
                         <img src='/img/56232-work-from-home.gif' alt='img' />
@@ -45,58 +102,17 @@ const Slug = (props) => {
                 </div>
             </div>
             <div style={{ height: '40px' }}> </div>
-            <div className={styles.section}>
-                <div className={styles.CourseHomelist}>
-                    <div className={styles.TestItemBox}>
-                        {Retdata.map((item) => {
-                            return <div className={styles.TestItem} key={item.id}>
-                                <div
-                                    style={{
-                                        position: "relative",
-                                        width: "100%",
-                                        height: "160px",
-                                        backgroundColor: '#c5d6e3',
-                                    }}
-                                >
-                                    <Image src={item.img} alt="Vercel Logo" layout='fill' />
-                                </div>
-                                <div className={styles.TestText}>
-                                    <div className={styles.TestTexttitlebox}>
-                                        <span>{item.title}</span>
-                                        <small>Batches Fast Filing</small>
-                                    </div>
-                                    <Link href={`/course/${item.pid}`}>
-                                        <div className={styles.Testfooter}>
-                                            <span>₹{item.sprice} <small><del>{item.sprice}</del></small></span>
-                                            <div className={styles.Btn_icon}>
-                                                <small>View Details</small>
-                                                <span><FiChevronRight /></span>
-                                            </div>
-                                        </div>
-                                    </Link>
-
-                                </div>
-
-                            </div>
-                        }
-
-                        )}
-
-                    </div>
-
-                </div>
-            </div>
         </div>
         {/* Footer mobile btn */}
        
-    </div>
+    </>
 };
 
 export async function getServerSideProps(context) {
   
     const ID = context.query.pageno[0];
     const pid = ID;
-    let data = await fetch(`${process.env.API_URL}g_coursebyCat.php?pid=${pid}`)
+    let data = await fetch(`${process.env.API_URL}g_TestPassbyCat.php?pid=${pid}`)
     let myBlog = await data.json();
    
     return {
