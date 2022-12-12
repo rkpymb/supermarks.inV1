@@ -4,6 +4,7 @@ import styles from '../styles/Quizroom.module.css'
 import { FiArrowLeft } from "react-icons/fi";
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+
 const SecondHeader = ({ Title }) => {
     const router = useRouter()
     return (
