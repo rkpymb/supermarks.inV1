@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+ximport { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Skeleton from '@mui/material/Skeleton';
 import styles from '../styles/Home.module.css'
