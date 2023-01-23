@@ -5,31 +5,179 @@
   color: #3c4852;
   overflow: hidden;
 }
+.centeritem{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-.TimeBoxResult{
-  padding:10px;
+.CourseListBox {
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  padding: 10px;
+
+}
+
+.CoverBox {
+  display: flex;
+}
+
+.CoverBoxPoster {
+  height: 250px;
+  width: 50%;
+}
+
+.CoverBoxPosterIMG {
+  width: 100%;
+
+}
+
+.LoadMoreBtn {
+
+  background-color: #f0f0f0;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  width: 25%;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.LoadMoreBtn:hover {
+  background-color: #ff693d;
+
+  color: white;
+
+}
+
+.EnrollBtn {
+
+  background-color: #ff693d;
+  color: white;
+  padding: 5px;
+  width: 25%;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.EnrollBtn:hover {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+
+}
+
+.HeroCatList {
+  display: flex;
+}
+
+.LoaderFull {
+  width: 100%;
+}
+
+.HomeiMG {
+  margin: 10px;
+}
+
+.CourseGrid {
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+}
+
+.CatGrid {
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+}
+
+.TitleBoxBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.TitleBoxBtn_TEXT {
+  padding: 5px;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.TitleBoxBtn_BTN {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 5px;
+  background-color: #ffffff;
+  border: 1px solid #e2e4e6;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  height: fit-content;
+}
+
+.CatBoxItemCenter {
+  padding: 5px;
+  color: rgb(65, 62, 62);
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.HomeiMG img {
+  border-radius: 10px;
+  border: 1px solid #e2e4e6;
+  width: 100%;
+}
+
+.Showmobile {
+  display: none;
+}
+
+.heroboxright {
+  padding: 0px;
+}
+
+.TimeBoxResult {
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .DBContainerflex {
   display: flex;
 }
-.ShadowBox{
+
+.ShadowBox {
   background-color: rgb(255, 255, 255);
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   padding: 10px;
   margin-top: 10px;
 }
-.AttemptListItem{
+
+.AttemptListItem {
   background-color: rgb(255, 255, 255);
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   padding: 10px;
   margin-top: 10px;
 }
-.ResultBox{
+
+.ResultBox {
   padding: 10px;
 }
+
 .GetStartedBTN {
   background-color: rgb(28, 26, 26);
   color: white;
@@ -449,7 +597,7 @@
   top: 0;
   overflow: hidden;
   background-color: #fff;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  /* box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%); */
   z-index: 999;
 }
 
@@ -473,7 +621,7 @@
 .WhyChooseBoxItemIcon {
   min-width: 40px;
   max-height: 40px;
-  background-color: #5a25cd;
+  background-color: #ff693d;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -530,37 +678,52 @@
 }
 
 .Navbar {
+  margin: auto;
+  width: 80%;
+  padding: 15px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .MainMenu {
-  margin-top: 10px;
+  margin-top: 0px;
   list-style: none;
   display: flex;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .MainMenu li {
   cursor: pointer;
   font-weight: 500;
-  color: #3c4852;
   margin-left: 2rem;
+}
+
+.MainMenu li:hover {
+  color: #ff693d;
 }
 
 .loginbtnTop {
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 8px 15px 5px 15px;
-  background-color: #0095ff;
-  color: white;
+  padding: 4px 10px 0px 10px;
+  background-color: #ffffff;
+  border: 1px solid #e2e4e6;
+  color: rgb(0, 0, 0);
   border-radius: 5px;
-  margin: 5px;
+  height: fit-content;
+
 }
 
 .loginbtnTop span {
   font-size: 20px;
+}
+
+.loginbtnTopBtns {
+  padding: 10px;
 }
 
 .loginbtnTop small {
@@ -597,8 +760,15 @@
   font-weight: 500;
 }
 
+.NavA {
+  display: flex;
+  align-items: center;
+}
+
 .NavLeft {
   display: flex;
+  align-items: center;
+
 }
 
 .ContactTop {
@@ -611,12 +781,32 @@
 }
 
 .Contact_icon {
-  font-size: 20px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+
+}
+
+.Contact_number_Text {
+  color: rgb(67, 64, 67);
+  font-size: 10px
+}
+
+.Contact_icon:hover {
+  background-color: #ff693d;
+  color: rgb(255, 255, 255);
 }
 
 .Contact_number {
+
   margin-top: -5px;
   font-weight: 500;
+  margin-left: 10px;
 }
 
 /* dashoard navbar */
@@ -673,18 +863,56 @@
 
 
 /* hero box */
-.herobox {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  overflow: hidden;
+
+
+
+.HomeHeroBox_Second {
+  border-radius: 20px;
+  position: relative;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  min-height: 200px;
+  margin-top: -100px;
+  width: 90%;
+  border: 1px solid #ccc;
 
 }
 
+.herobox {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+
+}
+
+.heroboxright {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+}
+
+.heroboxrightIMG {
+  width: 65%;
+
+}
+
+.herobox_counter_item {
+  width: 30%;
+  height: 100px;
+
+}
+
+.herobox_counter_item span {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
 .heroboxleft {
-  width: 40%;
+  padding: 50px;
+  width: 50%;
 }
 
 .heroboxleft h1 {
@@ -692,24 +920,14 @@
   margin-bottom: 0px;
 }
 
-.Skillfiltname {
-  color: rgb(66, 109, 227);
-  padding: 2px;
-}
 
 .herobox_span {
   margin-bottom: 30px;
 }
 
-.heroboxright {
-  width: 50%;
 
-}
 
-.heroboxright img {
-  width: 100%;
 
-}
 
 .categoryslider {
   display: flex;
@@ -782,6 +1000,31 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
   grid-gap: 1rem;
+}
+
+.CourseItems {
+  cursor: pointer;
+  text-align: center;
+  color: #3c4852;
+  border: 1px solid #e2e4e6;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+.CourseItemsData {
+
+  color: #3c4852;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+}
+
+.CourseItemstitlebox {
+  height: 80px;
+  overflow: hidden;
 }
 
 .TestItem {
@@ -1513,93 +1756,99 @@
 }
 
 /* Proccesbox */
-.centeritem {
+.CoverBoxText {
+  padding: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
 
-.Proccesbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .ProccesboxItembox {
   display: flex;
+  overflow: auto;
   justify-content: center;
-  flex-wrap: wrap;
+
 }
 
-.ProccesboxRightItems {
+.ProccesboxItem {
+  min-width: 250px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background-color: #ffffff;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
-  border-radius: 15px;
+  border: 1px solid #e2e4e6;
   padding: 10px;
+  text-align: center;
   margin: 10px;
-  width: 30%;
 }
 
-.ProccesboxRightItems img {
-  width: 100px;
-}
-
-.Proccesnumber {
-  height: 20px;
-  width: 20px;
-  padding: 10px;
-  background-color: rgb(66, 109, 227);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.Proccesnumber span {
+.ProccesboxItem_title {
+  margin-top: -10px;
   font-size: 20px;
   font-weight: 500;
+  position: relative;
 }
 
-.Proccestitle {
-  margin-left: 10px;
-  font-size: 18px;
-  font-weight: 500;
+.ProccesboxItem_text {
+  font-size: 12px;
+
 }
 
-.ProccesboxRightItemsfooter {
+/* Proccesbox end*/
 
-  display: flex;
-  align-items: center;
-}
+
+
+
+
 
 .stickerBox {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .stickerItem {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  margin: 5px;
+  
+  padding: 10px;
+  width: 50%;
 }
 
 .stickerItemtext {
   margin-left: 10px;
-  font-weight: 500;
+  text-align: center;
 }
 
 
 /* course sticker */
 .coursestickerBox {
   display: flex;
+}
+
+.coursestickerBoxFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px dashed #e2e4e6;
+  padding: 5px;
+}
+
+.coursestickerBoxDiscountTag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coursestickerBoxDiscountTag small {
+  margin-left: 5px;
+  margin-top: -4px;
+  color: #ab8352;
 }
 
 .coursestickerItem {
@@ -1625,14 +1874,7 @@
 
 /* Desktop css end*/
 
-@media only screen and (max-width: 1200px) {
-  .MobileMenuBtn {
-    display: none;
 
-  }
-
-
-}
 
 .Jobbox {
   padding: 10px;
@@ -1673,7 +1915,17 @@
 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
+
+  .herobox {
+
+    flex-wrap: wrap-reverse;
+    padding: 1px;
+
+
+  }
+
+
   .dataspacer_mob {
     height: 50px;
   }
@@ -1776,8 +2028,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 5px;
+    width: 100%;
 
   }
+
+  .Showmobile {
+    display: block;
+    color: #f4ecec;
+  }
+
 
   .MobileMenuBtn {
     display: block;
@@ -1793,42 +2053,17 @@
     width: 100%;
   }
 
-  .heroboxleft {
-    width: 100%;
-  }
-
-  .heroboxright {
-    width: 100%;
-    height: 230px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .heroboxright img {
-    width: 100%;
-  }
-
-  .herobox_counter_item {
-    width: 30%;
-    height: 100px;
-
-  }
-
-  .herobox_counter_item span {
-    margin-top: 5px;
-    font-size: 12px;
-  }
 
   .section {
 
     padding: 10px;
-    
+
   }
+
   .SectionBox {
 
     padding: 10px;
-    
+
   }
 
   .TitlebtnBox {
@@ -1974,20 +2209,40 @@
     font-size: 13px;
   }
 
-  .ProccesboxRightItems {
-    width: 100%;
+
+  .CoverBoxText h1 {
+    font-size: 25px;
   }
 
-  .centeritem h1 {
-    font-size: 15px;
-  }
-
-  .centeritem {
+  .CoverBoxText {
     text-align: center;
   }
 
   .heroboxleft {
+    width: 100%;
+    padding: 0;
     text-align: center;
+    margin-top: -150px;
+    background-color: rgba(255, 0, 0, 0.17);
+
+  }
+
+  .heroboxright {
+    width: 100%;
+
+
+  }
+
+  .HomeHeroBox_Second {
+    border-radius: 0px;
+    position: relative;
+    margin: auto;
+
+    min-height: 200px;
+    margin-top: 10px;
+    width: 100%;
+    border: none;
+
   }
 
   .devider {
@@ -2012,5 +2267,41 @@
 
   .BuyPassboxB {
     min-width: 100%;
+  }
+
+  .CatGrid {
+
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+  }
+
+  .ProccesboxItembox {
+    justify-content: flex-start;
+    overflow: auto;
+  }
+
+  .ProccesboxItem {
+    min-width: 250px;
+  }
+
+  .LoadMoreBtn {
+    width: 100%;
+  }
+
+  .CoverBox {
+    flex-wrap: wrap-reverse;
+  }
+
+  .CoverBoxPoster {
+    width: 100%;
+  }
+
+  .stickerItem {
+    width: 40%;
+  }
+
+  .stickerBox {
+    flex-wrap: wrap;
+
   }
 }

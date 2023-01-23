@@ -5,6 +5,10 @@ const nextConfig = {
   images: {
     domains: ['aitechnolog.com', 'themoviedb.org'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
+
 
 module.exports = nextConfig

@@ -1,14 +1,14 @@
 import * as React from 'react';
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 import Link from 'next/link';
 import Image from 'next/image'
-import img1 from '../public/img/explore-pass__illust.svg'
-import Logo from '../public/img/logo_pass.svg'
-import Icon1 from '../public/img/icon/explore-pass-trophy.svg'
-import Icon2 from '../public/img/icon/explore-pass-test.svg'
-import Icon3 from '../public/img/icon/explore-pass-poll.svg'
-import Icon4 from '../public/img/icon/explore-pass-lang.svg'
-
+import img1 from '../../public/img/explore-pass__illust.svg'
+import Logo from '../../public/img/logo_pass.svg'
+import Icon1 from '../../public/img/icon/explore-pass-trophy.svg'
+import Icon2 from '../../public/img/icon/explore-pass-test.svg'
+import Icon3 from '../../public/img/icon/explore-pass-poll.svg'
+import Icon4 from '../../public/img/icon/explore-pass-lang.svg'
+import { BASE_URL, AppName } from '../../Data/config'
 export default function PassHeroBox() {
 
     return (
@@ -22,16 +22,16 @@ export default function PassHeroBox() {
 
             </div>
             <div className={styles.PassHeroBoxB}>
-                <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Enroll in Test Series for 370+ exams with</span>
-                <div>
+                <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Enroll in {AppName} for 370+ exams with</span>
+                {/* <div>
                     <Image src={Logo} height={50} width={150} />
-                </div>
+                </div> */}
                 <div>
-                    Get unlimited access to the most relevant Mock Tests, on India #1 Online Test Series Platform
+                    Get unlimited access to the most relevant Mock Tests, on India #1 Online {AppName} Platform.
                 </div>
                 <div style={{ height: '20px' }}> </div>
                 <div>
-                    <span style={{ fontSize: '15px', fontWeight: 'bold' }}> What you get with Testbook Pass</span>
+                    <span style={{ fontSize: '15px', fontWeight: 'bold' }}> What you get with {AppName} Pass</span>
                 </div>
                 <div style={{ height: '20px' }}> </div>
                 <div className={styles.PassHeroItemBox}>

@@ -6,9 +6,10 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-.h60{
-  height:60px;
+.h60 {
+  height: 60px;
 }
+
 .swiper-button-next::after {
   display: none;
 }
@@ -33,6 +34,8 @@ body {
 }
 
 @media screen and (min-width: 640px) {
+
+
   .swiper-container {
     width: 640px;
     margin: 0px 0px 0px 0px;
@@ -47,6 +50,8 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+
+
   .swiper-container {
     width: 768px;
   }
@@ -85,4 +90,29 @@ body {
     background-position: center;
 
   }
+}
+
+
+.IndexHeroImg {
+  background-image:
+    url('https://aitechnolog.com/examapp/Storage/img/home_banner_new.afe86261.jpg');
+  background-position: 'center';
+  background-repeat: 'no-repeat';
+  background-size: cover;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 900px) {
+  .IndexHeroImg {
+    background-image:
+      url('https://aitechnolog.com/examapp/Storage/img/home_banner_new.afe86261.jpg');
+    background-position: 'center';
+    background-repeat: 'no-repeat';
+    background-size: cover;
+    border-radius: 0px;
+
+    overflow: hidden;
+  }
+
 }

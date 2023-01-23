@@ -1,17 +1,18 @@
 import * as React from 'react';
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 import Link from 'next/link';
 import Image from 'next/image'
-import img1 from '../public/img/icon/why-testbook-people.svg'
-import img2 from '../public/img/icon/why-testbook-poll.svg'
-import img3 from '../public/img/icon/why-testbook-live.svg'
-import img4 from '../public/img/icon/why-testbook-lang.svg'
+import img1 from '../../public/img/icon/why-testbook-people.svg'
+import img2 from '../../public/img/icon/why-testbook-poll.svg'
+import img3 from '../../public/img/icon/why-testbook-live.svg'
+import img4 from '../../public/img/icon/why-testbook-lang.svg'
+import { BASE_URL, AppName } from '../../Data/config'
 export default function WhyChoose() {
  
     return (
         <div className={styles.WhyChooseBox}>
             <div className={styles.WhyChooseBoxA}>
-                <div><h1>Why Board Test App?</h1></div>
+                <div><h1>Why {AppName} App?</h1></div>
                 <div><span>With 1.8+ Crore Students and India Highest Selection Rate amongst online learning platforms, you can surely rely on us to excel.</span></div>
             </div>
             <div style={{ height: '30px' }}> </div>
