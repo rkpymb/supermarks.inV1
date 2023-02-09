@@ -82,9 +82,11 @@ export default function Bupass(props) {
     return (
         <div>
 
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Buy Now
-            </Button>
+           
+
+            <div className={styles.GetStartedBTN} onClick={handleClickOpen}>
+                <span>Buy Now</span>
+            </div>
             <Dialog
                 fullScreen
                 open={open}

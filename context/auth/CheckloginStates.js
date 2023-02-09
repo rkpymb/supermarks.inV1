@@ -1,17 +1,20 @@
 import CheckloginContext from './CheckloginContext'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 const CheckloginStates = (props) => {
     const [Data, setData] = useState({});
     const [IsLogin, setIsLogin] = useState(false);
+    const router = useRouter()
 
-   
     useEffect(() => {
         // check login
         try {
             if (localStorage.getItem('userid')) {
-                const usermobnow = localStorage.getItem('userid');
-                const sendUser = { usermobnow }
-                const data = fetch("/api/check", {
+                setIsLogin(true)
+                const usermobile = localStorage.getItem('userid');
+                const sendUser = { usermobile }
+
+                const data = fetch("/api/UserProfileData", {
                     method: "POST",
                     headers: {
                         'Content-type': 'application/json'
@@ -21,12 +24,16 @@ const CheckloginStates = (props) => {
                     return a.json();
                 })
                     .then((parsedUser) => {
-                        setData(parsedUser.data)
-                        setIsLogin(true)
-                        // console.log('Data Chacked')
+                        if (parsedUser.statusdata == true) {
+                            setData(parsedUser.data)
+                            
+                        } else {
+                            setIsLogin(false)
+                        }
+
                     })
             } else {
-               
+                setIsLogin(false)
             }
         } catch (error) {
             console.error(error)
@@ -34,13 +41,13 @@ const CheckloginStates = (props) => {
         }
         // check login credential end
 
-    },[]);
+    }, [router.query]);
 
     return (
         <CheckloginContext.Provider value={{ Data, IsLogin }}>
             {props.children}
         </CheckloginContext.Provider>
     )
-    
+
 }
 export default CheckloginStates;

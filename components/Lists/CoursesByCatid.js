@@ -5,10 +5,11 @@ import { TbDiscount2 } from "react-icons/tb";
 import { useRef, useState, useEffect } from "react";
 import { useRouter } from 'next/router'
 import { BASE_URL } from '../../Data/config'
-
+import { IoLanguage } from "react-icons/io5";
 import Skeleton from '@mui/material/Skeleton';
 import Link from 'next/link'
-const CoursesHomelist = () => {
+const CoursesByCatid = ({ CATID }) => {
+    console.log(CATID)
     const router = useRouter()
     const [Retdata, setRetdata] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -18,8 +19,8 @@ const CoursesHomelist = () => {
 
         const handleSubmit = async () => {
             const dataid = '08c5th4rh86ht57h6g';
-            const sendUM = { dataid }
-            const data = await fetch("/api/CoursesHomelist", {
+            const sendUM = { CATID }
+            const data = await fetch("/api/List/CoursebyCatid", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'
@@ -29,7 +30,7 @@ const CoursesHomelist = () => {
                 return a.json();
             })
                 .then((parsed) => {
-                    // console.log(parsed)
+                    console.log(parsed)
                     setRetdata(parsed)
                     setIsLoading(false)
                 })
@@ -40,61 +41,61 @@ const CoursesHomelist = () => {
     }, [router.query])
     return (
         <>
-            {isLoading &&
-                <div >
-                    <Skeleton variant="rectangular" height={150} />
-                </div>
-            }
-            {!isLoading &&
-                <div>
-                    <div className={styles.CoverBox} >
-                        <div className={styles.CoverBoxText} >
-                            <div>
-                                <h1 style={{ margin: '0' }}>Recommended Best <span style={{ color: '#ff693d' }}>Courses</span> </h1>
-                            </div>
-                            <div> <span>We have listes the best Courses for your best journey for preparation of different category.</span></div>
-                            <div> </div>
-                            <div style={{ height: '20px' }}> </div>
-                            <div className={styles.stickerBox}>
-                                <div className={styles.stickerItem} style={{ backgroundColor:'#efecff'}}>
-                                    <div>
-                                        <Image src={`${BASE_URL}Storage/img/icons/presentation.png`} height={50} width={50} />
-                                    </div>
-                                    <div className={styles.stickerItemtext}>
-                                        <span>Best and qualified Educators</span>
-                                    </div>
-                                </div>
 
-                                <div className={styles.stickerItem} style={{ backgroundColor:'#fff6e9'}}>
-                                    <div>
-                                        <Image src={`${BASE_URL}Storage/img/icons/open.png`} height={50} width={50} />
-                                    </div>
-                                    <div className={styles.stickerItemtext}>
-                                        <span>Structured syllabus Top Courses</span>
-                                    </div>
-                                </div>
-                                <div className={styles.stickerItem} style={{ backgroundColor:'#ffe9f1'}}>
-                                    <div>
-                                        <Image src={`${BASE_URL}Storage/img/icons/focus.png`} height={50} width={50} />
-                                    </div>
-                                    <div className={styles.stickerItemtext}>
-                                        <span>Focused for Get Success</span>
-                                    </div>
-                                </div>
-                                <div className={styles.stickerItem} style={{ backgroundColor:'#dcf9fd'}}>
-                                    <div>
-                                        <Image src={`${BASE_URL}Storage/img/icons/rtr.png`} height={50} width={50} />
-                                    </div>
-                                    <div className={styles.stickerItemtext}>
-                                        <span>Success guarantee* for you</span>
-                                    </div>
-                                </div>
+
+            <div>
+                <div className={styles.Space5Mobile}> </div>
+                <div className={styles.TitleCenterBox} >
+                    <div>
+                        <h1 style={{ margin: '0' }}>Courses for <span style={{ color: '#1d75bd' }}>{CATID}</span> </h1>
+                    </div>
+                    <div> <span>We have listes the best Best Courses for {CATID} preparation</span></div>
+                    <div> </div>
+                    <div style={{ height: '20px' }}> </div>
+                    <div className={styles.stickerBox}>
+                        <div className={styles.stickerItem} style={{ backgroundColor: '#efecff' }}>
+                            <div>
+                                <Image src={`${BASE_URL}Storage/img/icons/presentation.png`} height={50} width={50} />
+                            </div>
+                            <div className={styles.stickerItemtext}>
+                                <span>Best and qualified Educators</span>
                             </div>
                         </div>
-                        <div className={styles.CoverBoxPoster}>
-                            <img src={`${BASE_URL}Storage/img/img3.png`} className={styles.CoverBoxPosterIMG} />
+
+                        <div className={styles.stickerItem} style={{ backgroundColor: '#fff6e9' }}>
+                            <div>
+                                <Image src={`${BASE_URL}Storage/img/icons/open.png`} height={50} width={50} />
+                            </div>
+                            <div className={styles.stickerItemtext}>
+                                <span>Structured syllabus Top Courses</span>
+                            </div>
+                        </div>
+                        <div className={styles.stickerItem} style={{ backgroundColor: '#ffe9f1' }}>
+                            <div>
+                                <Image src={`${BASE_URL}Storage/img/icons/focus.png`} height={50} width={50} />
+                            </div>
+                            <div className={styles.stickerItemtext}>
+                                <span>Focused for Get Success</span>
+                            </div>
+                        </div>
+                        <div className={styles.stickerItem} style={{ backgroundColor: '#dcf9fd' }}>
+                            <div>
+                                <Image src={`${BASE_URL}Storage/img/icons/rtr.png`} height={50} width={50} />
+                            </div>
+                            <div className={styles.stickerItemtext}>
+                                <span>Success guarantee* for you</span>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div style={{ height: '30px' }}> </div>
+                {isLoading &&
+                    <div >
+
+                        <Skeleton variant="rectangular" style={{ minHeight: '100vh' }} />
+                    </div>
+                }
+                {!isLoading &&
 
                     <div className={styles.CourseListBox}>
                         <div className={styles.CourseGrid}>
@@ -160,15 +161,32 @@ const CoursesHomelist = () => {
 
                         </div>
 
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '15px' }}>
-                            <div className={styles.LoadMoreBtn}>
-                                <span>View More Courses</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        {Retdata.length > 0 &&
 
-            }
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '15px' }}>
+                                <div className={styles.LoadMoreBtn}>
+                                    <span>View More Courses</span>
+                                </div>
+                            </div>
+                        }
+                        {Retdata.length == 0 &&
+
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '15px', flexDirection: 'column' }}>
+                                <div style={{ height: '30px' }}> </div>
+                                <div> <span>{Retdata.length} Courses Found for {CATID}</span></div>
+                                <div style={{ height: '30px' }}> </div>
+                                <Link href='/'>
+                                    <div className={styles.LoadMoreBtn}>
+                                        <span>Go Back</span>
+                                    </div>
+                                </Link>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+
+
 
 
         </>
@@ -178,4 +196,4 @@ const CoursesHomelist = () => {
     )
 }
 
-export default CoursesHomelist
+export default CoursesByCatid

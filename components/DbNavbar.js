@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 import { AiOutlineLogin } from 'react-icons/ai';
 import { VscAccount } from "react-icons/vsc";
 import { IoIosCall } from "react-icons/io";
-import { BiMenuAltLeft } from "react-icons/bi";
+import { GrPowerShutdown } from "react-icons/gr";
 import Link from 'next/link';
 
 const Navbar = (props) => {
@@ -30,15 +30,7 @@ const Navbar = (props) => {
               <li>Tests Series</li>
             </Link>
           </div> */}
-          <div className={styles.ContactTop}>
-            <div className={styles.Contact_icon}>
-              <span><IoIosCall /></span>
-            </div>
-            <div className={styles.Contact_number}>
-              
-              <span>+91 9661113102</span>
-            </div>
-          </div>
+      
           {!Contextdata.IsLogin && (
             <Link href='Login'>
               <div className={styles.loginbtnTop}>
@@ -49,12 +41,12 @@ const Navbar = (props) => {
 
           )}
           {Contextdata.IsLogin && (
-            <Link href='https://examapp.vercel.app/Dashboard'>
-              <div className={styles.loginbtnTop}>
-                <span><VscAccount /></span>
-                <small>Dashboard</small>
+           
+            <div className={styles.loginbtnTop} onClick={props.LogutNow}>
+                <span><GrPowerShutdown /></span>
+                <small>Logout</small>
               </div>
-            </Link>
+            
 
           )}
          

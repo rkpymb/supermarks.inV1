@@ -3,8 +3,9 @@ import { useRouter } from 'next/router'
 import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
+import { BASE_URL,AppName } from '../../Data/config'
 import Bupass from '../../components/Bupass'
-import Navbar from '../../components/Navbar'
+import NavbarNew from '../../components/Parts/NavbarNew'
 import Skeleton from '@mui/material/Skeleton';
 import CheckloginContext from '../../context/auth/CheckloginContext'
 const Slug = (props) => {
@@ -48,9 +49,9 @@ const Slug = (props) => {
     
 
     return <div>
-        <Navbar/>
+        <NavbarNew/>
         <Head>
-            <title>{blog && blog.data.title} : EXAM APP</title>
+            <title>{blog && blog.data.title} : {AppName}</title>
             <meta name="description" content={blog && blog.data.title} />
             <meta property="og:image" content={blog && blog.data.img} />
 
@@ -60,10 +61,8 @@ const Slug = (props) => {
                 <div className={styles.BuyPassboxA}>
                     <div className={styles.BuyPassboxAContent}>
                         <div style={{ height: '30px' }}></div>
-                        <Image src='/img/logo_pass.svg' alt="Vercel Logo" height="100" width="200" />
-                        <div style={{ marginTop: '-20px', fontSize: '20px', fontWeight: 'bold' }}>
-                            <span>Subscribe Pass to ace all exams</span>
-                        </div>
+                        <Image src='/img/viptag.png' alt="Logo" height="130" width="476" />
+                        
                         <Image src='/img/Learnuva-college-student.png' alt="Vercel Logo" height="320" width="500" />
                     </div>
                     <div>
@@ -133,7 +132,7 @@ export async function getServerSideProps(context) {
     // console.log(ID)
     const ID = context.query.pageno[0];
     const pid = ID;
-    let data = await fetch(`${process.env.API_URL}getTestPassDetails.php?pid=${pid}`)
+    let data = await fetch(`${process.env.API_URL}Website/GetTestSeriesData.php?pid=${pid}`)
     let myBlog = await data.json();
     return {
         props: { myBlog }, // will be passed to the page component as props

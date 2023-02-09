@@ -4,10 +4,11 @@ import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { BASE_URL, AppName } from '../../Data/config'
 import Skeleton from '@mui/material/Skeleton';
 import { FiChevronRight, FiNavigation, FiInfo, FiCoffee, FiFileText, FiClock, FiUnlock } from 'react-icons/fi';
 import CounsellingForm from '../../components/CounsellingForm'
-import Navbar from '../../components/Navbar'
+import NavbarNew from '../../components/Parts/NavbarNew'
 const Slug = (props) => {
     // console.log(props.myBlog)
     const router = useRouter();
@@ -75,9 +76,9 @@ const Slug = (props) => {
     }
 
     return <div>
-        <Navbar/>
+        <NavbarNew/>
         <Head>
-            <title>{blog && blog.data.title} : EXAM APP</title>
+            <title>{blog && blog.data.title} : : {AppName}</title>
             <meta name="description" content={blog && blog.data.title} />
             <meta property="og:image" content={blog && blog.data.img} />
 
@@ -151,7 +152,7 @@ const Slug = (props) => {
 
                 </div>
                 <div className={styles.CBoxB}>
-                    <Image src={`https://aitechnolog.com/examapp/Storage/panel/img/${blog.data.img}`} alt="Vercel Logo" height="400" width="800" />
+                    <Image src={`${BASE_URL}Storage/panel/img/${blog.data.img}`} alt="Vercel Logo" height="400" width="800" />
                 </div>
             </div>
         </div>
@@ -328,7 +329,7 @@ export async function getServerSideProps(context) {
     // console.log(ID)
     const ID = context.query.pageno[0];
     const pid = ID;
-    let data = await fetch(`${process.env.API_URL}getTestPassDetails.php?pid=${pid}`)
+    let data = await fetch(`${process.env.API_URL}Website/GetTestSeriesData.php?pid=${pid}`)
     let myBlog = await data.json();
     return {
         props: { myBlog }, // will be passed to the page component as props

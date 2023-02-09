@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link';
+import { ShortAbout, AppName, SocialHandles, Contactinfo, DomainURL } from '../Data/config'
 import { BsFacebook, BsInstagram, BsTwitter, BsLinkedin, BsYoutube } from "react-icons/bs";
 import { HiLocationMarker, HiPhone, HiOutlineMail } from "react-icons/hi";
 const Footer = () => {
@@ -11,21 +12,21 @@ const Footer = () => {
           <div className={styles.dataspacer}> </div>
           <Link href='/'>
             <div className={styles.logomain}>
-              <img src='/logonew.png' alt='logo' />
+              <img src='/logomain.png' alt='logo' className={styles.NavLogo} />
             </div>
           </Link>
-          <p>BoardExam App offers industry-relevant advanced courses for finding your dream job.</p>
+          <p>{AppName} {ShortAbout}</p>
           <div className={styles.FooterBox_socialIcons}>
-            <a href='https://www.facebook.com/BoardExam App' target='_blank' rel="noreferrer">
+            <a href={SocialHandles.Facebook} target='_blank' rel="noreferrer">
               <span> <BsFacebook /> </span>
             </a>
-            <a href='https://www.instagram.com/BoardExam App' target='_blank' rel="noreferrer">
+            <a href={SocialHandles.Instagram} target='_blank' rel="noreferrer">
               <span> <BsInstagram /> </span>
             </a>
-            <a href='https://twitter.com/BoardExam App' target='_blank' rel="noreferrer">
+            <a href={SocialHandles.Twitter} target='_blank' rel="noreferrer">
               <span> <BsTwitter /> </span>
             </a>
-            <a href='https://www.linkedin.com/BoardExam App' target='_blank' rel="noreferrer">
+            <a href={SocialHandles.Linkedin} target='_blank' rel="noreferrer">
               <span> <BsLinkedin /> </span>
             </a>
             {/* <a href='/' target='_blank'>
@@ -54,26 +55,23 @@ const Footer = () => {
           <h3>Contact us</h3>
           <div className={styles.FooterBox_address_item}>
             <span><HiLocationMarker /></span>
-            <small> 3rd Floor, Valmiki Nagar, East Coast Road, Thiruvanmiyur, Chennai - 600041.</small>
+            <small> {Contactinfo.MainAddress}</small>
           </div>
           <div className={styles.FooterBox_address_item}>
             <span><HiPhone /></span>
-            <small>+91 9661113102</small>
+            <small>{Contactinfo.MainMobile}</small>
           </div>
           <div className={styles.FooterBox_address_item}>
             <span><HiOutlineMail /></span>
-            <small>info@gmail.com</small>
+            <small>{Contactinfo.ContactEmail}</small>
           </div>
-          <div className={styles.FooterBox_address_item}>
-            <span><HiOutlineMail /></span>
-            <small>career@gmail.com</small>
-          </div>
+          
 
 
         </div>
       </div>
       <div className={styles.Bottom_menu}>
-        <small>© 2022 BoardExam App.com All Rights Reserved.</small>
+        <small>© 2022 {DomainURL} All Rights Reserved.</small>
       </div>
     </>
     

@@ -27,7 +27,7 @@ const CategoriesList = () => {
                 return a.json();
             })
                 .then((parsed) => {
-                    console.log(parsed)
+                    
                     setRetdata(parsed)
                     setIsLoading(false)
                 })
@@ -58,16 +58,18 @@ const CategoriesList = () => {
                             <span>Choose Your Category</span>
                         </div>
                         <div className={styles.TitleBoxBtn_BTN}>
-                            <span>View All</span>
+                            <Link href='Categories' style={{ textDecoration: 'none' }}>
+                                <span>View All</span>
+                            </Link>
                         </div>
                     </div>
                     <div className={styles.CatGrid}>
                         {Retdata.map((item) => {
-                            return <Link href={`/Categories/${item.id}`} style={{ textDecoration: 'none' }}>
+                            return <Link href={`/Category/${item.catid}`} style={{ textDecoration: 'none' }}>
                                 <div className={styles.CatBoxItemCenter}>
                                     <div>
                                         <Image
-                                            src={`${BASE_URL}Storage/img/panel/img/${item.catimg}`}
+                                            src={`${BASE_URL}Storage/panel/img/${item.catimg}`}
                                             alt="Picture of the author"
                                             width={100}
                                             height={100}

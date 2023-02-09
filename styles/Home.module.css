@@ -1,3 +1,280 @@
+/* primary color #f39b83; */
+.mob_footer_menu {
+  display: none;
+  position: sticky;
+  bottom: -1px;
+  z-index: 1;
+  background-color: #ffffff;
+  min-width: 100%;
+  color: black;
+
+}
+
+.Chekoutlogo {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.ModalHeaderT {
+
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(243, 237, 237);
+  z-index: 999;
+  padding: 10px;
+}
+
+.ModalHeaderTBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ModalContentBox {
+  padding: 10px;
+}
+
+.OnlyMobile {
+  display: none;
+}
+
+.SaveTodayBoxCourse {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  background: linear-gradient(-45deg, rgb(255, 181, 33), #ede9ea, #e3e9eb, #ccd523);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  padding: 10px;
+  color: #2e2929;
+  font-size: 12px;
+
+
+}
+
+.SaveTodayBoxCourseB {
+
+  margin-top: -4px;
+  margin-left: 5px;
+}
+
+.Desktop30px {
+  min-height: 30px;
+}
+
+.CourseBox_container {
+  margin: auto;
+  width: 80%;
+  color: #3c4852;
+  display: flex;
+  justify-content: center;
+
+}
+
+.BgimgCourseCheckout {
+
+  background-image:
+    url('https://aitechnolog.com/examapp/Storage/img/pngtree-background-pattern-with-icon-symbol-picture-image_1154242.jpg');
+  background-position: 'center';
+  background-repeat: 'repeat';
+  background-size: contain;
+
+  min-height: 100vh;
+}
+
+.BgimgCourseCheckoutWhitefade {
+  background-color: rgba(255, 255, 255, 0.878);
+  min-height: 100vh;
+}
+
+.BoxCheckoutCourse {
+  width: 50%;
+  margin: auto;
+}
+
+.CourseCheckoutwhitebox {
+  background-color: rgba(255, 255, 255, 0.784);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  padding: 10px;
+}
+
+.CourseBox_IconTextBox {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.CourseBox_IconTextBoxB {
+  margin-left: 5px;
+  margin-top: -4px;
+  font-size: 12px;
+}
+
+.CourseBox_IconTextBoxA {
+  font-size: 12px;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: rgb(243, 239, 239);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CourseBox_container_A {
+  width: 60%;
+
+
+}
+
+.CourseBox_container_B {
+
+  height: 100%;
+  overflow: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10%;
+
+  width: 40%;
+  padding: 10px;
+
+}
+
+.CourseBox_container_BDataBox {
+  margin-top: 10px;
+}
+
+.CourseBox_EnrollBTNBOX {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.CreateOrderBtnfinal {
+
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.EnrollBtn_Course {
+
+  color: white;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.EnrollBtn_Course:hover {
+ 
+  color: rgb(166, 255, 0);
+
+}
+
+.Space5Mobile {
+  display: block;
+  min-height: 10px;
+}
+
+.mob_footer_menu_items {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
+}
+
+.mobmenu_icon {
+  font-size: 20px;
+}
+
+.footer_menu_btn {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+.LoginFull {
+
+  background-image:
+    url('https://aitechnolog.com/examapp/Storage/img/pngtree-background-pattern-with-icon-symbol-picture-image_1154242.jpg');
+  background-position: 'center';
+  background-repeat: 'repeat';
+  background-size: contain;
+
+  overflow: hidden;
+}
+
+.LoginBox {
+  background-color: rgba(255, 255, 255, 0.784);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.LoginBoxItem {
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.784);
+  width: 80%;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  padding: 0px 30px 30px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
+
+}
+
+.regBox {
+  width: 50%;
+}
+
+.LoginBoxItem_logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.LoginBoxItem img {
+  width: 100px;
+}
+
+.LoginBox_input {
+  margin-top: 20px;
+}
+
+.LoginBoxItem h1 {
+  margin-bottom: 0px;
+}
+
+.logingif {
+  width: 40%;
+}
+
+.regdoneimg img {
+  width: 100%;
+}
+
+.logingif img {
+  width: 100%;
+}
+
 .container {
   margin: auto;
   margin-top: 0;
@@ -5,7 +282,8 @@
   color: #3c4852;
   overflow: hidden;
 }
-.centeritem{
+
+.centeritem {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,6 +295,36 @@
   background-color: rgb(255, 255, 255);
   position: relative;
   padding: 10px;
+
+}
+
+.CoverBoxTestSeries {
+  display: flex;
+  background-color: #b7deff;
+  border-radius: 10px;
+}
+.TitleCenterBox{
+    padding: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.CoverBoxTestSeriesText {
+  padding: 5px;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.CoverBoxTestSeriesPoster {
+  height: 250px;
+  width: 50%;
+}
+
+.CoverBoxTestSeriesPosterIMG {
+  width: 100%;
 
 }
 
@@ -89,6 +397,56 @@
 
 }
 
+.ChapterlistBoxItem {
+  padding: 10px;
+  display: flex;
+  margin: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  cursor: pointer;
+}
+
+.ChapterlistBoxItem:hover {
+  background-color: rgb(208, 255, 115);
+}
+
+.EducatorSmallFlex {
+  display: flex;
+  flex-wrap: wrap;
+
+
+}
+
+.EducatorSmallGridItem {
+  width: 100px;
+  margin: 5px;
+  background-color: rgb(242, 244, 238);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.EducatorSmallGridItemImg {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.EducatorSmallGridItemtext span {
+  font-weight: 500;
+}
+
+.CourseItems:hover {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+
+}
+
 .CatGrid {
   margin: 0 auto;
   display: grid;
@@ -133,6 +491,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .HomeiMG img {
@@ -269,25 +628,28 @@
 .containerInoviceBox {
   padding: 10px;
 }
-
 .Header {
   width: 100%;
-  position: sticky;
-  top: 0;
-  margin-top: -65px;
+
   overflow: hidden;
-  background-color: rgb(255, 255, 255);
+  background-color: #f1582e;
   z-index: 999;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+ 
+  color: white;
+}
+.HeaderBox {
+  margin: auto;
+  
+  display: flex;
+  width: 80%;
+
+  padding: 10px;
 }
 
-.HeaderBox {
-  min-height: 40px;
-  color: white;
-  display: flex;
-  background-color: rgb(255, 255, 255);
-  padding: 10px;
 
+.HeaderLeft {
+    display: flex;
+    align-items: center;
 }
 
 .HeaderLeft {
@@ -359,7 +721,7 @@
 }
 
 .tdtext {
-  font-size: 12px;
+  font-size: 15px;
 
 
 }
@@ -421,7 +783,7 @@
 }
 
 .logomain {
-  width: 150px;
+  width: 100px;
   /* height: 40px; */
   cursor: pointer;
 
@@ -596,8 +958,8 @@
   position: sticky;
   top: 0;
   overflow: hidden;
-  background-color: #fff;
-  /* box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%); */
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(243, 237, 237);
   z-index: 999;
 }
 
@@ -680,7 +1042,7 @@
 .Navbar {
   margin: auto;
   width: 80%;
-  padding: 15px;
+    padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1010,6 +1372,7 @@
   border-radius: 10px;
   overflow: hidden;
 }
+
 
 
 .CourseItemsData {
@@ -1544,8 +1907,43 @@
   width: 200px;
 }
 
+
 .FootermobileBtn {
   display: none !important;
+}
+.FooterPaytbn {
+  position: fixed !important;
+  bottom: 0;
+  background-color: rgb(255, 255, 255) !important;
+
+  
+}
+
+.FooterPaytbnBox {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.FootermobileBtnCourse {
+  display: none !important;
+}
+
+.CreateOrderBtnBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CreateOrderBtn {
+  display: flex !important;
+  position: fixed !important;
+  bottom: 0;
+  background-color: white !important;
+  align-items: center !important;
+  min-width: 300px;
+  border-top: 1px solid rgb(243, 237, 237);
+
 }
 
 .saletag span {
@@ -1608,16 +2006,7 @@
   background-color: white;
 }
 
-.LoginBox_inputBoxtt {
-  margin: 10px;
-  width: 50%;
-  /* overflow: auto;
-  height: 300px; */
-}
 
-.LoginBox_inputEnq {
-  width: 50%;
-}
 
 .Enqmodal_titletext {
   font-size: 20px;
@@ -1638,10 +2027,6 @@
 
 }
 
-.LoginBox_inputBoxtt {
-  width: 50%;
-  overflow: auto;
-}
 
 .Careers {
   padding: 10px;
@@ -1815,7 +2200,7 @@
   align-items: center;
   justify-content: center;
   margin: 5px;
-  
+
   padding: 10px;
   width: 50%;
 }
@@ -1832,11 +2217,13 @@
 }
 
 .coursestickerBoxFooter {
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-top: 1px dashed #e2e4e6;
   padding: 5px;
+  padding-top: 10px;
 }
 
 .coursestickerBoxDiscountTag {
@@ -1856,6 +2243,7 @@
   align-items: center;
   justify-content: center;
   margin: 5px;
+  font-size: 12px;
 }
 
 .coursestickerItem img {
@@ -1863,7 +2251,7 @@
 }
 
 .coursestickerItemtext {
-  margin-left: 2px;
+  margin-left: 5px;
   margin-top: -2px;
   font-weight: 500;
 }
@@ -2016,7 +2404,7 @@
   }
 
   .logomain {
-    width: 100px;
+    width: 70px;
     height: auto;
   }
 
@@ -2159,6 +2547,24 @@
 
   }
 
+
+  .FootermobileBtnCourse {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 0;
+    background-color: rgb(255, 255, 255) !important;
+    width: 100%;
+    align-items: center !important;
+    justify-content: space-between;
+    border-top: 1px solid rgb(243, 237, 237);
+  }
+  .FootermobileBtnCourseBox{
+    width: 100%;
+    padding:10px;
+   display: flex;
+   justify-content: space-between;
+  }
+
   .CBoxAData_BoxFotter {
     display: none;
 
@@ -2179,15 +2585,6 @@
     width: 100%;
   }
 
-  .LoginBox_inputBoxtt {
-    width: 100%;
-
-    overflow: auto;
-  }
-
-  .LoginBox_inputEnq {
-    width: 100%;
-  }
 
   .Box70 {
 
@@ -2215,6 +2612,14 @@
   }
 
   .CoverBoxText {
+    text-align: center;
+  }
+
+  .CoverBoxTestSeriesText h1 {
+    font-size: 25px;
+  }
+
+  .CoverBoxTestSeriesText {
     text-align: center;
   }
 
@@ -2296,6 +2701,14 @@
     width: 100%;
   }
 
+  .CoverBoxTestSeries {
+    flex-wrap: wrap-reverse;
+  }
+
+  .CoverBoxTestSeriesPoster {
+    width: 100%;
+  }
+
   .stickerItem {
     width: 40%;
   }
@@ -2304,4 +2717,98 @@
     flex-wrap: wrap;
 
   }
+
+  .LoginBoxItem {
+    margin: 0;
+    background-color: transparent;
+
+    box-shadow: none;
+
+
+  }
+
+  .logomainBox {
+    padding: 5px;
+    margin-top: -150px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+  }
+
+  .regBox {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+  }
+
+  .mob_footer_menu {
+    display: block;
+  }
+
+  .CoverBoxTestSeries {
+
+    border-radius: 0px;
+  }
+
+  .Space5Mobile {
+    display: none;
+  }
+
+  .CoverBoxTestSeriesText {
+    background-color: white;
+  }
+
+  .CourseBox_container {
+    width: 100%;
+    flex-wrap: wrap-reverse;
+  }
+
+  .CourseBox_container_A {
+    width: 100%;
+
+  }
+
+  .CourseBox_container_B {
+    width: 100%;
+    height: auto;
+
+
+    position: relative;
+    top: 0;
+
+
+  }
+
+  .Desktop30px {
+    display: none;
+  }
+
+  .OnlyDesktop {
+    display: none;
+  }
+
+  .OnlyMobile {
+    display: block;
+  }
+
+
+  .EducatorSmallFlex {
+    overflow: auto;
+    flex-wrap: nowrap;
+
+
+  }
+
+  .EducatorSmallGridItem {
+    min-width: 120px;
+  }
+
+  .BoxCheckoutCourse {
+    width: 100%;
+  }
+     .HeaderBox {
+       width: 100%;
+     }
+  
+     .HeaderBox_Playroom {
+       width: 100%;
+     }
 }

@@ -8,7 +8,7 @@ import { IoIosCall } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
 import HeaderMenuLeft from './Subparts/HeaderMenuLeft' 
 import Link from 'next/link';
-
+import { ShortAbout, AppName, SocialHandles, Contactinfo, DomainURL } from '../../Data/config'
 const Navbar = (props) => {
     const Contextdata = useContext(CheckloginContext)
     return (
@@ -18,7 +18,7 @@ const Navbar = (props) => {
                     <div className={styles.logo}>
                         <Link href='/'>
                             <div className={styles.logomain}>
-                                <img src='https://www.vedantu.com/cdn/images/new-header/img/vedantu-logo.svg' alt='logo' />
+                                <img src='/logomain.png' alt='logo' className={styles.NavLogo} />
                             </div>
                         </Link>
                     </div>
@@ -26,18 +26,23 @@ const Navbar = (props) => {
                         <HeaderMenuLeft/>
                     </div> */}
                     <div className={styles.MainMenu}>
-                        <Link href='/Tests'>
+                        <Link href='/AllCourses'>
                             <li>Courses</li>
                         </Link>
                     </div>
                     <div className={styles.MainMenu}>
-                        <Link href='/Tests'>
+                        <Link href='/AllTestSeries'>
                             <li>Tests Series</li>
                         </Link>
                     </div>
                     <div className={styles.MainMenu}>
-                        <Link href='/Tests'>
+                        <Link href='/StudyMaterials'>
                             <li>Materials</li>
+                        </Link>
+                    </div>
+                    <div className={styles.MainMenu}>
+                        <Link href='/Phonepe'>
+                            <li>Doubts</li>
                         </Link>
                     </div>
                 </div>
@@ -51,7 +56,7 @@ const Navbar = (props) => {
                             <div className={styles.Contact_number_Text}>
                                 <span>Talk to an expert</span>
                             </div>
-                            <span>+91 9661113102</span>
+                            <span>{Contactinfo.MainMobile}</span>
                         </div>
                     </div>
                     <div className={styles.loginbtnTopBtns}>
@@ -65,7 +70,7 @@ const Navbar = (props) => {
 
                         )}
                         {Contextdata.IsLogin && (
-                            <Link href='https://examapp.vercel.app/Dashboard'>
+                            <Link href='/Dashboard'>
                                 <div className={styles.loginbtnTop}>
                                     <span><VscAccount /></span>
                                     <small>Dashboard</small>

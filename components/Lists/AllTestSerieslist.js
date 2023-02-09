@@ -1,14 +1,14 @@
 import React from 'react'
 import styles from '../../styles/Home.module.css'
 import Image from 'next/image'
-import { TbDiscount2 } from "react-icons/tb";
+import { FiUsers } from "react-icons/fi";
 import { useRef, useState, useEffect } from "react";
 import { useRouter } from 'next/router'
 import { BASE_URL } from '../../Data/config'
-
+import { IoLanguage } from "react-icons/io5";
 import Skeleton from '@mui/material/Skeleton';
 import Link from 'next/link'
-const CoursesHomelist = () => {
+const AllTestSerieslist = () => {
     const router = useRouter()
     const [Retdata, setRetdata] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +19,7 @@ const CoursesHomelist = () => {
         const handleSubmit = async () => {
             const dataid = '08c5th4rh86ht57h6g';
             const sendUM = { dataid }
-            const data = await fetch("/api/CoursesHomelist", {
+            const data = await fetch("/api/TestHomelist", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'
@@ -42,64 +42,66 @@ const CoursesHomelist = () => {
         <>
             {isLoading &&
                 <div >
-                    <Skeleton variant="rectangular" height={150} />
+                    <div style={{ height: '20px' }}> </div>
+                    <Skeleton variant="rectangular" style={{ minHeight: '100vh' }} />
                 </div>
             }
             {!isLoading &&
                 <div>
-                    <div className={styles.CoverBox} >
-                        <div className={styles.CoverBoxText} >
+                    <div className={styles.Space5Mobile}> </div>
+                    <div className={styles.CoverBoxTestSeries}>
+                        <div className={styles.CoverBoxTestSeriesText} >
                             <div>
-                                <h1 style={{ margin: '0' }}>Recommended Best <span style={{ color: '#ff693d' }}>Courses</span> </h1>
+                                <h1 style={{ margin: '0' }}>Recommended Best <span style={{ color: '#1d75bd' }}>Test Series</span> </h1>
                             </div>
-                            <div> <span>We have listes the best Courses for your best journey for preparation of different category.</span></div>
+                            <div> <span>We have listes the best Test Series for your best journey for preparation of different category.</span></div>
                             <div> </div>
                             <div style={{ height: '20px' }}> </div>
                             <div className={styles.stickerBox}>
-                                <div className={styles.stickerItem} style={{ backgroundColor:'#efecff'}}>
+                                <div className={styles.stickerItem} style={{ backgroundColor: 'white' }}>
                                     <div>
                                         <Image src={`${BASE_URL}Storage/img/icons/presentation.png`} height={50} width={50} />
                                     </div>
                                     <div className={styles.stickerItemtext}>
-                                        <span>Best and qualified Educators</span>
+                                        <span style={{ color: 'black' }}>Designed by Top Educators</span>
                                     </div>
                                 </div>
 
-                                <div className={styles.stickerItem} style={{ backgroundColor:'#fff6e9'}}>
+                                <div className={styles.stickerItem} style={{ backgroundColor: 'white' }}>
                                     <div>
-                                        <Image src={`${BASE_URL}Storage/img/icons/open.png`} height={50} width={50} />
+                                        <Image src={`${BASE_URL}Storage/img/icons/conversation.png`} height={50} width={50} />
                                     </div>
                                     <div className={styles.stickerItemtext}>
-                                        <span>Structured syllabus Top Courses</span>
+                                        <span style={{ color: 'black' }}>Most Important Covered</span>
                                     </div>
                                 </div>
-                                <div className={styles.stickerItem} style={{ backgroundColor:'#ffe9f1'}}>
+                                <div className={styles.stickerItem} style={{ backgroundColor: 'white' }}>
                                     <div>
-                                        <Image src={`${BASE_URL}Storage/img/icons/focus.png`} height={50} width={50} />
+                                        <Image src={`${BASE_URL}Storage/img/icons/analysis.png`} height={50} width={50} />
                                     </div>
                                     <div className={styles.stickerItemtext}>
-                                        <span>Focused for Get Success</span>
+                                        <span style={{ color: 'black' }}>Analysis of your Scores</span>
                                     </div>
                                 </div>
-                                <div className={styles.stickerItem} style={{ backgroundColor:'#dcf9fd'}}>
+                                <div className={styles.stickerItem} style={{ backgroundColor: 'white' }}>
                                     <div>
-                                        <Image src={`${BASE_URL}Storage/img/icons/rtr.png`} height={50} width={50} />
+                                        <Image src={`${BASE_URL}Storage/img/icons/coaching.png`} height={50} width={50} />
                                     </div>
                                     <div className={styles.stickerItemtext}>
-                                        <span>Success guarantee* for you</span>
+                                        <span style={{color:'black'}}>Mentors Feedback your Results</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.CoverBoxPoster}>
-                            <img src={`${BASE_URL}Storage/img/img3.png`} className={styles.CoverBoxPosterIMG} />
+                        <div className={styles.CoverBoxTestSeriesPoster}>
+                            <img src={`/img/brand-amb.png`} className={styles.CoverBoxTestSeriesPosterIMG} />
                         </div>
                     </div>
-
+                    <div style={{ height: '50px' }}> </div>
                     <div className={styles.CourseListBox}>
                         <div className={styles.CourseGrid}>
                             {Retdata.map((item) => {
-                                return <Link href={`/Course/${item.pid}`} key={item.id}>
+                                return <Link href={`/TestSeries/${item.pid}`} key={item.id}>
                                     <div className={styles.CourseItems}>
                                         <div
                                             style={{
@@ -116,15 +118,15 @@ const CoursesHomelist = () => {
                                             <div className={styles.CourseItemstitlebox}>
                                                 <span><b>{item.title}</b></span>
                                             </div>
-                                            <div>
+                                            {/* <div>
 
                                                 <span style={{ color: '#ffaf00', fontSize: '30px', fontWeight: 'bold' }}>₹{item.SalePrice}</span>
                                                 <del> ₹{item.MainPrice}</del>
-                                            </div>
+                                            </div> */}
                                             <div className={styles.coursestickerBox}>
                                                 <div className={styles.coursestickerItem}>
                                                     <div>
-                                                        <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/wallet-money.svg' />
+                                                        <IoLanguage />
                                                     </div>
                                                     <div className={styles.coursestickerItemtext}>
                                                         <span>{item.lang}</span>
@@ -132,7 +134,9 @@ const CoursesHomelist = () => {
                                                 </div>
                                                 <div className={styles.coursestickerItem}>
                                                     <div>
-                                                        <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/suitcase-portfolio-1.svg' />
+                                                        <div>
+                                                            <FiUsers />
+                                                        </div>
                                                     </div>
                                                     <div className={styles.coursestickerItemtext}>
                                                         <span>{item.enrolled} Enrolled</span>
@@ -141,9 +145,8 @@ const CoursesHomelist = () => {
 
                                             </div>
                                             <div className={styles.coursestickerBoxFooter}>
-                                                <div className={styles.coursestickerBoxDiscountTag}>
-                                                    <span><TbDiscount2 /></span>
-                                                    <small>Save Today ₹{item.MainPrice - item.SalePrice}</small>
+                                                <div className={styles.coursestickerBoxStarts}>
+                                                    ⭐⭐⭐⭐⭐
                                                 </div>
                                                 <div className={styles.EnrollBtn}>
                                                     <span>Enroll</span>
@@ -162,7 +165,7 @@ const CoursesHomelist = () => {
 
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '15px' }}>
                             <div className={styles.LoadMoreBtn}>
-                                <span>View More Courses</span>
+                                <span>Load More</span>
                             </div>
                         </div>
                     </div>
@@ -178,4 +181,4 @@ const CoursesHomelist = () => {
     )
 }
 
-export default CoursesHomelist
+export default AllTestSerieslist

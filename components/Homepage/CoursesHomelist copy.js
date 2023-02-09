@@ -99,7 +99,7 @@ const CoursesHomelist = () => {
                     <div className={styles.CourseListBox}>
                         <div className={styles.CourseGrid}>
                             {Retdata.map((item) => {
-                                return <Link href={`/Course/${item.pid}`} key={item.id}>
+                                return <Link href={`/TestSeries/${item.pid}`} key={item.id}>
                                     <div className={styles.CourseItems}>
                                         <div
                                             style={{
@@ -109,7 +109,7 @@ const CoursesHomelist = () => {
                                                 backgroundColor: '#c5d6e3',
                                             }}
                                         >
-                                            <Image src={`${BASE_URL}Storage/panel/img/${item.img}`} alt="Vercel Logo" layout='fill' />
+                                            <Image src={`${BASE_URL}Storage/img/panel/img/${item.img}`} alt="Vercel Logo" layout='fill' />
                                         </div>
 
                                         <div className={styles.CourseItemsData}>
