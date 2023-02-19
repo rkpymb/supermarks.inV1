@@ -9,6 +9,83 @@
   color: black;
 
 }
+.ClassRoomNav{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin:auto;
+  padding: 5px;
+}
+.CourseNamebox{
+  background-color: #1d75bd;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+.ClassRoomlogo {
+  width: 80px;
+  /* height: 40px; */
+  cursor: pointer;
+
+}
+.dailymotionplayer{
+  width: 100%;
+  height:100%;
+}
+.ClassRoomlogo img {
+  width: 100%;
+}
+.VideolistItem{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  margin-top:10px;
+  padding: 10px;
+  border-radius:10px;
+  border: 1px solid rgb(241, 236, 236);
+}
+.ChapterlistItem{
+  margin-top: 10px;
+  border: 1px solid rgb(234, 229, 229);
+  padding: 10px;
+  cursor: pointer;
+}
+.ChapterlistItem:hover{
+  background-color:rgb(243, 239, 239);
+  color:black;
+}
+.ChapterlistItemdata span{
+  font-size: 15px;
+  
+}
+.LottieDonepayment{
+  height: 500px;
+  width: 100%;
+  margin: auto;
+}
+.DoneBoxCourse{
+  width:50%;
+  margin: auto;
+}
+.DoneDataITEMA{
+    
+  min-width: 50%;
+}
+.DoneData{
+  padding: 10px;
+box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+}
+.DoneDataITEMATitle{
+  font-weight: 500;
+}
+.DoneDataITEM{
+  margin: 10px;
+  display: flex;
+  align-items: center;
+ 
+}
 
 .Chekoutlogo {
   display: flex !important;
@@ -500,6 +577,7 @@
   width: 100%;
 }
 
+
 .Showmobile {
   display: none;
 }
@@ -624,7 +702,9 @@
   overflow: hidden;
   background-color: rgb(244, 240, 240);
 }
-
+.Datatext{
+  margin: 10px;
+}
 .containerInoviceBox {
   padding: 10px;
 }
@@ -632,10 +712,10 @@
   width: 100%;
 
   overflow: hidden;
-  background-color: #f1582e;
+  background-color: #ffffff;
   z-index: 999;
- 
-  color: white;
+  color: rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(232, 228, 228);
 }
 .HeaderBox {
   margin: auto;
@@ -2811,4 +2891,11 @@
      .HeaderBox_Playroom {
        width: 100%;
      }
+     .DoneBoxCourse{
+      width: 100%;
+     }
+     .LottieDonepayment{
+        height: 300px;
+     }
+
 }

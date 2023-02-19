@@ -13,7 +13,7 @@ import * as animationData from '../../Data/Lottie/16271-payment-successful.json'
 
 
 const Slug = (props) => {
-   
+    console.log(props.OID)
     const [Retdata, setRetdata] = useState([]);
     const defaultOptions = {
         loop: false,
@@ -26,33 +26,8 @@ const Slug = (props) => {
     const [ShowDATA, setShowDATA] = useState(false);
     useEffect(() => {
         const txn_date = "14-02-2023";
-        const OrderCheck = async () => {
-            const sendUMData = { OrderID: props.OID }
-            const data = await fetch("../api/QR/OrderPaymentData", {
-                method: "POST",
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(sendUMData)
-            }).then((a) => {
-                return a.json();
-            })
-                .then((parsedORDERCHEK) => {
-                    if (parsedORDERCHEK.statusdata == true) {
-                        console.table(parsedORDERCHEK.RetData)
-                        GetUPISTATUS(parsedORDERCHEK.RetData.Orderid, parsedORDERCHEK.RetData.date)
-                    } else {
-                        alert('Something went wrong !')
-                    }
-
-                })
-
-
-        }
-        OrderCheck()
-
-        const GetUPISTATUS = async (ORID,DATEBY) => {
-            const sendUMData = { OrderID: props.OID, txn_date: DATEBY }
+        const GetUPISTATUS = async () => {
+            const sendUMData = { OrderID: props.OID, txn_date: txn_date }
             const data = await fetch("../api/QR/QRstatus", {
                 method: "POST",
                 headers: {
@@ -63,12 +38,11 @@ const Slug = (props) => {
                 return a.json();
             })
                 .then((parsedQR) => {
-                   
+                    console.table(parsedQR.data)
                     if (parsedQR.data.status == 'success') {
                         setRetdata(parsedQR.data)
-                        UpdateOrder(parsedQR.data.upi_txn_id, parsedQR.data.customer_vpa)
-                        console.log(parsedQR.data)
-                       
+                        console.table((parsedQR.data))
+                        setShowDATA(true)
                     } else {
                         alert('Something went wrong !')
                     }
@@ -77,25 +51,7 @@ const Slug = (props) => {
 
 
         }
-        const UpdateOrder = async (upi_txn_id, customer_vpa) => {
-            const sendUMData = { OrderID: props.OID, upi_txn_id: upi_txn_id, customer_vpa: customer_vpa }
-            const data = await fetch("../api/QR/UpdateCourseOrder", {
-                method: "POST",
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(sendUMData)
-            }).then((a) => {
-                return a.json();
-            })
-                .then((parsedFinal) => {
-                    console.table(parsedFinal.RetData)
-                    setShowDATA(true)
-                })
-
-
-        }
-        
+        GetUPISTATUS()
 
     }, []);
 
