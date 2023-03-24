@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
-import ClassRoomNav from '../../components/Parts/ClassRoomNav'
+import DbNavbar from '../../components/Parts/DbNavbar'
 import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
 import PropTypes from 'prop-types';
@@ -47,21 +47,26 @@ const Slug = (props) => {
    
     const router = useRouter();
     const [value, setValue] = React.useState('Chapters');
-
+   
+    const [ID, setID] = useState(null);
+  
+    const [ShowData, setShowData] = useState(false);
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
     useEffect(() => {
-        console.log(props.ID)
+        setID(router.query.pageno[0])
+        setTimeout(() => {
+            setShowData(true)
+        }, "1000")
 
-
-    }, []);
+    }, [router.query]);
 
 
     return <div>
-        <ClassRoomNav />
+        <DbNavbar />
         <Head>
-            <title>ClassRoom : { props.ID }</title>
+            <title>ClassRoom : { ID }</title>
         </Head>
         <div className={styles.Header}>
             <div className={styles.HeaderBox}>
@@ -70,7 +75,7 @@ const Slug = (props) => {
                         <FiArrowLeft />
                     </div>
                     <div style={{ marginLeft: '10px', marginTop: '-5px' }}>
-                        <span style={{ fontSize: '15px' }}>CLASSROOM : {props.ID}</span>
+                        <span style={{ fontSize: '15px' }}>CLASSROOM : {ID}</span>
                     </div>
                 </div>
                 <div className={styles.HeaderRight}>
@@ -78,38 +83,32 @@ const Slug = (props) => {
                 </div>
             </div>
         </div>
-        
-        <div className={styles.container}>
-            <Box sx={{ width: '100%' }}>
-                <Box>
-                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                       
-                        <Tab label="Course Chapters" value="Chapters" />
-                        <Tab label="Doubts Forum" value="Forum" />
+        {ShowData && 
+            <div className={styles.container}>
+                <Box sx={{ width: '100%' }}>
+                    <Box>
+                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" scrollButtons="auto">
 
-                    </Tabs>
+                            <Tab label="Course Chapters" value="Chapters" />
+                            
+
+                        </Tabs>
+                    </Box>
+
+                    <TabPanel value={value} index='Chapters'>
+                        <Chapterlist Courseid={ID} />
+                    </TabPanel>
+                   
+
                 </Box>
-               
-                <TabPanel value={value} index='Chapters'>
-                    <Chapterlist Courseid={props.ID} />
-                </TabPanel>
-                <TabPanel value={value} index='Forum'>
-                 Doubts Forum
-                </TabPanel>
-
-            </Box>
-        </div>
+            </div>
+        }
+       
     </div>
       
 };
 
-export async function getServerSideProps(context) {
-    // console.log(ID)
-    const ID = context.query.pageno[0];
-    return {
-        props: { ID }, // will be passed to the page component as props
-    }
-}
+
 
 
 export default Slug;

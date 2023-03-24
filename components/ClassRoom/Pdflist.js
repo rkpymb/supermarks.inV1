@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { FiChevronRight, FiNavigation, FiInfo, FiCoffee, FiFileText, FiClock, FiUnlock, FiShoppingBag, FiMapPin, FiCreditCard, FiLogOut } from 'react-icons/fi';
 import Image from 'next/image'
 import Link from 'next/link'
-
+import Viewpdf from '../Views/Viewpdf'
 const MyCourses = ({ ChapterID }) => {
     const [isLoading, setIsLoading] = useState(true);
     const router = useRouter()
@@ -74,25 +74,24 @@ const MyCourses = ({ ChapterID }) => {
 
                     {Retdata.map((item) => {
                         return <div key={item.id} className={styles.ChapterlistItem}>
-                            <Link href={`/Chapters`}>
-                                <div style={{display: 'flex', alignItems: 'center'}}> 
-                                    <div>
-                                        <Image
-                                            
-                                            src="/img/pdf-file.png"
-                                            alt="Picture of the author"
-                                            width={40}
-                                            height={40}
-                                        /> 
-                                   </div>
-                                    <div style={{marginLeft:'10px'}}>
-                                        <h4 style={{ margin: '0' }}>{item.Title}</h4>
-                                        <div><span style={{fontSize:'10px'}}>{item.date}</span></div>
-                                   </div>
+                            <div style={{display: 'flex', alignItems: 'center'}}>
+                                <Image
 
+                                    src="/img/pdf-file.png"
+                                    alt="Picture of the author"
+                                    width={40}
+                                    height={40}
+                                />
+                                <div style={{ marginLeft: '10px' }}>
+                                    <h4 style={{ margin: '0' }}>{item.Title}</h4>
+                                    <div><span style={{ fontSize: '10px' }}>Added on : {item.date}</span></div>
+                                    
                                 </div>
-                            </Link>
-
+                            </div>
+                            <div>
+                                <Viewpdf Datapdf={item} />
+                            </div>
+                           
                         </div>
                     }
 

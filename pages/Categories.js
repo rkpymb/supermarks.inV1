@@ -73,8 +73,8 @@ const CategoriesList = () => {
                                             <Image
                                                 src={`${BASE_URL}Storage/panel/img/${item.catimg}`}
                                                 alt="Picture of the author"
-                                                width={100}
-                                                height={100}
+                                                width={50}
+                                                height={50}
                                             />
                                         </div>
                                         <div>

@@ -34,8 +34,10 @@ const Proccesbox = () => {
         <div className={styles.container}>
             <div className={styles.dataspacer}> </div>
             <div className={styles.centeritem} >
-                <div><h1 style={{ margin: '0' }}>How Earn maximum Marks & Become the Best ? </h1></div>
-                <div> <span>Follow these simple steps to get success into your Study & Exams, We are here to Guide You everytime</span></div>
+                <div><h1 style={{ margin: '10px' }}>Best Courses
+                    with 100% Job Guarantee </h1></div>
+                <div> <span>We can assure you 100% about our programme and our ability to get you placed, but we also believe that there is no substitute for hard work and dedication.
+                    To land a job in a company a student must comply with these conditions :</span></div>
             </div>
             <div className={styles.dataspacer}> </div>
             <div className={styles.ProccesboxItembox}>
@@ -48,10 +50,10 @@ const Proccesbox = () => {
                             isPaused={false} />
                     </div>
                     <div className={styles.ProccesboxItem_title}>
-                        <span>Enroll Course / Test Series</span>
+                        <span>Enroll into our Courses & Test Series</span>
                     </div>
                     <div className={styles.ProccesboxItem_text}>
-                        <span>enroll into a course or join our test series</span>
+                        <span>enroll into a course and join our Special mock test series & mock interviews. Completing the modules and projects before deadlines</span>
                     </div>
                 </div>
                 <div className={styles.ProccesboxItem}>
@@ -63,10 +65,10 @@ const Proccesbox = () => {
                             isPaused={false} />
                     </div>
                     <div className={styles.ProccesboxItem_title}>
-                        <span>Complete The Goals</span>
+                        <span>Complete the Courses Exams and mock Interviews</span>
                     </div>
                     <div className={styles.ProccesboxItem_text}>
-                        <span>complete the given goal from our experts</span>
+                        <span>complete the given goal from our experts and mentros regurally and Passing the mid-term and final exams by DR IT EDUCATION</span>
                     </div>
                 </div>
                 <div className={styles.ProccesboxItem}>
@@ -78,10 +80,10 @@ const Proccesbox = () => {
                             isPaused={false} />
                     </div>
                     <div className={styles.ProccesboxItem_title}>
-                        <span>Get success</span>
+                        <span>Get Your Dream Job with 100% Guarantee</span>
                     </div>
                     <div className={styles.ProccesboxItem_text}>
-                        <span>and get success into your study & exams</span>
+                        <span>once you have completed course and givent tasks now you are ready to crack interviews for your Deram Job.</span>
                     </div>
                 </div>
             </div>

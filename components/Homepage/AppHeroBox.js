@@ -22,12 +22,12 @@ export default function PassHeroBox() {
 
             </div>
             <div className={styles.PassHeroBoxB}>
-                <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Enroll in {AppName} for 370+ exams with</span>
+                <span style={{ fontSize: '20px', fontWeight: 'bold' }}>Learn with {AppName} Experts</span>
                 {/* <div>
                     <Image src={Logo} height={50} width={150} />
                 </div> */}
                 <div>
-                    Get unlimited access to the most relevant Mock Tests, on India #1 Online {AppName} Platform.
+                    Get unlimited access to the most relevant Mock Tests,Interview on India #1 Online Job Guarantee platform.
                 </div>
                 <div style={{ height: '20px' }}> </div>
                 <div>
@@ -40,7 +40,7 @@ export default function PassHeroBox() {
                             <Image src={Icon1} height={30} width={30} />
                         </div>
                         <div style={{ marginLeft: '5px' }}>
-                            <span style={{ fontWeight: '500' }}>All India Rank</span>
+                            <span style={{ fontWeight: '500' }}>Best Educators from the industry</span>
                         </div>
                     </div>
                     <div className={styles.PassHeroItem}>
@@ -60,7 +60,7 @@ export default function PassHeroBox() {
                             <Image src={Icon2} height={30} width={30} />
                         </div>
                         <div style={{ marginLeft: '5px' }}>
-                            <span style={{ fontWeight: '500' }}>Latest Exam
+                            <span style={{ fontWeight: '500' }}>Latest Interview
                                 Patterns</span>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ export default function PassHeroBox() {
 
                 </div>
                 <div style={{ height: '20px' }}> </div>
-                <Link href='/TestSeries'>
+                <Link href='/AllCourses' style={{ textDecoration: 'none' }}>
                     <div className={styles.GetStartedBTN}>
                         <span>Get Started Today</span>
                     </div>

@@ -9,41 +9,39 @@ import { FiChevronRight } from 'react-icons/fi';
 import Listbox from '../../components/Parts/CatPage/Listbox'
 import NavbarNew from '../../components/Parts/NavbarNew'
 
-const Slug = ({ CATID }) => {
-    // console.log(props)
+const Slug = () => {
     const router = useRouter();
-    
-
+    const [ShowData, setShowData] = useState(false);
+    const [CATID, setCATID] = React.useState();
+    const { pageno } = router.query
     useEffect(() => {
-       
-    
-
+        const Data = String(pageno);
+        setCATID(Data)
+        setTimeout(() => {
+            console.log(Data)
+            setShowData(true)
+        }, "1000")
     }, [router.query])
 
     return <>
         <NavbarNew />
         <Head>
-            <title>Category : {CATID} -{BASE_URL}</title>
-            
+            <title>Category : {CATID} -{AppName}</title>
+            <link rel="icon" href="../logo/feviimg.svg" />
         </Head>
+        {ShowData &&
+            <div className={styles.container} >
+
+                <Listbox CATID={CATID} />
+            </div>
         
-        <div className={styles.container} >
-           
-            <Listbox CATID={CATID} />
-        </div>
+        }
+      
        
     </>
 };
 
-export async function getServerSideProps(context) {
-  
-    const CATID = context.query.pageno[0];
-    
-   
-    return {
-        props: { CATID }, // will be passed to the page component as props
-    }
-}
+
 
 
 export default Slug;

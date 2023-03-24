@@ -25,10 +25,10 @@ const Slug = (props) => {
     }
     const [ShowDATA, setShowDATA] = useState(false);
     useEffect(() => {
-        const txn_date = "14-02-2023";
+
         const OrderCheck = async () => {
             const sendUMData = { OrderID: props.OID }
-            const data = await fetch("../api/QR/OrderPaymentData", {
+            const data = await fetch("/api/QR/OrderPaymentData", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'
@@ -39,8 +39,9 @@ const Slug = (props) => {
             })
                 .then((parsedORDERCHEK) => {
                     if (parsedORDERCHEK.statusdata == true) {
-                        console.table(parsedORDERCHEK.RetData)
-                        GetUPISTATUS(parsedORDERCHEK.RetData.Orderid, parsedORDERCHEK.RetData.date)
+                        setRetdata(parsedORDERCHEK.RetData)
+                        
+                        setShowDATA(true)
                     } else {
                         alert('Something went wrong !')
                     }
@@ -50,51 +51,6 @@ const Slug = (props) => {
 
         }
         OrderCheck()
-
-        const GetUPISTATUS = async (ORID,DATEBY) => {
-            const sendUMData = { OrderID: props.OID, txn_date: DATEBY }
-            const data = await fetch("../api/QR/QRstatus", {
-                method: "POST",
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(sendUMData)
-            }).then((a) => {
-                return a.json();
-            })
-                .then((parsedQR) => {
-                   
-                    if (parsedQR.data.status == 'success') {
-                        setRetdata(parsedQR.data)
-                        UpdateOrder(parsedQR.data.upi_txn_id, parsedQR.data.customer_vpa)
-                        console.log(parsedQR.data)
-                       
-                    } else {
-                        alert('Something went wrong !')
-                    }
-
-                })
-
-
-        }
-        const UpdateOrder = async (upi_txn_id, customer_vpa) => {
-            const sendUMData = { OrderID: props.OID, upi_txn_id: upi_txn_id, customer_vpa: customer_vpa }
-            const data = await fetch("../api/QR/UpdateCourseOrder", {
-                method: "POST",
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(sendUMData)
-            }).then((a) => {
-                return a.json();
-            })
-                .then((parsedFinal) => {
-                    console.table(parsedFinal.RetData)
-                    setShowDATA(true)
-                })
-
-
-        }
         
 
     }, []);
@@ -127,7 +83,7 @@ const Slug = (props) => {
                                 <span className={styles.DoneDataITEMATitle}>Order ID : </span>
                             </div>
                             <div className={styles.DoneDataITEMB}>
-                                {Retdata.client_txn_id}
+                                {Retdata.Orderid}
                             </div>
                         </div>
                         <div className={styles.DoneDataITEM}>
@@ -135,7 +91,7 @@ const Slug = (props) => {
                                 <span className={styles.DoneDataITEMATitle}>Order Title : </span>
                             </div>
                             <div className={styles.DoneDataITEMB}>
-                                {Retdata.p_info}
+                                {Retdata.OrderTitle}
                             </div>
                         </div>
                         <div className={styles.DoneDataITEM}>
@@ -143,7 +99,7 @@ const Slug = (props) => {
                                 <span className={styles.DoneDataITEMATitle}>Status : </span>
                             </div>
                             <div className={styles.DoneDataITEMB}>
-                                {Retdata.status}
+                                {Retdata.OrderStatusText}
                             </div>
                         </div>
                         <div className={styles.DoneDataITEM}>
@@ -151,7 +107,7 @@ const Slug = (props) => {
                                 <span className={styles.DoneDataITEMATitle}>Order amount : </span>
                             </div>
                             <div className={styles.DoneDataITEMB}>
-                               ₹ {Retdata.amount}
+                               ₹ {Retdata.amt}
                             </div>
                         </div>
                         <div className={styles.DoneDataITEM}>
@@ -159,7 +115,7 @@ const Slug = (props) => {
                                 <span className={styles.DoneDataITEMATitle}>Date/Time : </span>
                             </div>
                             <div className={styles.DoneDataITEMB}>
-                                {Retdata.createdAt}
+                                {Retdata.date},{Retdata.time}
                             </div>
                         </div>
                     </div>

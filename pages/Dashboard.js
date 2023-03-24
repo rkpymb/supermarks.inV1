@@ -81,26 +81,26 @@ const Dashboard = () => {
                             </div>
                         </div>
                         <div className={styles.DashboardMenuBox}>
-                            <Link href='/MyCourses'>
+                            <Link href='/MyCourses'  style={{ textDecoration: 'none' ,color:'black' }}>
                                 <div className={styles.DashboardMenuItem}>
                                     <div> <FiFileText /></div>
                                     <div style={{ marginLeft: '5px', marginTop: '-5px' }}> <span>My Courses</span></div>
                                 </div>
                             </Link>
-                            <Link href='/Mytest'>
+                            <Link href='/Mytest'  style={{ textDecoration: 'none' ,color:'black' }}>
                                 <div className={styles.DashboardMenuItem}>
                                     <div> <FiFileText /></div>
                                     <div style={{ marginLeft: '5px', marginTop: '-5px' }}> <span>My Tests Series</span></div>
                                 </div>
                             </Link>
 
-                            <Link href='/MyAttempts'>
+                            <Link href='/TestResults'  style={{ textDecoration: 'none' ,color:'black' }}>
                                 <div className={styles.DashboardMenuItem}>
                                     <div> <FiCheckSquare /></div>
                                     <div style={{ marginLeft: '5px', marginTop: '-5px' }}> <span>My Tests Attempts</span></div>
                                 </div>
                             </Link>
-                            <Link href='/MyAccount'>
+                            <Link href='/MyAccount'  style={{ textDecoration: 'none' ,color:'black' }}>
                                 <div className={styles.DashboardMenuItem}>
                                     <div> <FiUser /></div>
                                     <div style={{ marginLeft: '5px', marginTop: '-5px' }}> <span>My Account</span></div>

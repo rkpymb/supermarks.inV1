@@ -1,19 +1,24 @@
-export const BASE_URL = 'https://aitechnolog.com/examapp/';
-export const AppName = 'SuperMarks';
-export const DomainURL = 'supermarks.in';
+export const BASE_URL = 'https://api.driteducation.com/';
+export const DomainURLMain = 'https://driteducation.com/';
+export const AppName = 'DR IT EDUCATION';
+export const AppDesc = 'Innovative IT Education for a Smarter Tomorrow : Best IT Courses in india, Job Ready Online Courses';
+export const DomainURL = 'driteducation.com';
+
+export const RazorPayKeyid = 'rzp_test_2OIlpARet0GTeY'
+export const RazorPaySecretkey = 'OugT3Qa77k6drclGr1yjXyip'
 
 export const SocialHandles = {
-    Facebook: 'https://www.facebook.com/BoardExam',
-    Twitter: 'https://twitter.com/BoardExam',
-    Instagram: 'https://www.instagram.com/BoardExam',
-    Linkedin: 'https://www.linkedin.com/BoardExam',
+    Facebook: 'https://www.facebook.com/driteducation',
+    Twitter: 'https://twitter.com/driteducation',
+    Instagram: 'https://www.instagram.com/driteducation',
+    Linkedin: 'https://www.linkedin.com/driteducation',
 
 };
-export const ShortAbout = 'offers industry-relevant Courses and Test Series to crack your Exams with high warks and get succeeded in your Exams.';
+export const ShortAbout = 'offers industry-relevant Courses and Test Series to crack your Jobs with high performance and get succeeded in your Career. 👍';
 export const Contactinfo = {
-    MainMobile: '+91 9661113102',
-    MainAddress: '3rd Floor, Valmiki Nagar, East Coast Road, Thiruvanmiyur, Chennai - 600041.',
-    ContactEmail: 'contact@supermarks.in',
+    MainMobile: '+91 8480001075',
+    MainAddress: '3rd Floor, Astitva Complex, Bhabua, kaimur, Bihar, 821101 IN.',
+    ContactEmail: 'hi@driteducation.com',
    
 
 };

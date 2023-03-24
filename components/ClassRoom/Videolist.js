@@ -7,7 +7,7 @@ import { FiChevronRight, FiNavigation, FiInfo, FiCoffee, FiFileText, FiClock, Fi
 import Image from 'next/image'
 import Link from 'next/link'
 import Dailymotion from '../Player/Dailymotion'
-
+import { BASE_URL } from '../../Data/config'
 const MyCourses = ({ ChapterID }) => {
     const [isLoading, setIsLoading] = useState(true);
     const router = useRouter()
@@ -74,27 +74,29 @@ const MyCourses = ({ ChapterID }) => {
                     </div>
 
                     {Retdata.map((item) => {
-                        return <div key={item.id} className={styles.VideolistItem}>
-                            <div style={{ display: 'flex'}}>
-                                <div>
-                                    <Image
+                        return <div key={item.id} className={styles.VideoItemBox}>
+                            <div
+                                style={{
+                                    position: "relative",
+                                    width: "500px",
+                                    height: "250px",
+                                    backgroundColor: '#c5d6e3',
+                                }}
+                            >
+                                <Image src={`${BASE_URL}Storage/panel/img/${item.Thumb}`} alt="Vercel Logo" layout='fill' />
+                            </div>
 
-                                        src="/img/youtube.png"
-                                        alt="Picture of the author"
-                                        width={30}
-                                        height={30}
-                                    />
-                                </div>
-                                <div style={{ marginLeft: '10px' }}>
-                                    <h4 style={{ margin: '0' }}>{item.Title}</h4>
-                                    <div><span style={{ fontSize: '10px' }}>{item.date}</span></div>
+                            <div className={styles.VideoItemBoxData}>
+                                <h4 style={{ margin: '0' }}>{item.Title}</h4>
+                                <div><span style={{ fontSize: '10px' }}> Added on : {item.date}</span></div>
+
+
+                                <div style={{ marginTop: '10px' }}>
                                     <Dailymotion VideoITEM={item} />
                                 </div>
-                                
-
                             </div>
-                            
-                            
+
+
                         </div>
                     }
 

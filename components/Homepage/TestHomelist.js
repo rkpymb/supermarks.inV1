@@ -47,59 +47,11 @@ const TestHomelist = () => {
             }
             {!isLoading &&
                 <div>
-                    <div className={styles.CoverBox} >
-                        <div className={styles.CoverBoxText} >
-                            <div>
-                                <h1 style={{ margin: '0' }}>Recommended Best <span style={{ color: '#ff693d' }}>Test Series</span> </h1>
-                            </div>
-                            <div> <span>We have listes the best Test Series for your best journey for preparation of different category.</span></div>
-                            <div> </div>
-                            <div style={{ height: '20px' }}> </div>
-                            <div className={styles.stickerBox}>
-                                <div className={styles.stickerItem} style={{ backgroundColor: '#efecff' }}>
-                                    <div>
-                                        <Image src={`${BASE_URL}Storage/img/icons/presentation.png`} height={50} width={50} />
-                                    </div>
-                                    <div className={styles.stickerItemtext}>
-                                        <span>Designed by Top Educators</span>
-                                    </div>
-                                </div>
-
-                                <div className={styles.stickerItem} style={{ backgroundColor: '#fff6e9' }}>
-                                    <div>
-                                        <Image src={`${BASE_URL}Storage/img/icons/conversation.png`} height={50} width={50} />
-                                    </div>
-                                    <div className={styles.stickerItemtext}>
-                                        <span>Most Important Covered</span>
-                                    </div>
-                                </div>
-                                <div className={styles.stickerItem} style={{ backgroundColor: '#ffe9f1' }}>
-                                    <div>
-                                        <Image src={`${BASE_URL}Storage/img/icons/analysis.png`} height={50} width={50} />
-                                    </div>
-                                    <div className={styles.stickerItemtext}>
-                                        <span>Analysis of your Scores</span>
-                                    </div>
-                                </div>
-                                <div className={styles.stickerItem} style={{ backgroundColor: '#dcf9fd' }}>
-                                    <div>
-                                        <Image src={`${BASE_URL}Storage/img/icons/coaching.png`} height={50} width={50} />
-                                    </div>
-                                    <div className={styles.stickerItemtext}>
-                                        <span>Mentors Feedback your Results</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.CoverBoxPoster}>
-                            <img src={`${BASE_URL}Storage/img/featureimg1.png`} className={styles.CoverBoxPosterIMG} />
-                        </div>
-                    </div>
-
+                   
                     <div className={styles.CourseListBox}>
                         <div className={styles.CourseGrid}>
                             {Retdata.map((item) => {
-                                return <Link href={`/TestSeries/${item.pid}`} key={item.id}>
+                                return <Link href={`/TestSeries/${item.pid}`} key={item.id} style={{ textDecoration: 'none' }}>
                                     <div className={styles.CourseItems}>
                                         <div
                                             style={{
@@ -161,11 +113,11 @@ const TestHomelist = () => {
 
                         </div>
 
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '15px' }}>
+                        {/* <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '15px' }}>
                             <div className={styles.LoadMoreBtn}>
                                 <span>View More Courses</span>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

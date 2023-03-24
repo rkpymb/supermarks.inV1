@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
-import ClassRoomNav from '../../components/Parts/ClassRoomNav'
+import DbNavbar from '../../components/Parts/DbNavbar'
 import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
 import PropTypes from 'prop-types';
@@ -46,26 +46,33 @@ function a11yProps(index) {
     };
 }
 
-const Slug = (props) => {
-   
+const Slug = () => {
+
     const router = useRouter();
     const [value, setValue] = React.useState('VideoLectures');
+    const [ID, setID] = useState(null);
+    const [CourseID, setCourseID] = useState(null);
+    const [ChapterTitle, setChapterTitle] = useState(null);
+    const [ShowData, setShowData] = useState(false);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
     useEffect(() => {
-        console.log(props.ID)
+        setID(router.query.pageno[0])
+        setCourseID(router.query.pageno[1])
+        setChapterTitle(router.query.pageno[2])
+        setTimeout(() => {
+            setShowData(true)
+        }, "1000")
        
-
-
-    }, []);
-
+    }, [router.query]);
 
     return <div>
-        <ClassRoomNav />
+        <DbNavbar />
         <Head>
-            <title>Chapter : {props.ChapterTitle} / {props.CourseID}</title>
+            <title>Chapter : {ChapterTitle} / {CourseID}</title>
         </Head>
         <div className={styles.Header}>
             <div className={styles.HeaderBox}>
@@ -74,7 +81,7 @@ const Slug = (props) => {
                         <FiArrowLeft />
                     </div>
                     <div style={{ marginLeft: '10px', marginTop: '-5px' }}>
-                        <span style={{ fontSize: '15px' }}>{props.ChapterTitle} ({props.CourseID}) </span>
+                        <span style={{ fontSize: '15px' }}>{ChapterTitle} ({CourseID}) </span>
                     </div>
                 </div>
                 <div className={styles.HeaderRight}>
@@ -82,46 +89,36 @@ const Slug = (props) => {
                 </div>
             </div>
         </div>
-        
+        {ShowData && 
         <div className={styles.container}>
             <Box sx={{ width: '100%' }}>
                 <Box>
-                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" scrollButtons="auto" variant="scrollable">
                         <Tab label="Video Lectures" value="VideoLectures" />
                         <Tab label="Live Sessions" value="LiveSessions" />
                         <Tab label="Test Series" value="TestSeries" />
                         <Tab label="Pdf Notes" value="PdfNotes" />
                     </Tabs>
                 </Box>
-               
+
                 <TabPanel value={value} index='VideoLectures'>
-                    <Videolist ChapterID={props.ID} />
+                    <Videolist ChapterID={ID} />
                 </TabPanel>
                 <TabPanel value={value} index='LiveSessions'>
-                    <LiveSession ChapterID={props.ID} />
+                    <LiveSession ChapterID={ID} />
                 </TabPanel>
                 <TabPanel value={value} index='TestSeries'>
-                    <TestSeries ChapterID={props.ID} />
+                    <TestSeries ChapterID={ID} />
                 </TabPanel>
                 <TabPanel value={value} index='PdfNotes'>
-                    <Pdflist ChapterID={props.ID} />
+                    <Pdflist ChapterID={ID} />
                 </TabPanel>
 
             </Box>
-        </div>
+            </div>
+        }
     </div>
-      
+
 };
-
-export async function getServerSideProps(context) {
-    // console.log(ID)
-    const ID = context.query.pageno[0];
-    const CourseID = context.query.pageno[1];
-    const ChapterTitle = context.query.pageno[2];
-    return {
-        props: { ID, CourseID, ChapterTitle }, // will be passed to the page component as props
-    }
-}
-
 
 export default Slug;

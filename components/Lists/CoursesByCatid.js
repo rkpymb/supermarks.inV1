@@ -5,11 +5,12 @@ import { TbDiscount2 } from "react-icons/tb";
 import { useRef, useState, useEffect } from "react";
 import { useRouter } from 'next/router'
 import { BASE_URL } from '../../Data/config'
-import { IoLanguage } from "react-icons/io5";
+
 import Skeleton from '@mui/material/Skeleton';
 import Link from 'next/link'
+import { FiCoffee, FiAward, FiAlertCircle } from "react-icons/fi";
 const CoursesByCatid = ({ CATID }) => {
-    console.log(CATID)
+
     const router = useRouter()
     const [Retdata, setRetdata] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +31,7 @@ const CoursesByCatid = ({ CATID }) => {
                 return a.json();
             })
                 .then((parsed) => {
-                    console.log(parsed)
+
                     setRetdata(parsed)
                     setIsLoading(false)
                 })
@@ -55,7 +56,7 @@ const CoursesByCatid = ({ CATID }) => {
                     <div className={styles.stickerBox}>
                         <div className={styles.stickerItem} style={{ backgroundColor: '#efecff' }}>
                             <div>
-                                <Image src={`${BASE_URL}Storage/img/icons/presentation.png`} height={50} width={50} />
+                                <Image src={`${BASE_URL}Storage/img/icons/presentation.png`} height={50} width={50} alt='img' />
                             </div>
                             <div className={styles.stickerItemtext}>
                                 <span>Best and qualified Educators</span>
@@ -64,7 +65,7 @@ const CoursesByCatid = ({ CATID }) => {
 
                         <div className={styles.stickerItem} style={{ backgroundColor: '#fff6e9' }}>
                             <div>
-                                <Image src={`${BASE_URL}Storage/img/icons/open.png`} height={50} width={50} />
+                                <Image src={`${BASE_URL}Storage/img/icons/open.png`} height={50} width={50} alt='img' />
                             </div>
                             <div className={styles.stickerItemtext}>
                                 <span>Structured syllabus Top Courses</span>
@@ -72,7 +73,7 @@ const CoursesByCatid = ({ CATID }) => {
                         </div>
                         <div className={styles.stickerItem} style={{ backgroundColor: '#ffe9f1' }}>
                             <div>
-                                <Image src={`${BASE_URL}Storage/img/icons/focus.png`} height={50} width={50} />
+                                <Image src={`${BASE_URL}Storage/img/icons/focus.png`} height={50} width={50} alt='img' />
                             </div>
                             <div className={styles.stickerItemtext}>
                                 <span>Focused for Get Success</span>
@@ -80,7 +81,7 @@ const CoursesByCatid = ({ CATID }) => {
                         </div>
                         <div className={styles.stickerItem} style={{ backgroundColor: '#dcf9fd' }}>
                             <div>
-                                <Image src={`${BASE_URL}Storage/img/icons/rtr.png`} height={50} width={50} />
+                                <Image src={`${BASE_URL}Storage/img/icons/rtr.png`} height={50} width={50} alt='img' />
                             </div>
                             <div className={styles.stickerItemtext}>
                                 <span>Success guarantee* for you</span>
@@ -100,7 +101,7 @@ const CoursesByCatid = ({ CATID }) => {
                     <div className={styles.CourseListBox}>
                         <div className={styles.CourseGrid}>
                             {Retdata.map((item) => {
-                                return <Link href={`/Course/${item.pid}`} key={item.id}>
+                                return <Link href={`/Course/${item.pid}`} key={item.id} style={{ textDecoration: 'none' }}>
                                     <div className={styles.CourseItems}>
                                         <div
                                             style={{
@@ -118,14 +119,19 @@ const CoursesByCatid = ({ CATID }) => {
                                                 <span><b>{item.title}</b></span>
                                             </div>
                                             <div>
+                                                {(item.isfree == 0)
+                                                    ?
+                                                    <span style={{ color: '#ffaf00', fontSize: '30px', fontWeight: 'bold' }}>₹{item.SalePrice}</span>
+                                                    : <span style={{ color: '#ffaf00', fontSize: '30px', fontWeight: 'bold' }}>Free</span>
+                                                }
 
-                                                <span style={{ color: '#ffaf00', fontSize: '30px', fontWeight: 'bold' }}>₹{item.SalePrice}</span>
                                                 <del> ₹{item.MainPrice}</del>
+
                                             </div>
                                             <div className={styles.coursestickerBox}>
                                                 <div className={styles.coursestickerItem}>
                                                     <div>
-                                                        <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/wallet-money.svg' />
+                                                        <FiAlertCircle />
                                                     </div>
                                                     <div className={styles.coursestickerItemtext}>
                                                         <span>{item.lang}</span>
@@ -133,18 +139,23 @@ const CoursesByCatid = ({ CATID }) => {
                                                 </div>
                                                 <div className={styles.coursestickerItem}>
                                                     <div>
-                                                        <img src='https://aitechnolog.com/skillfilt/Storage/img/icons/suitcase-portfolio-1.svg' />
+                                                        <FiAward />
                                                     </div>
                                                     <div className={styles.coursestickerItemtext}>
                                                         <span>{item.enrolled} Enrolled</span>
                                                     </div>
                                                 </div>
 
+
                                             </div>
                                             <div className={styles.coursestickerBoxFooter}>
                                                 <div className={styles.coursestickerBoxDiscountTag}>
                                                     <span><TbDiscount2 /></span>
-                                                    <small>Save Today ₹{item.MainPrice - item.SalePrice}</small>
+                                                    {(item.isfree == 0)
+                                                        ?
+                                                        <small>Save Today ₹{item.MainPrice - item.SalePrice}</small>
+                                                        : <small>Save Today ₹{item.MainPrice}</small>
+                                                    }
                                                 </div>
                                                 <div className={styles.EnrollBtn}>
                                                     <span>Enroll</span>

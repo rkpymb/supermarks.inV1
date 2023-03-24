@@ -10,9 +10,9 @@ const Footer = () => {
       <div className={styles.FooterBox}>
         <div className={styles.FooterBox_compnay}>
           <div className={styles.dataspacer}> </div>
-          <Link href='/'>
+          <Link href='/' style={{ textDecoration: 'none' }}>
             <div className={styles.logomain}>
-              <img src='/logomain.png' alt='logo' className={styles.NavLogo} />
+              <img src='/logo/dritlogomain.svg' alt='logo' className={styles.NavLogo} />
             </div>
           </Link>
           <p>{AppName} {ShortAbout}</p>
@@ -36,18 +36,50 @@ const Footer = () => {
 
         </div>
         <div className={styles.FooterBox_menu}>
-          <h3>Our Company</h3>
-          {/* <li>News and Events</li> */}
-          {/* <li>Blog</li> */}
-          {/* <li>Industry reports</li> */}
-          <Link href='/Careers'>
-            <li>Careers <small>( We are Hiring )</small></li>
+          <h3>Important Links</h3>
+          <Link href='/AllCourses' style={{ textDecoration: 'none',color:'white' }}>
+            <li>Courses </li>
           </Link>
-          <Link href='/Terms'>
-            <li>Terms</li>
+          <Link href='/Dashboard' style={{ textDecoration: 'none',color:'white' }}>
+            <li>My Dashboard </li>
           </Link>
-          <Link href='/PrivacyPolicy'>
-            <li>Privacy Policy</li>
+          <Link href='/Aboutus' style={{ textDecoration: 'none',color:'white' }}>
+            <li>About us </li>
+          </Link>
+          <Link href='/Contact' style={{ textDecoration: 'none',color:'white' }}>
+            <li>Contact us </li>
+          </Link>
+          <Link href='/Privacypolicy' style={{ textDecoration: 'none',color:'white' }}>
+            <li>Privacy Policy </li>
+          </Link>
+          <Link href='/TermsConsitions' style={{ textDecoration: 'none',color:'white' }}>
+            <li>Terms & Conditions </li>
+          </Link>
+          <Link href='/Pricing' style={{ textDecoration: 'none',color:'white' }}>
+            <li>Pricing </li>
+          </Link>
+          <Link href='/RefundPolicy' style={{ textDecoration: 'none',color:'white' }}>
+            <li>Refund Policy </li>
+          </Link>
+          <Link href='/ShippingandDelivery' style={{ textDecoration: 'none',color:'white' }}>
+            <li>Shipping and Delivery </li>
+          </Link>
+         
+        </div>
+        <div className={styles.FooterBox_menu}>
+          <h3>Institute Links</h3>
+          
+          <Link href='https://erp.driteducation.com/students/login' style={{ textDecoration: 'none',color:'white' }}>
+            <li>Student Login </li>
+          </Link>
+          <Link href='https://erp.driteducation.com/centers/login' style={{ textDecoration: 'none',color:'white' }}>
+            <li>Center Login </li>
+          </Link>
+          <Link href='https://erp.driteducation.com/verification/studentdocsverification' style={{ textDecoration: 'none',color:'white' }}>
+            <li>Certificate Verification </li>
+          </Link>
+          <Link href='https://erp.driteducation.com/verification/centerverification' style={{ textDecoration: 'none',color:'white' }}>
+            <li>Branch Verification </li>
           </Link>
           
         </div>

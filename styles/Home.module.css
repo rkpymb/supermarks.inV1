@@ -9,15 +9,166 @@
   color: black;
 
 }
-.ClassRoomNav{
-  display:flex;
+.ChoosePaymentBox{
+  padding:10px;
+ 
+}
+.ChooseItemPG{
+  padding:10px;
+  margin:10px;
+  border-radius: 10px;
+  border: 1px solid rgb(155, 145, 145);
+  display: flex;
+  align-items: center;
+}
+.DMPlayerApp {
+  background-color: rgb(0, 0, 0);
+  min-height: 100vh;
+}
+
+.DMPlayerAppItem {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+min-height: 100vh;
+  
+}
+
+.FreeSubBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.Sharebox {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.Shareboxicons {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.ShareboxiconsItems {
+  margin: 5px;
+}
+
+.Shareboxlotte {
+  width: 200px;
+  height: 200px;
+}
+
+.ProccesboxItembox::-webkit-scrollbar {
+  display: none;
+}
+
+.StatusTextpitchDone {
+  text-align: center;
+  background-color: blue;
+  padding: 0px 5px 0px 5px;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 5px;
+  color: white;
+}
+
+.StatusTextpitchPending {
+  text-align: center;
+  background-color: rgb(255, 0, 0);
+  padding: 0px 5px 0px 5px;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 5px;
+  color: white;
+}
+
+.AnswerkeyItem {
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(217, 215, 215);
+}
+
+.RankBox {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 176, 176);
+
+  border-radius: 10px;
+}
+
+.RankBox span {
+
+  font-size: 30px;
+}
+
+.LeaderboardlistBox {
+  margin-top: 10px;
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(217, 215, 215);
+}
+
+.LeaderboardlistBoxAText span {
+  font-weight: bold;
+  color: #4a4646;
+}
+
+.VideoItemBox {
+  display: flex;
+
+  justify-content: center;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(217, 215, 215);
+
+
+}
+
+.VideoItemBoxData {
+  width: 70%;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.flexwithspacebettween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.ClassRoomNav {
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 80%;
-  margin:auto;
+  margin: auto;
   padding: 5px;
 }
-.CourseNamebox{
+
+.CourseNamebox {
   background-color: #1d75bd;
   padding: 10px;
   text-align: center;
@@ -30,61 +181,76 @@
   cursor: pointer;
 
 }
-.dailymotionplayer{
+
+.dailymotionplayer {
   width: 100%;
-  height:100%;
+  height: 100%;
 }
+
 .ClassRoomlogo img {
   width: 100%;
 }
-.VideolistItem{
+
+.VideolistItem {
   display: flex;
   align-items: center;
-  justify-content:space-between;
-  margin-top:10px;
+  justify-content: space-between;
+  margin-top: 10px;
   padding: 10px;
-  border-radius:10px;
+  border-radius: 10px;
   border: 1px solid rgb(241, 236, 236);
 }
-.ChapterlistItem{
+
+.ChapterlistItem {
   margin-top: 10px;
   border: 1px solid rgb(234, 229, 229);
   padding: 10px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.ChapterlistItem:hover{
-  background-color:rgb(243, 239, 239);
-  color:black;
+
+.ChapterlistItem:hover {
+  background-color: rgb(243, 239, 239);
+  color: black;
 }
-.ChapterlistItemdata span{
+
+.ChapterlistItemdata span {
   font-size: 15px;
-  
+
 }
-.LottieDonepayment{
+
+.LottieDonepayment {
   height: 500px;
   width: 100%;
   margin: auto;
 }
-.DoneBoxCourse{
-  width:50%;
+
+.DoneBoxCourse {
+  width: 50%;
   margin: auto;
 }
-.DoneDataITEMA{
-    
+
+.DoneDataITEMA {
+
   min-width: 50%;
 }
-.DoneData{
+
+.DoneData {
   padding: 10px;
-box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 }
-.DoneDataITEMATitle{
+
+.DoneDataITEMATitle {
   font-weight: 500;
 }
-.DoneDataITEM{
+
+.DoneDataITEM {
   margin: 10px;
   display: flex;
   align-items: center;
- 
+
 }
 
 .Chekoutlogo {
@@ -235,6 +401,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   justify-content: center;
 
 }
+
 .CreateOrderBtnfinal {
 
   color: white;
@@ -255,8 +422,8 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 }
 
 .EnrollBtn_Course:hover {
- 
-  color: rgb(166, 255, 0);
+
+  color: rgb(255, 255, 255);
 
 }
 
@@ -380,12 +547,14 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   background-color: #b7deff;
   border-radius: 10px;
 }
-.TitleCenterBox{
-    padding: 5px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+.TitleCenterBox {
+  padding: 5px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .CoverBoxTestSeriesText {
   padding: 5px;
 
@@ -407,6 +576,8 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 
 .CoverBox {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .CoverBoxPoster {
@@ -439,17 +610,19 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 
 .EnrollBtn {
 
-  background-color: #ff693d;
+  background-color: #292b65;
   color: white;
-  padding: 5px;
-  width: 25%;
+  padding: 2px 20px 5px 20px;
+  width: fit-content;
   text-align: center;
   border-radius: 10px;
+  text-transform: capitalize;
   cursor: pointer;
 }
 
+
 .EnrollBtn:hover {
-  background-color: #000000;
+  background-color: #a58b33;
   color: rgb(255, 255, 255);
 
 }
@@ -470,7 +643,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   margin: 0 auto;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
 }
 
@@ -515,8 +688,22 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   border-radius: 50%;
 }
 
+.EducatorSmallGridItemtext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .EducatorSmallGridItemtext span {
   font-weight: 500;
+  font-size: 13px;
+  text-align: center;
+}
+
+.EducatorSmallGridItemtext small {
+
+  font-size: 13px;
+  text-align: center;
 }
 
 .CourseItems:hover {
@@ -528,7 +715,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   margin: 0 auto;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 
 }
 
@@ -569,11 +756,16 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   justify-content: center;
   border-radius: 5px;
   cursor: pointer;
+  text-align: center;
+}
+
+.CatBoxItemCenter:hover {
+  border: 1px solid rgb(188, 179, 179);
 }
 
 .HomeiMG img {
   border-radius: 10px;
-  border: 1px solid #e2e4e6;
+  border: 0.5px solid #e2e4e6;
   width: 100%;
 }
 
@@ -702,12 +894,15 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   overflow: hidden;
   background-color: rgb(244, 240, 240);
 }
-.Datatext{
+
+.Datatext {
   margin: 10px;
 }
+
 .containerInoviceBox {
   padding: 10px;
 }
+
 .Header {
   width: 100%;
 
@@ -717,9 +912,10 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   color: rgb(0, 0, 0);
   border-bottom: 1px solid rgb(232, 228, 228);
 }
+
 .HeaderBox {
   margin: auto;
-  
+
   display: flex;
   width: 80%;
 
@@ -728,8 +924,8 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 
 
 .HeaderLeft {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .HeaderLeft {
@@ -863,7 +1059,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 }
 
 .logomain {
-  width: 100px;
+  width: 200px;
   /* height: 40px; */
   cursor: pointer;
 
@@ -1038,7 +1234,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   position: sticky;
   top: 0;
   overflow: hidden;
-  background-color: rgb(255, 255, 255);
+  background-color: #262261;
   border-bottom: 1px solid rgb(243, 237, 237);
   z-index: 999;
 }
@@ -1122,7 +1318,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 .Navbar {
   margin: auto;
   width: 80%;
-    padding: 5px;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1140,10 +1336,11 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   cursor: pointer;
   font-weight: 500;
   margin-left: 2rem;
+  color: white;
 }
 
 .MainMenu li:hover {
-  color: #ff693d;
+  color: #ffffff;
 }
 
 .loginbtnTop {
@@ -1154,7 +1351,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   padding: 4px 10px 0px 10px;
   background-color: #ffffff;
   border: 1px solid #e2e4e6;
-  color: rgb(0, 0, 0);
+  color: #262261;
   border-radius: 5px;
   height: fit-content;
 
@@ -1218,7 +1415,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   align-items: center;
   cursor: pointer;
   padding: 8px 15px 5px 15px;
-  color: #161717;
+  color: #aeff00;
   border-radius: 5px;
 }
 
@@ -1226,23 +1423,20 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  background-color: #f0f0f0;
+  background-color: #aeff00;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 25px;
+  color: #262261;
 
 }
 
 .Contact_number_Text {
-  color: rgb(67, 64, 67);
+  color: rgb(255, 255, 255);
   font-size: 10px
 }
 
-.Contact_icon:hover {
-  background-color: #ff693d;
-  color: rgb(255, 255, 255);
-}
 
 .Contact_number {
 
@@ -1303,6 +1497,17 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 }
 
 
+.HeroSlider {
+  width: 100%;
+}
+
+.HeroSliderIMg {
+  min-width: 100%;
+}
+
+.HeroSliderIMg img {
+  min-width: 100%;
+}
 
 /* hero box */
 
@@ -1317,6 +1522,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   margin-top: -100px;
   width: 90%;
   border: 1px solid #ccc;
+  z-index: 99;
 
 }
 
@@ -1466,7 +1672,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 }
 
 .CourseItemstitlebox {
-  height: 80px;
+  min-height: 50px;
   overflow: hidden;
 }
 
@@ -1991,12 +2197,13 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 .FootermobileBtn {
   display: none !important;
 }
+
 .FooterPaytbn {
   position: fixed !important;
   bottom: 0;
   background-color: rgb(255, 255, 255) !important;
 
-  
+
 }
 
 .FooterPaytbnBox {
@@ -2238,7 +2445,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 }
 
 .ProccesboxItem {
-  min-width: 250px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2484,7 +2691,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   }
 
   .logomain {
-    width: 70px;
+    width: 170px;
     height: auto;
   }
 
@@ -2638,11 +2845,12 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
     justify-content: space-between;
     border-top: 1px solid rgb(243, 237, 237);
   }
-  .FootermobileBtnCourseBox{
+
+  .FootermobileBtnCourseBox {
     width: 100%;
-    padding:10px;
-   display: flex;
-   justify-content: space-between;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
   }
 
   .CBoxAData_BoxFotter {
@@ -2756,8 +2964,12 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
 
   .CatGrid {
 
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
 
+  }
+
+  .CatBoxItemCenter {
+    font-size: 10px;
   }
 
   .ProccesboxItembox {
@@ -2766,7 +2978,7 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   }
 
   .ProccesboxItem {
-    min-width: 250px;
+    min-width: 180px;
   }
 
   .LoadMoreBtn {
@@ -2884,18 +3096,36 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
   .BoxCheckoutCourse {
     width: 100%;
   }
-     .HeaderBox {
-       width: 100%;
-     }
-  
-     .HeaderBox_Playroom {
-       width: 100%;
-     }
-     .DoneBoxCourse{
-      width: 100%;
-     }
-     .LottieDonepayment{
-        height: 300px;
-     }
 
+  .HeaderBox {
+    width: 100%;
+  }
+
+  .HeaderBox_Playroom {
+    width: 100%;
+  }
+
+  .DoneBoxCourse {
+    width: 100%;
+  }
+
+  .LottieDonepayment {
+    height: 300px;
+  }
+
+  .VideoItemBox {
+    flex-wrap: wrap;
+    margin: 10px;
+  }
+
+  .VideoItemBoxData {
+    width: 100%;
+    margin-left: 0px;
+    padding: 10px;
+  }
+
+  .Sharebox {
+    width: 100%;
+    flex-wrap: wrap-reverse;
+  }
 }

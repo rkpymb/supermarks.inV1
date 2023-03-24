@@ -6,7 +6,8 @@ import { useRouter } from 'next/router'
 import { FiChevronRight, FiNavigation, FiInfo, FiCoffee, FiFileText, FiClock, FiUnlock, FiShoppingBag, FiMapPin, FiCreditCard, FiLogOut } from 'react-icons/fi';
 import Image from 'next/image'
 import Link from 'next/link'
-
+import Dailymotion from '../Player/Dailymotion'
+import { BASE_URL } from '../../Data/config'
 const MyCourses = ({ ChapterID }) => {
     const [isLoading, setIsLoading] = useState(true);
     const router = useRouter()
@@ -18,7 +19,7 @@ const MyCourses = ({ ChapterID }) => {
 
                 const usermobnow = localStorage.getItem('userid');
                 const datas = { ChapterID: ChapterID }
-                const data = fetch("/api/List/LiveSessionbyChapter", {
+                const data = fetch("/api/List/VideolistbyChapter", {
                     method: "POST",
                     headers: {
                         'Content-type': 'application/json'
@@ -69,29 +70,32 @@ const MyCourses = ({ ChapterID }) => {
             {!isLoading &&
                 <div>
                     <div className={styles.Datatext}>
-                        <span>All Live Session ({Retdata.length})</span>
+                        <span>All Videos ({Retdata.length})</span>
                     </div>
 
                     {Retdata.map((item) => {
-                        return <div key={item.id} className={styles.ChapterlistItem}>
-                            <Link href={`/Chapters`}>
-                                <div style={{display: 'flex', alignItems: 'center'}}> 
-                                    <div>
-                                        <Image
-                                            
-                                            src="/img/youtube.png"
-                                            alt="Picture of the author"
-                                            width={30}
-                                            height={30}
-                                        /> 
-                                   </div>
-                                    <div style={{marginLeft:'10px'}}>
-                                        <h4 style={{ margin: '0' }}>{item.Title}</h4>
-                                        <div><span style={{fontSize:'10px'}}>{item.date}</span></div>
-                                   </div>
+                        return <div key={item.id} className={styles.VideoItemBox}>
+                            <div
+                                style={{
+                                    position: "relative",
+                                    width: "500px",
+                                    height: "250px",
+                                    backgroundColor: '#c5d6e3',
+                                }}
+                            >
+                                <Image src={`${BASE_URL}Storage/panel/img/${item.Thumb}`} alt="Vercel Logo" layout='fill' />
+                            </div>
 
+                            <div className={styles.VideoItemBoxData}>
+                                <h4 style={{ margin: '0' }}>{item.Title}</h4>
+                                <div><span style={{ fontSize: '10px' }}> Added on : {item.date}</span></div>
+
+
+                                <div style={{ marginTop: '10px' }}>
+                                    <Dailymotion VideoITEM={item} />
                                 </div>
-                            </Link>
+                            </div>
+
 
                         </div>
                     }

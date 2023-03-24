@@ -3,7 +3,7 @@ const shortid = require("shortid");
 
 export default async function handler(req, res) {
     if (req.method === "POST") {
-        console.log(req.body)
+
         // Initialize razorpay object
         const razorpay = new Razorpay({
             key_id: process.env.RAZORPAY_KEY,

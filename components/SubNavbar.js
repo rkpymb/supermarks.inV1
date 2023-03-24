@@ -37,7 +37,7 @@ const Navbar = (props) => {
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <Link href='/'>
               <div >
-                <img src='/logonew.png' alt='logo' width='80px' />
+                <img src='/logo/dritlogomain.svg' alt='logo' width='80px' />
               </div>
 
             </Link>

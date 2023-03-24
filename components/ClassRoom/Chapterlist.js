@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Skeleton from '@mui/material/Skeleton';
 import styles from '../../styles/Home.module.css'
 import { useRouter } from 'next/router'
-import { FiChevronRight, FiNavigation, FiInfo, FiCoffee, FiFileText, FiClock, FiUnlock, FiShoppingBag, FiMapPin, FiCreditCard, FiLogOut } from 'react-icons/fi';
+import Button from '@mui/material/Button';
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -73,26 +73,26 @@ const MyCourses = ({ Courseid }) => {
                     </div>
 
                     {Retdata.map((item) => {
-                        return <div key={item.id} className={styles.ChapterlistItem}>
-                            <Link href={`/Chapters/${item.id}/${Courseid}/${item.title}`}>
-                                <div style={{display: 'flex', alignItems: 'center'}}> 
-                                    <div>
-                                        <Image
-                                            
-                                            src="/img/folderdata.png"
-                                            alt="Picture of the author"
-                                            width={30}
-                                            height={30}
-                                        /> 
-                                   </div>
-                                    <div style={{marginLeft:'10px'}}>
-                                        <h4 style={{ margin: '0' }}>{item.title}</h4>
-                                   </div>
+                        return <Link href={`/Chapters/${item.id}/${Courseid}/${item.title}`} style={{ textDecoration: 'none', color: 'black' }} key={item.id} className={styles.ChapterlistItem}>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <div>
+                                    <Image
 
+                                        src="/img/chapter.png"
+                                        alt="Picture of the author"
+                                        width={40}
+                                        height={40}
+                                    />
                                 </div>
-                            </Link>
+                                <div style={{ marginLeft: '10px' }}>
+                                    <h4 style={{ margin: '0' }}>{item.title}</h4>
+                                </div>
 
-                        </div>
+                            </div>
+                            <Button variant="outlined" >
+                                View
+                            </Button>
+                        </Link>
                     }
 
                     )}

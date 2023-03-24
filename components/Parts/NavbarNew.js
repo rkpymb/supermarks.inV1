@@ -18,7 +18,7 @@ const Navbar = (props) => {
                     <div className={styles.logo}>
                         <Link href='/'>
                             <div className={styles.logomain}>
-                                <img src='/logomain.png' alt='logo' className={styles.NavLogo} />
+                                <img src='/logo/dritlogomain.svg' alt='logo' className={styles.NavLogo} />
                             </div>
                         </Link>
                     </div>
@@ -26,22 +26,22 @@ const Navbar = (props) => {
                         <HeaderMenuLeft/>
                     </div> */}
                     <div className={styles.MainMenu}>
-                        <Link href='/AllCourses'>
+                        <Link href='/AllCourses' style={{ textDecoration: 'none' }}>
                             <li>Courses</li>
                         </Link>
                     </div>
                     <div className={styles.MainMenu}>
-                        <Link href='/AllTestSeries'>
+                        <Link href='/AllTestSeries' style={{ textDecoration: 'none' }}>
                             <li>Tests Series</li>
                         </Link>
                     </div>
                     <div className={styles.MainMenu}>
-                        <Link href='/StudyMaterials'>
+                        <Link href='/StudyMaterials' style={{ textDecoration: 'none' }}>
                             <li>Materials</li>
                         </Link>
                     </div>
-                    <div className={styles.MainMenu}>
-                        <Link href='/Phonepe'>
+                    <div className={styles.MainMenu} >
+                        <Link href='/Doubts' style={{ textDecoration: 'none' }}>
                             <li>Doubts</li>
                         </Link>
                     </div>
@@ -61,7 +61,7 @@ const Navbar = (props) => {
                     </div>
                     <div className={styles.loginbtnTopBtns}>
                         {!Contextdata.IsLogin && (
-                            <Link href='Login'>
+                            <Link href='Login' style={{ textDecoration: 'none' }}>
                                 <div className={styles.loginbtnTop}>
                                     <span><AiOutlineLogin /></span>
                                     <small>Login</small>
@@ -70,7 +70,7 @@ const Navbar = (props) => {
 
                         )}
                         {Contextdata.IsLogin && (
-                            <Link href='/Dashboard'>
+                            <Link href='/Dashboard' style={{ textDecoration: 'none' }}>
                                 <div className={styles.loginbtnTop}>
                                     <span><VscAccount /></span>
                                     <small>Dashboard</small>

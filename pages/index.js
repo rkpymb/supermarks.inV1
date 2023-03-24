@@ -22,44 +22,44 @@ export default function Home() {
         <title>{AppName} : Online Courses - Best Classes and Test Series For CBSE, ICSE, JEE &amp; NEET</title>
         <meta name="description" content="Online Courses - Best Classes and Test Series For CBSE, ICSE, JEE &amp; NEET" />
       </Head>
-     
+
       <HeroboxNew />
       <div className={styles.dataspacer}> </div>
       <div className={styles.container_full} style={{ backgroundColor: '#efecff' }}>
         <Proccesbox />
       </div>
-    
+
       <div className={styles.devider}> </div>
       <div className={styles.dataspacer}> </div>
       <div className={styles.container} >
         <CoursesHomelist />
       </div>
-      
+
       <div style={{ height: '50px' }}> </div>
       <div className={styles.container_full} style={{ backgroundColor: '#efecff' }}>
         <div className={styles.container} >
           <WhyChoose />
         </div>
       </div>
-      <div style={{ height: '50px' }}> </div>
+      {/* <div style={{ height: '50px' }}> </div>
       <div className={styles.container} >
         <TestHomelist />
         <div style={{ height: '50px' }}> </div>
-      </div>
-      
-     
+      </div> */}
+
+
       <div style={{ height: '30px' }}> </div>
       <div className={styles.container_full} style={{ backgroundColor: 'white' }}>
         <div className={styles.container} >
           <AppHeroBox />
         </div>
       </div>
-      
+
       <div style={{ height: '100px' }}> </div>
       <div className={styles.container_full} style={{ backgroundColor: '#232323' }} >
         <Footer />
       </div>
-      <Footermenu/>
+      <Footermenu />
     </>
 
   )

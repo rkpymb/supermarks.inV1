@@ -12,6 +12,7 @@ import Stack from '@mui/material/Stack';
 import { BASE_URL, AppName } from '../Data/config'
 import * as animationData from '../Data/Lottie/87666-female-character-walking.json'
 import * as animationData2 from '../Data/Lottie/105173-verification-code-otp.json'
+import * as animationData3 from '../Data/Lottie/110817-account-created'
 const Login = ({ BackDropOpen, BackDropClose }) => {
     const Contextdata = useContext(CheckloginContext)
     const router = useRouter()
@@ -39,6 +40,14 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
         loop: true,
         autoplay: true,
         animationData: animationData2,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    }
+    const defaultOptions3 = {
+        loop: false,
+        autoplay: true,
+        animationData: animationData3,
         rendererSettings: {
             preserveAspectRatio: 'xMidYMid slice'
         }
@@ -150,7 +159,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
                 .then((parsedReg) => {
                     // console.log(parsedReg)
                     if (parsedReg.status == true) {
-                        // console.log(parsedReg.status)
+                        SendWelcomeMsg()
                         localStorage.setItem('userid', usermobile);
                         setRegbox(false);
                         setRegdone(true)
@@ -158,6 +167,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
                         setTimeout(function () {
                             router.push('/')
                         }, 5000);
+                       
                     }
                 })
         } else {
@@ -167,6 +177,22 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
         }
 
 
+    }
+
+    const SendWelcomeMsg = async () => {
+        const sendUM = { mobile:usermobile }
+        const data = await fetch("https://api.driteducation.com/api/Send/Email/Send_Student/Welcome/emailsend.php", {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(sendUM)
+        }).then((a) => {
+            return a.json();
+        })
+            .then((parsed) => {
+               console.log('Welcome')
+            })
     }
     return (
         <>
@@ -188,7 +214,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
                             </div>
                             <div className={styles.logomainBox}>
                                 <div className={styles.logomain}>
-                                    <img src='/logomain.png' alt='logo' />
+                                    <img src='/logo/dritlogomain.svg' alt='logo' />
                                 </div>
                                 <div><h3>Log in to your Account </h3>
                                     <small>Enter your Phone number to continue OTP will be sent on this number for verfification</small>
@@ -289,7 +315,11 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
                     {regdone && (
                         <div className={styles.LoginBoxItem}>
                             <div className={styles.regdoneimg}>
-                                <img src='./img/gif/110817-account-created.gif' alt='' />
+                                <Lottie options={defaultOptions3}
+                                    width='100%'
+                                    height={400}
+                                    isStopped={false}
+                                    isPaused={false} />
                             </div>
                             
                         </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import CoursesHomelist from '../components/Homepage/CoursesHomelist'
+import AllCourselist from '../components/Lists/AllCourselist'
 import styles from '../styles/Home.module.css'
 import NavbarNew from '../components/Parts/NavbarNew'
 import Head from 'next/head'
@@ -19,7 +19,7 @@ const AllCourses = () => {
                 <CatList />
             </div>
             <div className={styles.container} style={{ minHeight: '100vh' }}>
-                <CoursesHomelist />
+                <AllCourselist />
             </div>
 
             <Footermenu />

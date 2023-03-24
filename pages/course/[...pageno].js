@@ -4,7 +4,9 @@ import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import CourseCheckout from '../../components/Checkout/CourseCheckout' 
+import CourseCheckout from '../../components/Checkout/CourseCheckout'
+import CourseCheckoutFree from '../../components/Checkout/CourseCheckoutFree'
+import CourseData from '../../components/Box/CourseData'
 
 import { BASE_URL, AppName } from '../../Data/config'
 import Skeleton from '@mui/material/Skeleton';
@@ -13,17 +15,42 @@ import { FiUsers, FiChevronRight, FiClock } from "react-icons/fi";
 import { TbDiscount2 } from "react-icons/tb";
 import NavbarNew from '../../components/Parts/NavbarNew'
 import { blue } from '@mui/material/colors';
+
+const isServerReq = req => !req.url.startsWith('/_next');
+
+export async function getServerSideProps(context) {
+    const DataSlug = context.query.pageno[0];
+    const KEY = process.env.MYKEY
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ GETID: DataSlug, updatekey: KEY })
+    };
+    const response = await fetch(`${process.env.API_URL}Website/Course/CourseData.php`, requestOptions);
+    const CourseFullData = await response.json();
+
+    return {
+
+        props: { CourseFullData }, // will be passed to the page component as props
+    }
+
+}
+
+
 const Slug = (CourseFullData) => {
-    // console.log(CourseFullData.CourseFullData.RetData)
+    console.log(CourseFullData.CourseFullData.RetData)
     const router = useRouter();
     const [CourseRetData, setCourseRetData] = useState(CourseFullData.CourseFullData.RetData);
+    const [CourseHtml, setCourseHtml] = useState(CourseFullData.CourseFullData.CourseHtml);
+   
     const [CourseID, setCourseID] = useState(CourseFullData.CourseFullData.RetData.pid);
     const [isLoading, setIsLoading] = useState(true);
     const [Edulist, setEdulist] = useState([]);
     const [Chapterlist, setChapterlist] = useState([]);
 
     useEffect(() => {
-       
+
 
         // Check login
         try {
@@ -79,10 +106,10 @@ const Slug = (CourseFullData) => {
     return <div>
         <NavbarNew />
         <Head>
-            <title>{CourseRetData && CourseRetData.title} : {AppName}</title>
+            <title>{CourseRetData && CourseRetData.title} Enroll Now</title>
             <meta name="description" content={CourseRetData && CourseRetData.title} />
-            <meta property="og:image" content={CourseRetData && CourseRetData.img} />
-
+            <meta property="og:image" content={`${BASE_URL}Storage/panel/img/${CourseRetData && CourseRetData.img}`} />
+            <link rel="icon" href="../logo/feviimg.svg" />
         </Head>
 
         {isLoading &&
@@ -111,11 +138,12 @@ const Slug = (CourseFullData) => {
                     <div style={{ padding: '10px' }}>
                         <h3>Course overview</h3>
                         <div>
-                            {CourseRetData && CourseRetData.details}
+
+                            <CourseData CourseHtml={CourseHtml} />
                         </div>
 
                     </div>
-                    <div style={{padding: '10px'}}>
+                    <div style={{ padding: '10px' }}>
                         <h3>Educators</h3>
                         <div className={styles.EducatorSmallFlex}>
                             {Edulist.map((item) => {
@@ -126,7 +154,10 @@ const Slug = (CourseFullData) => {
                                     <div className={styles.EducatorSmallGridItemtext}>
                                         <span>{item.name}</span>
                                     </div>
-                                   
+                                    <div className={styles.EducatorSmallGridItemtext}>
+                                        <small>{item.msg}</small>
+                                    </div>
+                                    
                                 </div>
                             }
 
@@ -172,12 +203,24 @@ const Slug = (CourseFullData) => {
                     </div>
                     <div className={styles.CourseBox_container_BDataBox}>
                         <div>
-                           
+
                         </div>
 
                         <div className={styles.OnlyDesktop}>
-                            <span style={{ color: '#ffaf00', fontSize: '30px', fontWeight: 'bold' }}>₹{CourseRetData.SalePrice}</span>
-                            <del> ₹{CourseRetData.MainPrice}</del>
+
+                            {CourseRetData.isfree == 1 &&
+                                <div className={styles.OnlyDesktop}>
+                                    <span style={{ color: '#ffaf00', fontSize: '30px', fontWeight: 'bold' }}>Free</span>
+                                    <del> ₹{CourseRetData.MainPrice}</del>
+                                </div>
+                            }
+                            {!CourseRetData.isfree == 1 &&
+                                <div className={styles.OnlyDesktop}>
+                                    <span style={{ color: '#ffaf00', fontSize: '30px', fontWeight: 'bold' }}>₹{CourseRetData.SalePrice}</span>
+                                    <del> ₹{CourseRetData.MainPrice}</del>
+                                </div>
+                            }
+
                         </div>
                         <div>
                             <div className={styles.CourseBox_IconTextBox}>
@@ -214,15 +257,22 @@ const Slug = (CourseFullData) => {
                             </div>
                         </div>
 
+                        {CourseRetData.isfree == 1 &&
+                            <div className={styles.OnlyDesktop}>
+                                <CourseCheckoutFree DataCourse={CourseFullData.CourseFullData.RetData} />
+                            </div>
+                        }
+                        {CourseRetData.isfree == 0 &&
+                            <div className={styles.OnlyDesktop}>
+                                <CourseCheckout DataCourse={CourseFullData.CourseFullData.RetData} />
+                            </div>
+                        }
 
-                        <div className={styles.OnlyDesktop}>
-                            <CourseCheckout DataCourse={CourseFullData.CourseFullData.RetData}/>
-                        </div>
 
 
                     </div>
                 </div>
-              
+
             </div>
         }
 
@@ -237,8 +287,15 @@ const Slug = (CourseFullData) => {
                     <del> ₹{CourseRetData.MainPrice}</del>
                 </div>
                 <div>
-                    <CourseCheckout DataCourse={CourseFullData.CourseFullData.RetData} />
+                    {CourseRetData.isfree == 1 &&
+                        <CourseCheckoutFree DataCourse={CourseFullData.CourseFullData.RetData} />
+                    }
+                    {CourseRetData.isfree == 0 &&
+                        <CourseCheckout DataCourse={CourseFullData.CourseFullData.RetData} />
+                    }
+
                 </div>
+
 
             </div>
         </div>
@@ -246,26 +303,6 @@ const Slug = (CourseFullData) => {
     </div>
 };
 
-
-
-export async function getServerSideProps(context) {
-    const DataSlug = context.query.pageno[0];
-    const KEY = process.env.MYKEY
-
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ DataSlug: DataSlug, updatekey: KEY })
-    };
-    const response = await fetch(`${process.env.API_URL}Website/Course/CourseData.php`, requestOptions);
-    const CourseFullData = await response.json();
-
-    return {
-
-        props: { CourseFullData }, // will be passed to the page component as props
-    }
-
-}
 
 
 

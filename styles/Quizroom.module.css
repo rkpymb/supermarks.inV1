@@ -5,6 +5,9 @@
     color: #3c4852;
 
 }
+.peginationbox{
+    display: flex;
+}
 
 .SubmitingBox {
     margin: auto;
@@ -15,16 +18,30 @@
     flex-direction: column;
     padding: 10px;
 }
+.WthBgimg {
+   height: 100%;
+    background-image:
+        url('https://api.driteducation.com/Storage/img/bgimg.jpg');
+    background-position: 'center';
+    background-repeat: 'repeat';
+    background-size: contain;
+       
+    overflow: hidden;
+}
+.WthBgimgOpC{
+    background-color: rgba(255, 255, 255, 0.768);
+    height: 100%;
+}
 
 .Header {
     width: 100%;
     position: sticky;
     top: 0;
     overflow: hidden;
-    background-color: rgb(110, 88, 255);
+    background-color: rgb(255, 255, 255);
     z-index: 999;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 22%);
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .HeaderBox {
@@ -55,7 +72,6 @@
 
 .HeaderBox_Playroom {
     margin: auto;
-    min-height: 40px;
     display: flex;
     align-items: center;
     justify-content:space-between;
@@ -67,9 +83,18 @@
     margin-right: 20px;
     cursor: pointer;
 }
+.HeaderLeft_PlayroomStarted {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+    padding: 10px;
+    width: 100%;
+}
 .HeaderLeft_Playroom {
     display: flex;
     align-items: center;
+   
 }
 
 .StartertestBox {
@@ -79,7 +104,7 @@
     color: #3c4852;
     overflow: hidden;
     padding: 5px;
-    min-height: 50vh;
+   
 
 }
 
@@ -101,6 +126,25 @@
     align-items: center !important;
     justify-content: center;
     padding: 10px 10px 10px 5px;
+    border-top: 1px dashed rgb(211, 203, 203);
+
+}
+.Selected{
+    background-color:rgb(47, 96, 255);
+    color: white !important;
+}
+.NotSelected{
+    background-color:white;
+    color: rgb(0, 0, 0) !important;
+}
+.FooterBtnBoxSubmit {
+   
+    position: fixed !important;
+    bottom: 0;
+    background-color: white !important;
+    width: 100%;
+   
+    padding: 10px;
     border-top: 1px dashed rgb(211, 203, 203);
 
 }
