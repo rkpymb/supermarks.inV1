@@ -46,10 +46,62 @@ export default () => {
     return (
         <div>
             {isLoading &&
-                <div style={{ padding: '10px' }}>
-                    <Skeleton variant="rounded" className={styles.LoaderFull} height={190} />
-                </div>
+                <div>
+                    <div style={{ height: '20px' }}> </div>
+                    <div className={styles.CourseListBox}>
+                        <div className={styles.CourseGrid}>
+                            <div style={{padding:'10px'}}>
+                                <div>
+                                    <Skeleton variant="rectangular" height={250} />
+                                </div>
+                                <div style={{ height: '20px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rectangular" height={20} />
+                                </div>
+                                
 
+                            </div>
+                            <div style={{padding:'10px'}}>
+                                <div>
+                                    <Skeleton variant="rectangular" height={250} />
+                                </div>
+                                <div style={{ height: '20px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rectangular" height={20} />
+                                </div>
+                                
+
+                            </div>
+                            <div style={{padding:'10px'}}>
+                                <div>
+                                    <Skeleton variant="rectangular" height={250} />
+                                </div>
+                                <div style={{ height: '20px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rectangular" height={20} />
+                                </div>
+                                
+
+                            </div>
+                            <div style={{padding:'10px'}}>
+                                <div>
+                                    <Skeleton variant="rectangular" height={250} />
+                                </div>
+                                <div style={{ height: '20px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rectangular" height={20} />
+                                </div>
+                                
+
+                            </div>
+                            
+
+                        </div>
+
+
+                    </div>
+                    <div style={{ height: '20px' }}> </div>
+                </div>
             }
             {!isLoading &&
                 <div>
