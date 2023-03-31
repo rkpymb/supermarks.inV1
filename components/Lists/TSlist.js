@@ -48,18 +48,7 @@ const CoursesHomelist = () => {
             }
             {!isLoading &&
                 <div>
-                    <div className={styles.CoverBox} >
-                        <div className={styles.CoverBoxText} >
-                            <div>
-                                <h1 style={{ margin: '0' }}>Recommended Job Ready <span style={{ color: '#ff693d' }}>Test Series</span> </h1>
-                            </div>
-                            <div> <span>We have listes the best Test Series for your best journey for preparation of different category.</span></div>
-                            <div> </div>
 
-
-                        </div>
-
-                    </div>
                     <div style={{ height: '30px' }}> </div>
                     <div className={styles.CourseListBox}>
                         <div className={styles.CourseGrid}>

@@ -6,7 +6,7 @@ import { useRef, useState, useEffect } from "react";
 import { useRouter } from 'next/router'
 import { BASE_URL } from '../../Data/config'
 import { FiCoffee, FiAward, FiAlertCircle } from "react-icons/fi";
-
+import CatListText from '../Homepage/CatListText'
 import Skeleton from '@mui/material/Skeleton';
 import Link from 'next/link'
 const CoursesHomelist = () => {
@@ -51,15 +51,13 @@ const CoursesHomelist = () => {
                     <div className={styles.CoverBox} >
                         <div className={styles.CoverBoxText} >
                             <div>
-                                <h1 style={{ margin: '0' }}>Recommended Job Ready <span style={{ color: '#ff693d' }}>Courses</span> </h1>
+                                <h1 style={{ margin: '0' }}>Recommended <span style={{ color: '#ff693d' }}>Top  Courses</span> </h1>
                             </div>
                             <div> <span>We have listes the best Courses for your best journey for preparation of different category.</span></div>
                             <div> </div>
-
-
                         </div>
-
                     </div>
+                    <CatListText/>
                     <div style={{ height: '30px' }}> </div>
                     <div className={styles.CourseListBox}>
                         <div className={styles.CourseGrid}>
