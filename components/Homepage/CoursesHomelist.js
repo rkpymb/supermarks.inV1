@@ -162,7 +162,7 @@ const CoursesHomelist = () => {
                     <div className={styles.CourseListBox}>
                         <div className={styles.CourseGrid}>
                             {Retdata.map((item) => {
-                                return <Link href={`/Course/${item.pid}`} key={item.id} style={{ textDecoration: 'none' }}>
+                                return <Link href={`/course/${item.pid}`} key={item.id} style={{ textDecoration: 'none' }}>
                                     <div className={styles.CourseItems}>
                                         <div
                                             style={{

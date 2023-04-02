@@ -50,7 +50,7 @@ const CategoriesList = () => {
                     <div style={{ height: '20px' }}> </div>
                     <div className={styles.CatGridText}>
                         {Retdata.map((item) => {
-                            return <Link href={`/Category/${item.catid}`} style={{ textDecoration: 'none' }}>
+                            return <Link href={`/category/${item.catid}`} style={{ textDecoration: 'none' }}>
                                 <div className={styles.CatBoxItemCenterText}>
                                    
                                     <div>
