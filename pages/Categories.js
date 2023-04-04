@@ -67,7 +67,7 @@ const CategoriesList = () => {
                         </div>
                         <div className={styles.CatGrid}>
                             {Retdata.map((item) => {
-                                return <Link href={`/Category/${item.catid}`} style={{ textDecoration: 'none' }}>
+                                return <Link href={`/category/${item.catid}`} style={{ textDecoration: 'none' }}>
                                     <div className={styles.CatBoxItemCenter}>
                                         <div>
                                             <Image
