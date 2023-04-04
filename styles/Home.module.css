@@ -3024,6 +3024,7 @@ display: flex;
     border-top: 1px solid rgb(243, 237, 237);
     z-index: 9999;
   }
+  
   .CatloaderBox{
     background-color: rgb(255, 0, 0);
     padding: 10px;

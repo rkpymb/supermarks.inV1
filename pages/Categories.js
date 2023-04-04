@@ -50,8 +50,106 @@ const CategoriesList = () => {
             </Head>
             <div className={styles.container} >
                 {isLoading &&
+
                     <div style={{ padding: '10px' }}>
-                        <Skeleton variant="rounded" className={styles.LoaderFull} height={190} />
+
+                        <div className={styles.TitleBoxBtn}>
+                            <div className={styles.TitleBoxBtn_TEXTCat}>
+                                <span>Choose Your Class or Topics</span>
+                            </div>
+                            <div className={styles.TitleBoxBtn_BTN}>
+                                <Link href='Categories' style={{ textDecoration: 'none' }}>
+                                    <span>View All</span>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className={styles.CatGrid}>
+
+                            <div className={styles.CatBoxItemCenter}>
+                                <div>
+                                    <Skeleton variant="circular" height={70} width={70} />
+                                </div>
+                                <div style={{ height: '10px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rounded" height={10} width={80} />
+
+                                </div>
+                            </div>
+                            <div className={styles.CatBoxItemCenter}>
+                                <div>
+                                    <Skeleton variant="circular" height={70} width={70} />
+                                </div>
+                                <div style={{ height: '10px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rounded" height={10} width={80} />
+
+                                </div>
+                            </div>
+                            <div className={styles.CatBoxItemCenter}>
+                                <div>
+                                    <Skeleton variant="circular" height={70} width={70} />
+                                </div>
+                                <div style={{ height: '10px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rounded" height={10} width={80} />
+
+                                </div>
+                            </div>
+                            <div className={styles.CatBoxItemCenter}>
+                                <div>
+                                    <Skeleton variant="circular" height={70} width={70} />
+                                </div>
+                                <div style={{ height: '10px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rounded" height={10} width={80} />
+
+                                </div>
+                            </div>
+                            <div className={styles.CatBoxItemCenter}>
+                                <div>
+                                    <Skeleton variant="circular" height={70} width={70} />
+                                </div>
+                                <div style={{ height: '10px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rounded" height={10} width={80} />
+
+                                </div>
+                            </div>
+                            <div className={styles.CatBoxItemCenter}>
+                                <div>
+                                    <Skeleton variant="circular" height={70} width={70} />
+                                </div>
+                                <div style={{ height: '10px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rounded" height={10} width={80} />
+
+                                </div>
+                            </div>
+                            <div className={styles.CatBoxItemCenter}>
+                                <div>
+                                    <Skeleton variant="circular" height={70} width={70} />
+                                </div>
+                                <div style={{ height: '10px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rounded" height={10} width={80} />
+
+                                </div>
+                            </div>
+                            <div className={styles.CatBoxItemCenter}>
+                                <div>
+                                    <Skeleton variant="circular" height={70} width={70} />
+                                </div>
+                                <div style={{ height: '10px' }}> </div>
+                                <div>
+                                    <Skeleton variant="rounded" height={10} width={80} />
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
                     </div>
 
                 }

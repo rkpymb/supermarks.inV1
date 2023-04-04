@@ -1,21 +1,46 @@
-import React, { useState, useEffect ,useCallback} from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router'
 import styles from '../../styles/Home.module.css'
 
 import { BASE_URL, AppName } from '../../Data/config'
 import YouTube from '@u-wave/react-youtube';
 const Slug = () => {
+
     const router = useRouter();
     const [ShowData, setShowData] = useState(false);
     const [VideoID, setVideoID] = React.useState();
     const { pageno } = router.query
+
+
+
+    const videos = [
+        { id: 'ZuuVjuLNvFY', name: 'JUNNY - kontra (Feat. Lil Gimch, Keeflow)' },
+        { id: 'PYE7jXNjFWw', name: 'T W L V - Follow' },
+        { id: 'ld8ugY47cps', name: 'SLCHLD - I can\'t love you anymore' },
+        { id: null, name: '<none>' },
+    ];
+
+    const qualities = ['auto', '240', '380', '480', '720', '1080', '1440', '2160'];
+
+    const hashVideoRx = /^#!\/video\/(\d)$/;
+    // const hash = typeof window.location !== 'undefined'
+    //     ? window.location.hash : ''; // eslint-disable-line no-undef
+    // const defaultVideo = hashVideoRx.test(hash)
+    //     ? parseInt(hash.replace(hashVideoRx, '$1'), 10)
+    //     : 0;
+    
     const [videoIndex, setVideoIndex] = useState();
     const [suggestedQuality, setSuggestedQuality] = useState('auto');
     const [volume, setVolume] = useState(1);
     const [paused, setPaused] = useState(false);
+    const [defaultVideo, setdefaultVideo] = useState( { id: 'ld8ugY47cps', name: 'SLCHLD - I can\'t love you anymore' },);
 
-    const qualities = ['auto', '240', '380', '480', '720', '1080', '1440', '2160'];
-   
+    const video = videos[videoIndex];
+
+    function selectVideo(index) {
+        setVideoIndex(index);
+    }
+
     const handlePause = useCallback((event) => {
         setPaused(event.target.checked);
     }, []);
@@ -27,9 +52,6 @@ const Slug = () => {
     const handlePlayerPlay = useCallback(() => {
         setPaused(false);
     }, []);
-    const handleplayv = useCallback(() => {
-        setPaused(false);
-    }, []);
 
     const handleVolume = useCallback((event) => {
         setVolume(parseFloat(event.target.value));
@@ -39,22 +61,36 @@ const Slug = () => {
         setSuggestedQuality(qualities[event.target.selectedIndex]);
         console.log(qualities[event.target.selectedIndex]);
     }, []);
+    
     useEffect(() => {
+        setVideoIndex(defaultVideo)
         const Data = String(pageno);
         setVideoID(Data)
         setTimeout(() => {
             console.log(Data)
             setShowData(true)
-            setPaused(false);
         }, "1000")
     }, [router.query])
 
-
     return <>
         {ShowData &&
-            <div className={styles.Box} >
+            <div className="row">
                 <div className="col s4">
-
+                    <h5>
+                        Video
+                    </h5>
+                    <div className="collection">
+                        {videos.map((choice, index) => (
+                            <a
+                                key={choice.id}
+                                href={`#!/video/${index}`}
+                                className={`collection-item ${video === choice ? 'active' : ''}`}
+                                onClick={() => selectVideo(index)}
+                            >
+                                {choice.name}
+                            </a>
+                        ))}
+                    </div>
                     <h5>
                         Paused
                     </h5>
@@ -67,20 +103,6 @@ const Slug = () => {
                                 onChange={handlePause}
                             />
                             <span>Paused</span>
-                        </label>
-                    </p>
-                    <h5>
-                        play video
-                    </h5>
-                    <p>
-                        <label htmlFor="paused">
-                            <input
-                                type="checkbox"
-                                id="paused"
-                                checked={paused}
-                                onChange={handleplayv}
-                            />
-                            <span>play now</span>
                         </label>
                     </p>
                     <h5>
@@ -105,32 +127,14 @@ const Slug = () => {
                         ))}
                     </select>
                 </div>
-                <div className={styles.DMPlayerApp} >
+                <div className="col s8 center-align">
                    
-                    <YouTube
-                        video={VideoID}
-                        width={640}
-                        height={480}
-                        className={styles.DMPlayerAppItem}
-                        autoplay
-                        controls={false}
-                        suggestedQuality={suggestedQuality}
-                        volume={volume}
-                        paused={paused}
-                        onPause={handlePlayerPause}
-                        onPlaying={handlePlayerPlay}
-                        onReady={handleplayv}
-
-
-                    />
                 </div>
-
             </div>
-           
-        
+
         }
-      
-       
+
+
     </>
 };
 
