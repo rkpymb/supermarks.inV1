@@ -35,11 +35,11 @@ const Navbar = (props) => {
                             <li>Tests Series</li>
                         </Link>
                     </div>
-                    <div className={styles.MainMenu}>
+                    {/* <div className={styles.MainMenu}>
                         <Link href='/' style={{ textDecoration: 'none' }}>
                             <li>Materials</li>
                         </Link>
-                    </div>
+                    </div> */}
                     <div className={styles.MainMenu} >
                         <Link href='https://ai-chatgpt-1.vercel.app/' style={{ textDecoration: 'none' }}>
                             <li>Ask Doubts</li>
