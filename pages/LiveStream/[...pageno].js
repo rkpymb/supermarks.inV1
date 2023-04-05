@@ -21,7 +21,7 @@ const Slug = () => {
     return <>
         {ShowData &&
             <div className={styles.LiveStreamPlayerBox} >
-                <div className={styles.LiveStreamPlayerA} >
+                <div className={styles.LiveStreamPlayerA}>
                     <ReactPlayer
                         className={styles.LiveStreamPlayerItem}
                         controls
