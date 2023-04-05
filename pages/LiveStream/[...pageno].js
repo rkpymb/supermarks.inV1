@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router'
 import styles from '../../styles/Home.module.css'
-import ReactPlayer from 'react-player/lazy'
+import ReactPlayer from 'react-player'
 import { BASE_URL, AppName } from '../../Data/config'
 import YouTube from '@u-wave/react-youtube';
 const Slug = () => {
