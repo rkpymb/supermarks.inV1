@@ -8,7 +8,7 @@ import Icon1 from '../../public/img/icon/explore-pass-trophy.svg'
 import Icon2 from '../../public/img/icon/explore-pass-test.svg'
 import Icon3 from '../../public/img/icon/explore-pass-poll.svg'
 import Icon4 from '../../public/img/icon/explore-pass-lang.svg'
-import { BASE_URL, AppName } from '../../Data/config'
+import { BASE_URL, AppName } from '../../Data/config';
 export default function PassHeroBox() {
 
     return (
