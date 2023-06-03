@@ -107,11 +107,11 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
     const handleChangeOTP = () => {
         setIsalert(false);
         const otpin = document.querySelector('#otpinput').value
-        if (otpin.length <= 4) {
+        if (otpin.length <= 6) {
             setSot(otpin)
         }
     }
-    const verifyOTPBTN = async () => {
+    const verifyOTPBTNx = async () => {
         BackDropOpen()
         if (sot == vmData) {
             const u_type = postdata.user_type;
@@ -126,6 +126,45 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
         } else {
             BackDropClose()
             setIsalert(true);
+
+        }
+    }
+
+    const verifyOTPBTN = async () => {
+        if (sot !== '') {
+            BackDropOpen()
+            const sendUM = { usermobile: usermobile, EnterText: sot }
+            const data = await fetch("/api/CheckOTP", {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(sendUM)
+            }).then((a) => {
+                return a.json();
+            })
+                .then((parsedFinal) => {
+                    console.log(parsedFinal)
+                    if (parsedFinal.statusdata == true) {
+                        const u_type = postdata.user_type;
+                        if (u_type == 0) {
+                            BackDropClose();
+                            setOtpbox(false);
+                            setRegbox(true);
+                        } else if (u_type == 1) {
+                            localStorage.setItem('userid', usermobile);
+                            window.location.reload()
+                        } 
+                    } else {
+                         BackDropClose()
+                        alert(parsedFinal.Typ)
+                    }
+                   
+                })
+            
+            
+        } else {
+            alert(sot)
 
         }
     }

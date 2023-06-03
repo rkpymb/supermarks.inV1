@@ -17,6 +17,7 @@
 .EducatorScrollItem {
   margin: 10px;
   min-width: 220px;
+  
 }
 
 .EducatorScrollItemName {
@@ -119,24 +120,51 @@
   align-items: center;
 }
 
+.liveStick {
+  padding: 3px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+
+.LiveStickerBoxMobile {
+  padding: 2px;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: rgb(255, 71, 71);
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 5px;
+
+}
+
 .LiveStreamPlayerBox {
   display: flex;
-  padding: 10px;
 
 }
 
-.LiveStreamPlayer {
-
-  width: 100%;
-}
-
-.LiveStreamPlayerA {
-  width: 50%;
+.LiveStreamPlayerBoxA {
   background-color: rgb(0, 0, 0);
+  width: 60%;
+  overflow: hidden;
 }
+
+.LiveStreamPlayerBoxB {
+  padding: 10px;
+}
+
 .LiveStreamPlayerItem {
-  min-width: 100%;
+
+  min-height: 99.9vh;
+
 }
+
+
 
 .DMPlayerApp {
   background-color: rgb(0, 0, 0);
@@ -1428,6 +1456,48 @@
   width: 70%;
   background-color: rgb(251, 246, 246);
   min-height: 100vh;
+}
+
+.HeaderLivePlayer {
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 999;
+
+}
+
+.PlayerLogobox {
+  display: flex;
+
+}
+
+.TitleBox span {
+  margin: 0;
+  color: white;
+
+}
+
+.HeaderLivePlayerNavbar {
+  width: 82%;
+  margin: auto;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.HeaderLivePlayerNavbarlogo {
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.HeaderLivePlayerNavbarlogo img {
+  width: 100%;
 }
 
 .navbarBox {
@@ -3395,6 +3465,36 @@
   .AppLogoBoxB {
     width: 100%;
 
+  }
+
+  .LiveStreamPlayerBox {
+    flex-wrap: wrap;
+
+  }
+
+  .LiveStreamPlayerBoxA {
+    width: 100%;
+
+  }
+
+  .LiveStreamPlayerBoxB {
+    width: 100%;
+
+  }
+
+  .LiveStreamPlayerItem {
+    min-height: 100%;
+  }
+
+  .HeaderLivePlayerNavbarlogo {
+    width: 80px;
+
+  }
+
+
+  .HeaderLivePlayer {
+    padding: 10px;
+    font-size: 10px;
   }
 
 }
