@@ -171,7 +171,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
     const SetJWTToken = async (val) => {
         console.log(val)
         const sendUMJwt = { usermobile: val }
-        const datajwt = await fetch("/api/SetToken", {
+        const datajwt = await fetch("/api/setjwt", {
             method: "POST",
             headers: {
                 'Content-type': 'application/json'
