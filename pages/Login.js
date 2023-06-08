@@ -182,9 +182,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
         })
             .then((parsedFinalJWT) => {
                 console.log(parsedFinalJWT)
-                // localStorage.setItem('userid', val);
                 localStorage.setItem('userid', parsedFinalJWT);
-                // window.location.reload()
                 router.push('/')
             })
     }
@@ -214,16 +212,12 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
                 return b.json();
             })
                 .then((parsedReg) => {
-                    // console.log(parsedReg)
                     if (parsedReg.status == true) {
                         SendWelcomeMsg()
-                        localStorage.setItem('userid', usermobile);
+                        SetJWTToken(usermobile)
                         setRegbox(false);
                         setRegdone(true)
                         BackDropClose()
-                        setTimeout(function () {
-                            router.push('/')
-                        }, 5000);
                        
                     }
                 })

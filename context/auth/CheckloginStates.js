@@ -1,6 +1,7 @@
 import CheckloginContext from './CheckloginContext'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { CryptoJSKEY } from '../../Data/config'
 import CryptoJS from "crypto-js";
 const CheckloginStates = (props) => {
     const [Data, setData] = useState({});
@@ -31,6 +32,7 @@ const CheckloginStates = (props) => {
                            
                         } else {
                             setIsLogin(false)
+                            localStorage.clear()
                         }
 
                     })
@@ -39,14 +41,14 @@ const CheckloginStates = (props) => {
             }
         } catch (error) {
             console.error(error)
-            // localStorage.clear()
+            
         }
       
 
     }, [router.query]);
 
     const decryptData = (e) => {
-        const bytes = CryptoJS.AES.decrypt(e, 'XYZ');
+        const bytes = CryptoJS.AES.decrypt(e, CryptoJSKEY);
         const dataNew = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
         
          setData(dataNew.data)
