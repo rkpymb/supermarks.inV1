@@ -185,6 +185,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
                 // localStorage.setItem('userid', val);
                 localStorage.setItem('userid', parsedFinalJWT);
                 // window.location.reload()
+                router.push('/')
             })
     }
 
