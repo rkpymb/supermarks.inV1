@@ -119,8 +119,8 @@ export default () => {
                         <Swiper
                             spaceBetween={10}
                             slidesPerView={2}
-                            onSlideChange={() => console.log('slide change')}
-                            onSwiper={(swiper) => console.log(swiper)}
+                            // onSlideChange={() => console.log('slide change')}
+                            // onSwiper={(swiper) => console.log(swiper)}
 
                             autoplay={{
                                 delay: 2500,

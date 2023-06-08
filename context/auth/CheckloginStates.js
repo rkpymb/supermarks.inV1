@@ -1,6 +1,7 @@
 import CheckloginContext from './CheckloginContext'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import CryptoJS from "crypto-js";
 const CheckloginStates = (props) => {
     const [Data, setData] = useState({});
     const [IsLogin, setIsLogin] = useState(false);
@@ -13,7 +14,6 @@ const CheckloginStates = (props) => {
                 setIsLogin(true)
                 const usermobile = localStorage.getItem('userid');
                 const sendUser = { usermobile }
-
                 const data = fetch("/api/UserProfileData", {
                     method: "POST",
                     headers: {
@@ -24,9 +24,11 @@ const CheckloginStates = (props) => {
                     return a.json();
                 })
                     .then((parsedUser) => {
-                        if (parsedUser.statusdata == true) {
-                            setData(parsedUser.data)
-                            
+                        if (parsedUser.usertype == true) {
+                            // console.log(parsedUser.token)
+                            const NTok = parsedUser.token;
+                            decryptData(NTok)
+                           
                         } else {
                             setIsLogin(false)
                         }
@@ -39,9 +41,16 @@ const CheckloginStates = (props) => {
             console.error(error)
             // localStorage.clear()
         }
-        // check login credential end
+      
 
     }, [router.query]);
+
+    const decryptData = (e) => {
+        const bytes = CryptoJS.AES.decrypt(e, 'XYZ');
+        const dataNew = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        
+         setData(dataNew.data)
+    };
 
     return (
         <CheckloginContext.Provider value={{ Data, IsLogin }}>

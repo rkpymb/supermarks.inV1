@@ -152,8 +152,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
                             setOtpbox(false);
                             setRegbox(true);
                         } else if (u_type == 1) {
-                            localStorage.setItem('userid', usermobile);
-                            window.location.reload()
+                            SetJWTToken(usermobile)
                         } 
                     } else {
                          BackDropClose()
@@ -164,12 +163,30 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
             
             
         } else {
-            alert(sot)
+            alert('Please Enter OTP')
 
         }
     }
-    // Submit OTP button //
 
+    const SetJWTToken = async (val) => {
+        console.log(val)
+        const sendUMJwt = { usermobile: val }
+        const datajwt = await fetch("/api/SetToken", {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(sendUMJwt)
+        }).then((a) => {
+            return a.json();
+        })
+            .then((parsedFinalJWT) => {
+                console.log(parsedFinalJWT)
+                // localStorage.setItem('userid', val);
+                localStorage.setItem('userid', parsedFinalJWT);
+                // window.location.reload()
+            })
+    }
 
     // Craete account
     const handluserName = () => {

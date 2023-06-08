@@ -3,7 +3,7 @@ export const DomainURLMain = 'https://supermarks.in/';
 export const AppName = 'SuperMarks';
 export const AppDesc = 'Innovative Best Education for a Smarter Tomorrow : Best Courses in india, Exam Ready Online Courses';
 export const DomainURL = 'supermarks.in';
-
+export const CryptoJSKEY = 'XYZ';
 export const RazorPayKeyid = 'rzp_test_2OIlpARet0GTeY'
 export const RazorPaySecretkey = 'OugT3Qa77k6drclGr1yjXyip'
 
