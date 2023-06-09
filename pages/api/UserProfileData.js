@@ -1,10 +1,11 @@
 import axios from 'axios';
-const jwt = require('jsonwebtoken');
 const CryptoJS = require("crypto-js");
 export default function handler(req, res) {
     if (req.method === 'POST') {
-        const decoded = jwt.verify(req.body.usermobile, process.env.MYKEY);
-        axios.post(`${process.env.API_URL}Website/UserProfileData.php`, { updatekey: process.env.MYKEY, mob: decoded.usermob }).then((response) => {
+        const bytes = CryptoJS.AES.decrypt(req.body.usermobile, process.env.CryptoJSKEY);
+        const dataNew = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        // const decoded = jwt.verify(req.body.usermobile, process.env.MYKEY);
+        axios.post(`${process.env.API_URL}Website/UserProfileData.php`, { updatekey: process.env.MYKEY, mob: dataNew }).then((response) => {
             console.log(response.data);
             if (response.data.statusdata == true) {
                 const userData = response.data;

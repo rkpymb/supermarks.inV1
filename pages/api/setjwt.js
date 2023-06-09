@@ -1,10 +1,10 @@
-import axios from 'axios';
+
+const jwt = require('jsonwebtoken');
+const CryptoJS = require("crypto-js");
 export default function handler(req, res) {
-    if (req.method === 'POST') {
-        axios.post(`https://examapp.vercel.app/api/setjwt`, { usermobile: req.body.usermobile })
-            .then((rest) =>
-                res.status(200).json(rest.data));
-    } else {
-        // Handle any other HTTP method
-    }
+    const Newtoken = CryptoJS.AES.encrypt(
+        JSON.stringify(req.body.usermobile),
+        process.env.CryptoJSKEY
+    ).toString();
+    res.status(200).json(Newtoken);
 }

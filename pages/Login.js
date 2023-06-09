@@ -56,7 +56,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
         if (Contextdata.IsLogin == true) {
             router.push('/Dashboard')
         } else {
-            console.log('Not Login')
+            // console.log('Not Login')
         }
     });
  
@@ -111,25 +111,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
             setSot(otpin)
         }
     }
-    const verifyOTPBTNx = async () => {
-        BackDropOpen()
-        if (sot == vmData) {
-            const u_type = postdata.user_type;
-            if (u_type == 0) {
-                BackDropClose();
-                setOtpbox(false);
-                setRegbox(true);
-            } else if (u_type == 1) {
-                localStorage.setItem('userid', usermobile);
-                window.location.reload()
-            }
-        } else {
-            BackDropClose()
-            setIsalert(true);
-
-        }
-    }
-
+    
     const verifyOTPBTN = async () => {
         if (sot !== '') {
             BackDropOpen()
@@ -144,7 +126,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
                 return a.json();
             })
                 .then((parsedFinal) => {
-                    console.log(parsedFinal)
+                    // console.log(parsedFinal)
                     if (parsedFinal.statusdata == true) {
                         const u_type = postdata.user_type;
                         if (u_type == 0) {
@@ -169,7 +151,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
     }
 
     const SetJWTToken = async (val) => {
-        console.log(val)
+        // console.log(val)
         const sendUMJwt = { usermobile: val }
         const datajwt = await fetch("/api/setjwt", {
             method: "POST",
@@ -181,7 +163,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
             return a.json();
         })
             .then((parsedFinalJWT) => {
-                console.log(parsedFinalJWT)
+                // console.log(parsedFinalJWT)
                 localStorage.setItem('userid', parsedFinalJWT);
                 router.push('/')
             })
@@ -239,7 +221,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
             return a.json();
         })
             .then((parsed) => {
-               console.log('Welcome')
+            //    console.log('Welcome')
             })
     }
     return (
