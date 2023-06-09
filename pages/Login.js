@@ -9,10 +9,11 @@ import TextField from '@mui/material/TextField';
 import { FiChevronRight } from 'react-icons/fi';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
-import { BASE_URL, AppName } from '../Data/config'
+import { BASE_URL, AppName, CryptoJSKEY } from '../Data/config'
 import * as animationData from '../Data/Lottie/87666-female-character-walking.json'
 import * as animationData2 from '../Data/Lottie/105173-verification-code-otp.json'
 import * as animationData3 from '../Data/Lottie/110817-account-created'
+import CryptoJS from "crypto-js";
 const Login = ({ BackDropOpen, BackDropClose }) => {
     const Contextdata = useContext(CheckloginContext)
     const router = useRouter()
@@ -151,24 +152,15 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
 
         }
     }
-
+    
     const SetJWTToken = async (val) => {
-        // console.log(val)
-        const sendUMJwt = { usermobile: val }
-        const datajwt = await fetch("/api/setjwts", {
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(sendUMJwt)
-        }).then((a) => {
-            return a.json();
-        })
-            .then((parsedFinalJWT) => {
-                // console.log(parsedFinalJWT)
-                localStorage.setItem('userid', parsedFinalJWT);
-                router.push('/')
-            })
+        const Newtoken = CryptoJS.AES.encrypt(
+            JSON.stringify(val),
+            CryptoJSKEY
+        ).toString();
+
+        localStorage.setItem('userid', Newtoken);
+        router.push('/')
     }
 
     // Craete account
