@@ -124,6 +124,8 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
                 body: JSON.stringify(sendUM)
             }).then((a) => {
                 return a.json();
+
+
             })
                 .then((parsedFinal) => {
                     // console.log(parsedFinal)
@@ -153,7 +155,7 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
     const SetJWTToken = async (val) => {
         // console.log(val)
         const sendUMJwt = { usermobile: val }
-        const datajwt = await fetch("/api/setjwt", {
+        const datajwt = await fetch("/api/setjwts", {
             method: "POST",
             headers: {
                 'Content-type': 'application/json'

@@ -4,7 +4,6 @@ export default function handler(req, res) {
     if (req.method === 'POST') {
         const bytes = CryptoJS.AES.decrypt(req.body.usermobile, process.env.CryptoJSKEY);
         const dataNew = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-        // const decoded = jwt.verify(req.body.usermobile, process.env.MYKEY);
         axios.post(`${process.env.API_URL}Website/UserProfileData.php`, { updatekey: process.env.MYKEY, mob: dataNew }).then((response) => {
             console.log(response.data);
             if (response.data.statusdata == true) {

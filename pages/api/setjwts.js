@@ -1,5 +1,4 @@
 
-const jwt = require('jsonwebtoken');
 const CryptoJS = require("crypto-js");
 export default function handler(req, res) {
     const Newtoken = CryptoJS.AES.encrypt(
