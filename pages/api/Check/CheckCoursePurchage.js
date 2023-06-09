@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const CryptoJS = require("crypto-js");
+import CryptoJS from "crypto-js";
 export default function handler(req, res) {
     
     if (req.method === 'POST') {

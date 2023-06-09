@@ -1,5 +1,5 @@
 import axios from 'axios';
-const CryptoJS = require("crypto-js");
+import CryptoJS from "crypto-js";
 export default function handler(req, res) {
     if (req.method === 'POST') {
         const bytes = CryptoJS.AES.decrypt(req.body.usermobile, process.env.CryptoJSKEY);

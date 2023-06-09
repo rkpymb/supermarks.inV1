@@ -1,5 +1,5 @@
 
-const CryptoJS = require("crypto-js");
+import CryptoJS from "crypto-js";
 export default function handler(req, res) {
     const Newtoken = CryptoJS.AES.encrypt(
         JSON.stringify(req.body.usermobile),
