@@ -1,6 +1,10 @@
-
-const jwt = require('jsonwebtoken');
+import axios from 'axios';
 export default function handler(req, res) {
-    const token = jwt.sign({ usermob: req.body.usermobile }, process.env.MYKEY, { expiresIn: '1d' });
-    res.status(200).json(token);
+    if (req.method === 'POST') {
+        axios.post(`https://examapp.vercel.app/api/setjwt`, { usermobile: req.body.usermobile })
+            .then((rest) =>
+                res.status(200).json(rest.data));
+    } else {
+        // Handle any other HTTP method
+    }
 }
