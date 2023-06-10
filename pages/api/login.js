@@ -8,7 +8,7 @@ export default function handler(req, res) {
     // Replace this with your own authentication logic
     if (email === 'user@example.com' && password === 'password') {
         // Generate a JWT token
-        const token = jwt.sign({ email }, 'your-secret-key', { expiresIn: '1h' });
+        const token = jwt.sign({ email }, 'xyz', { expiresIn: '1h' });
 
         // Return the token as a response
         res.status(200).json({ token });

@@ -7,7 +7,7 @@ export default function handler(req, res) {
     // Replace this with your own authentication logic
     if (userM !== '') {
         // Generate a JWT token
-        const token = jwt.sign({ userM }, 'XYZ', { expiresIn: '1h' });
+        const token = jwt.sign({ userM }, process.env.MYKEY, { expiresIn: '1h' });
 
         // Return the token as a response
         res.status(200).json({ token });
