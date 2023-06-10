@@ -27,13 +27,12 @@ const CheckloginStates = (props) => {
                     return a.json();
                 })
                     .then((parsedUser) => {
-                        // console.log(parsedUser.decoded)
-                        if (parsedUser.decoded) {
-                            console.log(parsedUser.decoded)
-                            GetUserData()
+                        console.log(parsedUser.usertype)
+                        if (parsedUser.usertype == true)  {
+                            console.log(parsedUser.userid)
                             setIsLogin(true)
-                            // const NTok = parsedUser.token;
-                            // decryptData(NTok)
+                            const NTok = parsedUser.userid;
+                            decryptData(NTok)
                            
                         } else {
                             setIsLogin(false)
@@ -52,29 +51,14 @@ const CheckloginStates = (props) => {
 
     }, [router.query]);
 
-    const GetUserData = async (valT) => {
-        const sendUM = { valT }
-        const data = await fetch("/api/UserProfileData", {
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(sendUM)
-        }).then((a) => {
-            return a.json();
-        })
-            .then((parsed) => {
-                console.log(parsed)
-               
-            })
-    }
 
 
     const decryptData = (e) => {
+        setIsLogin(true)
         const bytes = CryptoJS.AES.decrypt(e, CryptoJSKEY);
         const dataNew = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-        
-         setData(dataNew.data)
+        console.log(dataNew)
+        setData(dataNew.data)
     };
 
     return (
