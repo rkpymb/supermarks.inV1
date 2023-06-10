@@ -14,6 +14,8 @@ import * as animationData from '../Data/Lottie/87666-female-character-walking.js
 import * as animationData2 from '../Data/Lottie/105173-verification-code-otp.json'
 import * as animationData3 from '../Data/Lottie/110817-account-created'
 import CryptoJS from "crypto-js";
+import axios from 'axios';
+
 const Login = ({ BackDropOpen, BackDropClose }) => {
     const Contextdata = useContext(CheckloginContext)
     const router = useRouter()
@@ -153,15 +155,33 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
         }
     }
     
-    const SetJWTToken = async (val) => {
-        const Newtoken = CryptoJS.AES.encrypt(
-            JSON.stringify(val),
-            CryptoJSKEY
-        ).toString();
+    // const SetJWTToken = async (val) => {
+    //     const Newtoken = CryptoJS.AES.encrypt(
+    //         JSON.stringify(val),
+    //         CryptoJSKEY
+    //     ).toString();
 
-        localStorage.setItem('userid', Newtoken);
-        router.push('/')
-    }
+    //     localStorage.setItem('userid', Newtoken);
+    //     router.push('/')
+    // }
+
+    const SetJWTToken = async (e) => {
+        const userM = e;
+        try {
+            // Send the login credentials to the API route
+            const response = await axios.post('/api/setjwts', { userM });
+
+            // Save the JWT token to local storage or session storage
+            localStorage.setItem('userid', response.data.token);
+            router.push('/')
+            // Redirect the user to a protected route or perform other actions
+            // e.g., route navigation
+        } catch (error) {
+            // Handle login error
+            console.error('Login failed', error);
+        }
+    };
+
 
     // Craete account
     const handluserName = () => {

@@ -32,7 +32,7 @@ const CheckloginStates = (props) => {
                            
                         } else {
                             setIsLogin(false)
-                            localStorage.clear()
+                            // localStorage.clear()
                         }
 
                     })

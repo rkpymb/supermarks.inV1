@@ -1,9 +1,18 @@
+import jwt from 'jsonwebtoken';
 
-import CryptoJS from "crypto-js";
 export default function handler(req, res) {
-    const Newtoken = CryptoJS.AES.encrypt(
-        JSON.stringify(req.body.usermobile),
-        process.env.CryptoJSKEY
-    ).toString();
-    res.status(200).json(Newtoken);
+    // Retrieve the login credentials from the request body
+    const { userM } = req.body;
+    // Perform the authentication logic
+    // Replace this with your own authentication logic
+    if (userM !== '') {
+        // Generate a JWT token
+        const token = jwt.sign({ userM }, 'XYZ', { expiresIn: '1h' });
+
+        // Return the token as a response
+        res.status(200).json({ token });
+    } else {
+        // Return an error response if authentication fails
+        res.status(401).json({ message: 'Invalid credentials' });
+    }
 }
