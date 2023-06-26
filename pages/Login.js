@@ -154,30 +154,19 @@ const Login = ({ BackDropOpen, BackDropClose }) => {
 
         }
     }
-    
-    // const SetJWTToken = async (val) => {
-    //     const Newtoken = CryptoJS.AES.encrypt(
-    //         JSON.stringify(val),
-    //         CryptoJSKEY
-    //     ).toString();
 
-    //     localStorage.setItem('userid', Newtoken);
-    //     router.push('/')
-    // }
 
     const SetJWTToken = async (e) => {
         const userM = e;
         try {
-            // Send the login credentials to the API route
+           
             const response = await axios.post('/api/setjwts', { userM });
 
-            // Save the JWT token to local storage or session storage
             localStorage.setItem('userid', response.data.token);
             router.push('/')
-            // Redirect the user to a protected route or perform other actions
-            // e.g., route navigation
+          
         } catch (error) {
-            // Handle login error
+            
             console.error('Login failed', error);
         }
     };

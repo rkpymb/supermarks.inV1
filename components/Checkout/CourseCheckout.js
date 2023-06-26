@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import { TbDiscount2 } from "react-icons/tb";
@@ -10,13 +10,15 @@ import Slide from '@mui/material/Slide';
 import styles from '../../styles/Home.module.css'
 import TextField from '@mui/material/TextField';
 import PaymentChoosePage from '../PG/PaymentChoosePage'
-
+import CheckloginContext from '../../context/auth/CheckloginContext'
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function CourseCheckout({ DataCourse }) {
+    
     const router = useRouter()
+    const Contextdata = useContext(CheckloginContext)
     const [open, setOpen] = useState(false);
     const [ShowBtnloader, setShowBtnloader] = useState(false);
     const [Applybtnshow, setApplybtnshow] = useState(false);
@@ -96,11 +98,9 @@ export default function CourseCheckout({ DataCourse }) {
                         setShowBtnloader(false)
                         setDataOrderid(parsedCreateOrder.RetData)
                         const dataOrderidx = parsedCreateOrder.RetData
-                        const Namex = 'Rajkr'
-                        const Emailx = 'rajkumarymb@gmail.com'
-                        // alert(dataOrderidx)
+                       alert('Payment Method not Found')
                         
-                        RazorpayInit(dataOrderidx, TotalAmt, Namex, Emailx, UserMob)
+                        // RazorpayInit(dataOrderidx, TotalAmt, Contextdata.Data.name, Contextdata.Data.email, Contextdata.Data.mobile)
                     } else if (PG == 'UPI') {
                         GenrateUPIQR(parsedCreateOrder.RetData)
                     }  
@@ -122,35 +122,42 @@ export default function CourseCheckout({ DataCourse }) {
 
 
     const GenrateUPIQR = async (OIDNEW) => {
-        const sendUMData = { OrderID: OIDNEW }
-        const data = await fetch("/api/QR/CourseQR", {
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(sendUMData)
-        }).then((a) => {
-            return a.json();
-        })
-            .then((parsedQR) => {
-                console.log(parsedQR)
-                if (parsedQR.statusdata === true) {
-                    if (parsedQR.DataRet !== 'Plan Expired. Please Renew Plan') {
-                        window.location.replace(parsedQR.DataRet);
-
-                    } else {
-                        alert('Something went wrong, Tray Again after some Time')
-                        window.location.reload();
-                    }
-
-                } else {
-                    alert('Something went wrong')
-                }
-
-            })
+        alert('Payment Method not Found')
+        setShowBtnloader(false)
 
 
     }
+
+    // const GenrateUPIQR = async (OIDNEW) => {
+    //     const sendUMData = { OrderID: OIDNEW }
+    //     const data = await fetch("/api/QR/CourseQR", {
+    //         method: "POST",
+    //         headers: {
+    //             'Content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(sendUMData)
+    //     }).then((a) => {
+    //         return a.json();
+    //     })
+    //         .then((parsedQR) => {
+    //             console.log(parsedQR)
+    //             if (parsedQR.statusdata === true) {
+    //                 if (parsedQR.DataRet !== 'Plan Expired. Please Renew Plan') {
+    //                     window.location.replace(parsedQR.DataRet);
+
+    //                 } else {
+    //                     alert('Something went wrong, Tray Again after some Time')
+    //                     window.location.reload();
+    //                 }
+
+    //             } else {
+    //                 alert('Something went wrong')
+    //             }
+
+    //         })
+
+
+    // }
 
 
     const ApplyCodebtn = async () => {

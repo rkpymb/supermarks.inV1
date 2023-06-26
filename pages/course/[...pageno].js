@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useContext} from 'react';
 import { useRouter } from 'next/router'
 import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
@@ -15,6 +15,7 @@ import { FiUsers, FiChevronRight, FiClock } from "react-icons/fi";
 import { TbDiscount2 } from "react-icons/tb";
 import NavbarNew from '../../components/Parts/NavbarNew'
 import { blue } from '@mui/material/colors';
+import CheckloginContext from '../../context/auth/CheckloginContext'
 
 const isServerReq = req => !req.url.startsWith('/_next');
 
@@ -46,26 +47,21 @@ const Slug = (CourseFullData) => {
 
     const [CourseID, setCourseID] = useState(CourseFullData.CourseFullData.RetData.pid);
     const [isLoading, setIsLoading] = useState(true);
+    const [BuyBtn, setBuyBtn] = useState(false);
     const [ShowEdulist, setShowEdulist] = useState(false);
     const [Edulist, setEdulist] = useState([]);
     const [Chapterlist, setChapterlist] = useState([]);
-
+    const Contextdata = useContext(CheckloginContext)
     useEffect(() => {
-
-
-        // Check login
-        try {
-            if (localStorage.getItem('userid')) {
-                GetEducatorsList(CourseFullData.CourseFullData.RetData.pid);
-              
-
-            } else {
-                router.push('/Login')
-            }
-        } catch (error) {
-            console.error(error)
-
-        }
+        setIsLoading(false)
+        GetEducatorsList(CourseFullData.CourseFullData.RetData.pid);
+        if (Contextdata.IsLogin == true) {
+            const usermobnow = localStorage.getItem('userid');
+            const userid = { usermobnow }
+            setBuyBtn(true)
+           
+        } 
+       
     }, [router.query]);
 
     const GetEducatorsList = async (Pid) => {
@@ -361,17 +357,32 @@ const Slug = (CourseFullData) => {
                                     </div>
                                 </div>
                             </div>
-
-                            {CourseRetData.isfree == 1 &&
-                                <div className={styles.OnlyDesktop}>
-                                    <CourseCheckoutFree DataCourse={CourseFullData.CourseFullData.RetData} />
+                            {BuyBtn && 
+                        
+                                <div>
+                                    {CourseRetData.isfree == 1 &&
+                                        <div className={styles.OnlyDesktop}>
+                                            <CourseCheckoutFree DataCourse={CourseFullData.CourseFullData.RetData} />
+                                        </div>
+                                    }
+                                    {CourseRetData.isfree == 0 &&
+                                        <div className={styles.OnlyDesktop}>
+                                            <CourseCheckout DataCourse={CourseFullData.CourseFullData.RetData} />
+                                        </div>
+                                    }
                                 </div>
                             }
-                            {CourseRetData.isfree == 0 &&
-                                <div className={styles.OnlyDesktop}>
-                                    <CourseCheckout DataCourse={CourseFullData.CourseFullData.RetData} />
-                                </div>
+                            {!BuyBtn &&
+                                
+                                <Link href='/Login' >
+                                    <div className={styles.EnrollBtn_Coursex} style={{ textDecoration: 'none', backgroundColor: 'green'}} >
+                                        <span>Login to Enroll</span>
+                                    </div>
+                                </Link>
+                               
                             }
+                            
+                           
                         </div>
                     </div>
                 }
@@ -391,15 +402,31 @@ const Slug = (CourseFullData) => {
                         <span style={{ color: '#ffaf00', fontSize: '30px', fontWeight: 'bold' }}>₹{CourseRetData.SalePrice}</span>
                         <del> ₹{CourseRetData.MainPrice}</del>
                     </div>
-                    <div>
-                        {CourseRetData.isfree == 1 &&
-                            <CourseCheckoutFree DataCourse={CourseFullData.CourseFullData.RetData} />
-                        }
-                        {CourseRetData.isfree == 0 &&
-                            <CourseCheckout DataCourse={CourseFullData.CourseFullData.RetData} />
-                        }
+                    
 
-                    </div>
+                    {BuyBtn &&
+
+                        <div>
+                            {CourseRetData.isfree == 1 &&
+                                <CourseCheckoutFree DataCourse={CourseFullData.CourseFullData.RetData} />
+                            }
+                            {CourseRetData.isfree == 0 &&
+                                <CourseCheckout DataCourse={CourseFullData.CourseFullData.RetData} />
+                            }
+
+                        </div>
+                    }
+                    {!BuyBtn &&
+                        <div>
+                            <Link href='/Login' >
+                                <div className={styles.EnrollBtn_CoursexxMobile} style={{ textDecoration: 'none', backgroundColor: 'green' }} >
+                                    <span>Login to Enroll</span>
+                                </div>
+                            </Link>
+
+                        </div>
+                    }
+
 
 
                 </div>

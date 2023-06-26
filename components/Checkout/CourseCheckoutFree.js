@@ -151,6 +151,7 @@ export default function CourseCheckout({ DataCourse }) {
             return a.json();
         })
             .then((parsedCreateOrder) => {
+                console.log(parsedCreateOrder);
                 if (parsedCreateOrder.statusdata == true) {
                     setShowBtnloader(false)
                     console.log(parsedCreateOrder);

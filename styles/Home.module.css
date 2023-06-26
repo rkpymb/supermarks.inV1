@@ -556,6 +556,16 @@
   text-align: center;
 }
 
+.EnrollBtn_CoursexMobile {
+display: none;
+  color: white;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
 .EnrollBtn_Course {
 
   color: white;
@@ -567,6 +577,21 @@
 }
 
 .EnrollBtn_Course:hover {
+
+  color: rgb(255, 255, 255);
+
+}
+.EnrollBtn_Coursex {
+
+  color: white;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.EnrollBtn_Coursex:hover {
 
   color: rgb(255, 255, 255);
 
@@ -3495,6 +3520,12 @@
   .HeaderLivePlayer {
     padding: 10px;
     font-size: 10px;
+  }
+  .EnrollBtn_CoursexMobile{
+    display: block;
+  }
+  .EnrollBtn_Coursex{
+    display: none;
   }
 
 }
